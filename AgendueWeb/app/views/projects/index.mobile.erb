@@ -1,0 +1,11 @@
+<h1>Projects</h1>
+<p><%= button_to 'New Project', new_project_path, :method => :get, :class => "mobile" %><p>
+<table align="justify" class="content">
+  <% @projects.each do |project| %>
+    <tr>
+      <td class="content"><%= link_to project.name, project, :data => {no_turbolink: true} %></td>
+      <td class="content">
+<%=h button_to raw('&times;'), project, :class => "mobilesmall", method: :delete, data: { confirm: 'Are you sure you want to remove this from your projects? Other users with access to this project will still be able to use it.' } %></td>
+    </tr>
+  <% end %>
+</table>

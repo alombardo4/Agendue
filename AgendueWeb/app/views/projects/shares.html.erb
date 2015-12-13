@@ -1,0 +1,65 @@
+<div class="page-header">
+  <h1>Manage Team</h1>
+  <%= link_to sanitize('Back to ' + @project.name), project_path(@project), data: {no_turbolink: true}  %>
+</div>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <h3>Add Team Members</h3>
+    <%= form_for(@project) do |f| %>
+      <div class="input-group">
+        <span class="input-group-addon">Email Address</span>
+        <%= f.text_field :shares, :class => "form-control" %>
+      </div>
+      <br>
+      <div class="input-group">
+        <%= button_to project_path(@project), :method => :post, :class => "btn btn-default blue"  do %>
+          <span class="glyphicon glyphicon-floppy-disk"></span> Add Team Member
+        <% end %><br>
+      </div>
+    <% end %>
+    <br>
+    <table class="table">
+      <thead>
+        <tr>
+          <td></td>
+          <td>Name</td>
+          <td>Subscription</td>
+          <td>Remove from Project</td>
+        </tr>
+      </thead>
+      <tbody>
+        <% @workers.each do |person| %>
+          <tr>
+            <td class="facebookimg">
+              <% if person.facebook %>
+                <%= image_tag "https://graph.facebook.com/#{person.facebook}/picture" %>
+              <% elsif person.google_picture %>
+                <%= image_tag person.google_picture %>
+              <% end %>
+            </td>
+            <td>
+              <%= sanitize(person.firstname + " " + person.lastname) %>
+            </td>
+            <td>
+              <% if person.premium %>
+                <p>Agendue Plus</p>
+              <% elsif person.premiumoverride %>
+                <p>Agendue Plus Unlimited</p>
+              <% else %>
+                <p>Agendue free</p>
+              <% end %>
+            </td>
+            <td>
+              <%= button_to raw('&times;'), {:controller => "projects", :action => "removeshare", :id => @project.id, :user => person.id }, method: :post, :class => "btn btn-default red", data: { confirm: 'Are you sure you want to remove this person from your project?' } %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<script>
+$(function() {
+    $("#project_shares").val('');
+});
+</script>

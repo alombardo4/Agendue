@@ -1,0 +1,67 @@
+source 'https://rubygems.org'
+
+#gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'stripe'
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '>= 4.0.0'
+
+# Use sqlite3 as the database for Active Record
+gem 'sqlite3'
+
+# Use SCSS for stylesheets
+gem 'sass-rails', '~> 4.0.0'
+
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier', '>= 1.3.0'
+
+# Use CoffeeScript for .js.coffee assets and views
+gem 'coffee-rails', '~> 4.0.0'
+
+# See https://github.com/sstephenson/execjs#readme for more supported runtimes
+# gem 'therubyracer', platforms: :ruby
+
+# Use jquery as the JavaScript library
+gem 'jquery-rails'
+
+# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+# gem 'turbolinks'
+
+# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'jbuilder', '~> 1.2'
+
+
+# Use ActiveModel has_secure_password
+ gem 'bcrypt-ruby', '~> 3.0.0'
+
+gem 'jquery-turbolinks'
+
+gem 'table_builder'
+
+gem "calendar_date_select"
+gem 'fullcalendar-rails'
+gem "date_validator", "~> 0.7.0"
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem "omniauth-google-oauth2"
+
+# gem 'pushmeup'
+gem 'apns'
+gem 'gcm'
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
+gem 'jquery-ui-rails'
+# gem 'whenever'
+gem 'jquery-minicolors-rails'
+gem 'icalendar'
+gem 'bootstrap-wysihtml5-rails'
+
+# gem 'yaml_db', github: 'jetthoughts/yaml_db', ref: 'fb4b6bd7e12de3cffa93e0a298a1e5253d7e92ba'
+# gem 'mysql2'
+# Use unicorn as the app server
+# gem 'unicorn'
+
+# Use Capistrano for deployment
+# gem 'capistrano', group: :development
+
+# Use debugger
+# gem 'debugger', group: [:development, :test]

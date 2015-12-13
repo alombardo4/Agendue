@@ -1,0 +1,147 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.agendue.agendue.CreateAccountActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:src="@drawable/oct1launchimagejpg3"
+        android:scaleType="centerCrop"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:alpha="0.7"
+        android:background="@drawable/bgsquare2"
+        android:id="@+id/login_transp_background"
+        android:layout_height="305dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:visibility="visible"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="30dp"
+        android:id="@+id/signuplinear">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/signup"
+            android:id="@+id/create_an_account_text"
+            android:textColor="@color/white"
+            android:textSize="25dip"
+            android:textIsSelectable="false"
+            android:typeface="sans"
+            android:gravity="left"
+            android:layout_gravity="left"
+            android:background="@android:color/transparent"
+            android:layout_centerVertical="true"
+            android:visibility="visible" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="@string/save"
+            android:id="@+id/create_acct_button"
+            android:visibility="visible"/>
+
+        </RelativeLayout>
+
+
+
+    <View
+        android:layout_width="450dp"
+        android:layout_height="240dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:alpha="0.7"
+        android:id="@+id/login_transp_background2"
+        android:background="@drawable/bgsquarewhite"
+        android:layout_below="@+id/signuplinear"
+        android:layout_centerHorizontal="true"
+        android:visibility="visible"/>
+
+
+    <EditText
+        android:layout_marginTop="10dp"
+        android:layout_width="440dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:inputType="textCapSentences|textPersonName"
+        android:hint="@string/first_name"
+        android:ems="10"
+        android:id="@+id/create_account_firstname"
+        android:layout_below="@+id/signuplinear" />
+
+    <EditText
+        android:layout_marginTop="5dp"
+        android:layout_width="440dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:inputType="textCapSentences|textPersonName"
+        android:hint="@string/last_name"
+        android:ems="10"
+        android:id="@+id/create_account_lastname"
+        android:layout_below="@+id/create_account_firstname"/>
+
+    <EditText
+        android:layout_marginTop="5dp"
+        android:layout_width="440dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:hint="@string/email"
+        android:id="@+id/create_account_email"
+        android:layout_below="@+id/create_account_lastname"/>
+
+    <EditText
+        android:layout_marginTop="5dp"
+        android:layout_width="440dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:hint="@string/password"
+        android:ems="10"
+        android:id="@+id/create_account_password"
+        android:layout_below="@+id/create_account_email"/>
+
+    <EditText
+        android:layout_marginTop="5dp"
+        android:layout_width="440dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:hint="@string/password_confirm"
+        android:ems="10"
+        android:id="@+id/create_account_password_confirm"
+        android:layout_below="@+id/create_account_password"/>
+
+
+
+</RelativeLayout>

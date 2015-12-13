@@ -1,0 +1,48 @@
+<html>
+<head>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+ <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+ <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="container" id="body-container">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <%= form_for @project, :url => project_wiki_path(@project), :html => {:method => :post} do |f| %>
+          <% if @project.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+              <ul>
+              <% @project.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+          <div class="input-group ig-wiki">
+            <%= f.text_area :wiki, :id=> 'wiki', :class=>'wiki' %>
+          </div><br>
+          <div class="input-group">
+            <%= button_to project_wiki_path(@project), :method => :post, :class => "btn btn-default blue"  do %>
+              <span class="glyphicon glyphicon-floppy-disk"></span> Save Notebook
+            <% end %><br>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <script type='text/javascript'>
+    $(function() {
+      $('.wiki').each(function(i, elem) {
+        $(elem).wysihtml5();
+      });
+      $('.wiki').css("width", "100%");
+      $('.wiki').css("min-height","200px");
+    });
+
+    </script>
+
+  </div>
+</body>
+
+</html>

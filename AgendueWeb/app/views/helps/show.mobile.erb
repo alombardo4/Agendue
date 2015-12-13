@@ -1,0 +1,9 @@
+<%= link_to "Back to Help", all_help_path %>
+<h1><%= @help.title %></h1>
+
+
+<p>
+    <div class="wiki">
+    	<%= @help.content.html_safe %>
+    </div>
+</p>

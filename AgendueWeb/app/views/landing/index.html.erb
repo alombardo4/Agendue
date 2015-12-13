@@ -1,0 +1,171 @@
+<div class="page-header">
+	  <h1>Welcome to Agendue</h1>
+	<% @sum = @today.count + @upcoming.count + @overdue.count + @personal.count %>
+	<% if @sum == 1 %>
+		<h3>You have <span class="blue"><%= @sum %></span> task to do today.</h3>
+	<% elsif @sum > 1 %>
+		<h3>You have <span class="blue"><%= @sum %></span> tasks to do today.</h3>
+	<% else %>
+		<h3>You have no tasks left to complete.</h3>
+	<% end %>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#1">Today's Tasks</a></h3>
+  </div>
+  <div id="1" class="panel-collapse collapse in">
+	  <div class="panel-body">
+	    <% if @today.count > 0 %>
+			<table class="table">
+				<thead>
+					<tr>
+						<td></td>
+						<td>Title</td>
+						<td>Due Date</td>
+						<td>Project</td>
+					</tr>
+				</thead>
+				<tbody>
+		    	<% @today.each do |task| %>
+		    		<tr>
+						<td class="completion">
+						    <%= form_for(task) do |f| %>
+						      <%= f.hidden_field :complete, :value => '1' %>
+						      <%= f.submit raw('&#9744;'), :class => "completebutton" %>
+						    <% end %>
+						</td>
+						<td class="content"><%= link_to sanitize(task.name), task_path(task) %></td>
+						<td class="content"><%= task.duedate %>
+						</td>
+						<td class="conetent"><%= link_to Project.find_by_id(task.projectid).name, project_path(task.projectid) %></td>
+					</tr>
+		    	<% end %>
+		    	</tbody>
+			</table>
+	    <% else %>
+	    	You have no tasks due today.
+	    <% end %>
+	  </div>
+	</div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#2">Upcoming Tasks</a></h3>
+  </div>
+  <div id="2" class="panel-collapse collapse in">
+	  <div class="panel-body">
+	    <% if @upcoming.count > 0 %>
+			<table class="table">
+				<thead>
+					<tr>
+						<td></td>
+						<td>Title</td>
+						<td>Due Date</td>
+						<td>Project</td>
+					</tr>
+				</thead>
+				<tbody>
+		    	<% @upcoming.each do |task| %>
+		    		<tr>
+						<td class="completion">
+						    <%= form_for(task) do |f| %>
+						      <%= f.hidden_field :complete, :value => '1' %>
+						      <%= f.submit raw('&#9744;'), :class => "completebutton" %>
+						    <% end %>
+						</td>
+						<td class="content"><%= link_to sanitize(task.name), task_path(task) %></td>
+						<td class="content">
+							<%= task.duedate %>
+						</td>
+						<td class="conetent"><%= link_to Project.find_by_id(task.projectid).name, project_path(task.projectid) %></td>
+					</tr>
+		    	<% end %>
+		    	</tbody>
+			</table>
+	    <% else %>
+	    	You have no upcoming tasks.
+	    <% end %>
+	  </div>
+	</div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#3">Overdue Tasks</a></h3>
+  </div>
+  <div id="3" class="panel-collapse collapse in">
+	  <div class="panel-body">
+	    <% if @overdue.count > 0 %>
+			<table class="table">
+				<thead>
+					<tr>
+						<td></td>
+						<td>Title</td>
+						<td>Due Date</td>
+						<td>Project</td>
+					</tr>
+				</thead>
+				<tbody>
+		    	<% @overdue.each do |task| %>
+		    		<tr>
+						<td class="completion">
+						    <%= form_for(task) do |f| %>
+						      <%= f.hidden_field :complete, :value => '1' %>
+						      <%= f.submit raw('&#9744;'), :class => "completebutton" %>
+						    <% end %>
+						</td>
+						<td class="content"><%= link_to sanitize(task.name), task_path(task) %></td>
+						<td class="content">
+							<%= task.duedate %>
+						</td>
+						<td class="conetent"><%= link_to Project.find_by_id(task.projectid).name, project_path(task.projectid) %></td>
+					</tr>
+		    	<% end %>
+		    	</tbody>
+			</table>
+	    <% else %>
+	    	You have no overdue tasks.
+	    <% end %>
+	  </div>
+	</div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#4">Personal Tasks</a></h3>
+  </div>
+  <div id="4" class="panel-collapse collapse in">
+	  <div class="panel-body">
+	    <% if @personal.count > 0 %>
+			<table class="table">
+				<thead>
+					<tr>
+						<td></td>
+						<td>Title</td>
+						<td>Due Date</td>
+					</tr>
+				</thead>
+				<tbody>
+		    	<% @personal.each do |task| %>
+		    		<tr>
+						<td class="completion">
+						    <%= form_for(task) do |f| %>
+						      <%= f.hidden_field :complete, :value => '1' %>
+						      <%= f.submit raw('&#9744;'), :class => "completebutton" %>
+						    <% end %>
+						</td>
+						<td class="content"><%= link_to sanitize(task.name), personal_task_path(task) %></td>
+						<td class="content">
+						<% if task.duedate %>
+							<%= task.duedate.to_date %>
+						<% end %>
+						</td>
+					</tr>
+		    	<% end %>
+		    	</tbody>
+			</table>
+	    <% else %>
+	    	You have no personal tasks.
+	    <% end %>
+	  </div>
+	</div>
+</div>

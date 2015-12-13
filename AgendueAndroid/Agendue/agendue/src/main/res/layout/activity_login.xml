@@ -1,0 +1,181 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.agendue.agendue.LoginActivity">
+
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:src="@drawable/oct1launchimagejpg3"
+        android:scaleType="centerCrop"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"/>
+
+
+
+    <View
+        android:layout_width="match_parent"
+        android:alpha="0.7"
+        android:background="@drawable/bgsquare2"
+        android:id="@+id/login_transp_background"
+        android:layout_height="340dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:visibility="invisible"/>
+
+    <LinearLayout
+        android:id="@+id/welcome_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="40dp">
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:id="@+id/login_agendueicon"
+                android:src="@drawable/agendueicon"
+                android:visibility="invisible"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"
+                android:background="@android:color/transparent"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/welcome_to_agendue"
+                android:id="@+id/login_welcome"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:textIsSelectable="false"
+                android:typeface="sans"
+                android:gravity="center_vertical|center_horizontal"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"
+                android:background="@android:color/transparent"
+                android:visibility="invisible"/>
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="400dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:alpha="0.7"
+        android:id="@+id/login_transp_background2"
+        android:background="@drawable/bgsquarewhite"
+        android:layout_below="@+id/welcome_bar"
+        android:layout_centerHorizontal="true"
+        android:visibility="invisible"/>
+
+
+    <EditText
+        android:layout_width="360dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:layout_below="@+id/welcome_bar"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:textColorHint="@color/primary"
+        android:textColor="@color/primary"
+        android:id="@+id/login_email"
+        android:lines="1"
+        android:hint="@string/email"
+        android:visibility="invisible"/>
+
+    <EditText
+        android:layout_width="360dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:layout_below="@+id/login_email"
+        android:ems="10"
+        android:id="@+id/login_password"
+        android:textColorHint="@color/primary"
+        android:textColor="@color/primary"
+        android:layout_centerHorizontal="true"
+        android:singleLine="true"
+        android:hint="@string/password"
+        android:visibility="invisible"/>
+
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:text="@string/login"
+        android:id="@+id/login_button"
+        android:layout_below="@id/login_password"
+        android:visibility="invisible"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp"
+        android:textSize="20dp"
+        android:textColor="@color/agendueorange"
+        android:text="@string/signup_UL"
+        android:id="@+id/login_create_button"
+        android:layout_alignParentBottom="true"
+        android:visibility="invisible"/>
+
+
+
+
+
+
+
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/login_try_again"
+        android:layout_marginBottom="25dp"
+        android:text="@string/connection_error"
+        android:id="@+id/login_connectionerror"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:textSize="24dip"
+        android:textStyle="normal"
+        android:singleLine="false"
+        android:textIsSelectable="false"
+        android:textAlignment="gravity"
+        android:textColor="@color/agendueorange"
+        android:typeface="sans"
+        android:gravity="bottom|center_horizontal"
+        android:background="@android:color/transparent"
+        android:visibility="invisible"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:layout_centerHorizontal="true"
+        android:text="Try Again"
+        android:id="@+id/login_try_again"
+        android:visibility="invisible"/>
+
+</RelativeLayout>

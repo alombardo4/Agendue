@@ -1,0 +1,30 @@
+<% @project = Project.find(params[:id]) %>
+<%= tinymce_assets %>
+<h1>Editing Whiteboard for Project: <%= @project.name %></h1>
+<%= link_to sanitize('Back to ' + Project.find_by_id(session[:lastproj]).name), project_path(session[:lastproj]), data: {no_turbolink: true} %>
+<hr>
+<%= form_for @project, :url => project_wiki_path(@project), :html => {:method => :post} do |f| %>
+  <% if @project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+      <% @project.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
+  <script>
+          tinymce.init({plugins: 'link image code preview', selector:'textarea', relative_urls: false });
+  </script>
+  <div class="field">
+    <%= f.label "Notebook" %><br>
+    <%= f.text_area :wiki, :class=> 'tinymce' %>
+    <%= tinymce :plugins =>['links'] %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Save", :class => "mobile", :method => :post %>
+  </div>
+<% end %>

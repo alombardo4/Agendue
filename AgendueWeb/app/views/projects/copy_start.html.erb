@@ -1,0 +1,16 @@
+<div class="page-header">
+  <h1>Choose a Project</h1>
+</div>
+
+<div class="list-group">
+	<% if @projects.count > 0 %>
+		<% @projects.each do |project| %>
+		<li class="list-group-item">
+		    <%= link_to project.name, copyname_path(project) %>
+		</li>
+		<% end %>
+	<% else %>
+		<p>To get started, please <%= link_to "create a project", new_project_path %>.</p>
+	<% end %>
+</div>
+

@@ -1,0 +1,28 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+      <p style="color: red">Either that user already exists, or your fields weren't filled out properly.</p>
+  <% end %>
+  <div class="field">
+    <%= f.label :firstname, "First Name" %><br>
+    <%= f.text_field :firstname %>
+  </div>
+  <div class="field">
+    <%= f.label :lastname, "Last Name" %><br>
+    <%= f.text_field :lastname %>
+  </div>
+  <div class="field">
+    <%= f.label :name, "Email Address" %><br>
+    <%= f.email_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :password, 'Password' %><br>
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation, 'Confirm Password' %><br>
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Create Account", :class => "savebutton" %>
+  </div>
+<% end %>

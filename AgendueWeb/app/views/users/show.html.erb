@@ -1,0 +1,32 @@
+<div class="page-header">
+  <h1>Your Account</h1>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+	<p><% if @user.facebook %>
+	   <%= image_tag "https://graph.facebook.com/#{@user.facebook}/picture" %>
+	<% elsif @user.google_picture %>
+		<%= image_tag @user.google_picture %>
+	<% end %>
+	Welcome, <%= @user.firstname %> <%= @user.lastname %>!</p>
+	<p>You have <%= @taskscount %> tasks.</p>
+	<% if @user.premiumoverride == true %>
+		<p>You have an unlimited Agendue Plus subscription.</p>
+	<% end %>
+  </div>
+</div>
+
+
+
+<% if @user.currentSubscriber == false || @user.currentSubscriber == nil %>
+	<%= button_to new_charge_path, :method => :get, :class => "btn btn-default blue"  do %>
+		<span class="glyphicon glyphicon-plus"></span> Subscribe to Agendue Plus
+	<% end %><br>
+<% end %>
+<%= button_to edit_user_path, :method => :get, :class => "btn btn-default blue"  do %>
+	<span class="glyphicon glyphicon-cog"></span> Update Settings
+<% end %><br>
+<%= button_to tour_path, :method => :get, :class => "btn btn-default blue"  do %>
+	<span class="glyphicon glyphicon-eye-open"></span> View Tour
+<% end %><br>

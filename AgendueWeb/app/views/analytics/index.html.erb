@@ -1,0 +1,17 @@
+<div class="page-header">
+  <h1>Analytics for <%= @project.name %></h1>
+  <%= link_to sanitize('Back to ' +@project.name ), project_path(@project) %>
+</div>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <h2>Report Types</h2>
+	<%= link_to "Status Report", analytics_status_path(@project) %><br>
+	<%= link_to "Percent Complete for Project", analytics_percent_complete_path(@project) %><br>
+	<%= link_to "Tasks Assigned Per User", analytics_tasks_per_user_path(@project) %><br>
+	<%= link_to "Percent Complete Per User", analytics_tasks_complete_per_user_path(@project) %><br>
+
+  </div>
+</div>
+
+
+

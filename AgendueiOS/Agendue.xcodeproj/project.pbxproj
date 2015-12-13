@@ -1,0 +1,899 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7000C2E919A682E1004DC10E /* EditWikiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7000C2E819A682E1004DC10E /* EditWikiViewController.m */; };
+		7009399E1958DA46005A5C6C /* Share.m in Sources */ = {isa = PBXBuildFile; fileRef = 7009399D1958DA46005A5C6C /* Share.m */; };
+		702A18BA196A0447004931F8 /* AddTeamMemberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 702A18B9196A0447004931F8 /* AddTeamMemberViewController.m */; };
+		702C4CC81962137E00E82F57 /* WikiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 702C4CC71962137E00E82F57 /* WikiViewController.m */; };
+		7033AEA21A9CF3CE00D92D9B /* SignInViewController in Resources */ = {isa = PBXBuildFile; fileRef = 7033AEA11A9CF3CE00D92D9B /* SignInViewController */; };
+		704DC2111A0BFDC7009731BA /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 704DC2101A0BFDC7009731BA /* Settings.bundle */; };
+		7054D27E1A5318D700D7DF5E /* PersonalTaskDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7054D27D1A5318D700D7DF5E /* PersonalTaskDetailsViewController.m */; };
+		7057F1001873685600B5C463 /* EditTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7057F0FF1873685600B5C463 /* EditTaskViewController.m */; };
+		7069569C19844824003E294F /* CompleteTasksTableViewTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7069569B19844824003E294F /* CompleteTasksTableViewTableViewController.m */; };
+		707159871971ABCD0014EE2B /* AddMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 707159861971ABCD0014EE2B /* AddMessageViewController.m */; };
+		7072DB6B195B7584002A36C6 /* AllTasksTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7072DB6A195B7584002A36C6 /* AllTasksTableViewController.m */; };
+		70805A201871DD4A00A1E50F /* EditProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70805A1F1871DD4A00A1E50F /* EditProjectViewController.m */; };
+		708444AF1A0866650075003D /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 708444AE1A0866650075003D /* CalendarViewController.m */; };
+		708444ED1A087DED0075003D /* TSQCalendarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 708444E61A087DED0075003D /* TSQCalendarCell.m */; };
+		708444EE1A087DED0075003D /* TSQCalendarMonthHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 708444E81A087DED0075003D /* TSQCalendarMonthHeaderCell.m */; };
+		708444EF1A087DED0075003D /* TSQCalendarRowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 708444EA1A087DED0075003D /* TSQCalendarRowCell.m */; };
+		708444F01A087DED0075003D /* TSQCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 708444EC1A087DED0075003D /* TSQCalendarView.m */; };
+		708488C519BCB18A00D249E1 /* MGSwipeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 708488C219BCB18A00D249E1 /* MGSwipeButton.m */; };
+		708488C619BCB18A00D249E1 /* MGSwipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 708488C419BCB18A00D249E1 /* MGSwipeTableCell.m */; };
+		7087871C18E9AF9700B21BA3 /* SharingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7087871B18E9AF9700B21BA3 /* SharingTableViewController.m */; };
+		7088F8681A0AB3C0004E2EC5 /* DateButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7088F8671A0AB3C0004E2EC5 /* DateButton.m */; };
+		70B2AD221A5730DD009C0C58 /* AddPersonalTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B2AD211A5730DD009C0C58 /* AddPersonalTaskViewController.m */; };
+		70B2AD251A576A63009C0C58 /* EditPersonalTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B2AD241A576A63009C0C58 /* EditPersonalTaskViewController.m */; };
+		70B59232195B79B9001D9DDB /* YourTasksTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B59231195B79B9001D9DDB /* YourTasksTableViewController.m */; };
+		70B9FC4E1A0D7E1900E4E685 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70B9FC4D1A0D7E1900E4E685 /* Launch Screen.xib */; };
+		70BF9EB61A3D2A010039C58D /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70BF9EB51A3D2A010039C58D /* SignInViewController.m */; };
+		70C3FE7E1864BBFF007AA312 /* AddProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C3FE7D1864BBFF007AA312 /* AddProjectViewController.m */; };
+		70C8262219620E2A001B6BB9 /* MessageDetailViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C8262119620E2A001B6BB9 /* MessageDetailViewViewController.m */; };
+		70CC40821865248F005FD856 /* AddTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70CC40811865248F005FD856 /* AddTaskViewController.m */; };
+		70CEFBAC196203EE00E3BE77 /* MessagesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70CEFBAB196203EE00E3BE77 /* MessagesTableViewController.m */; };
+		70CEFBAF1962070C00E3BE77 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 70CEFBAE1962070C00E3BE77 /* Message.m */; };
+		70DE391819E9AB1800AC707E /* LandingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70DE391719E9AB1800AC707E /* LandingViewController.m */; };
+		70DFEA75186243F900523CEE /* Login.m in Sources */ = {isa = PBXBuildFile; fileRef = 70DFEA74186243F900523CEE /* Login.m */; };
+		70DFEA78186261C000523CEE /* FlowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70DFEA77186261C000523CEE /* FlowViewController.m */; };
+		70EBCFB817E9FEE0005628C1 /* AgendueHTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 70EBCFA917E9FEE0005628C1 /* AgendueHTMLParser.m */; };
+		70EBCFB917E9FEE0005628C1 /* iOSRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 70EBCFAB17E9FEE0005628C1 /* iOSRequest.m */; };
+		70EBCFBA17E9FEE0005628C1 /* NSString+WebService.m in Sources */ = {isa = PBXBuildFile; fileRef = 70EBCFAD17E9FEE0005628C1 /* NSString+WebService.m */; };
+		70EBCFBB17E9FEE0005628C1 /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 70EBCFAF17E9FEE0005628C1 /* Project.m */; };
+		70EBCFBC17E9FEE0005628C1 /* ProjectsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70EBCFB117E9FEE0005628C1 /* ProjectsTableViewController.m */; };
+		70EBCFBD17E9FEE0005628C1 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 70EBCFB317E9FEE0005628C1 /* Task.m */; };
+		70EBCFBE17E9FEE0005628C1 /* TaskDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70EBCFB517E9FEE0005628C1 /* TaskDetailsViewController.m */; };
+		70EBCFBF17E9FEE0005628C1 /* TasksTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70EBCFB717E9FEE0005628C1 /* TasksTableViewController.m */; };
+		70ED431017E9EE3700FBF354 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70ED430F17E9EE3700FBF354 /* Foundation.framework */; };
+		70ED431217E9EE3700FBF354 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70ED431117E9EE3700FBF354 /* CoreGraphics.framework */; };
+		70ED431417E9EE3700FBF354 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70ED431317E9EE3700FBF354 /* UIKit.framework */; };
+		70ED431A17E9EE3700FBF354 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 70ED431817E9EE3700FBF354 /* InfoPlist.strings */; };
+		70ED431C17E9EE3700FBF354 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 70ED431B17E9EE3700FBF354 /* main.m */; };
+		70ED432317E9EE3700FBF354 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70ED432117E9EE3700FBF354 /* Main_iPhone.storyboard */; };
+		70ED432E17E9EE3700FBF354 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70ED432D17E9EE3700FBF354 /* Images.xcassets */; };
+		70ED433517E9EE3700FBF354 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70ED433417E9EE3700FBF354 /* XCTest.framework */; };
+		70ED433617E9EE3700FBF354 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70ED430F17E9EE3700FBF354 /* Foundation.framework */; };
+		70ED433717E9EE3700FBF354 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70ED431317E9EE3700FBF354 /* UIKit.framework */; };
+		70ED433F17E9EE3700FBF354 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 70ED433D17E9EE3700FBF354 /* InfoPlist.strings */; };
+		70ED434117E9EE3700FBF354 /* AgendueTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 70ED434017E9EE3700FBF354 /* AgendueTests.m */; };
+		70F58A5E18710B96003074CB /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F58A5D18710B96003074CB /* Reachability.m */; };
+		70F75B9518766EAF005EC8FF /* CreateAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F75B9418766EAF005EC8FF /* CreateAccountViewController.m */; };
+		70F88B241A53019700285228 /* PersonalTasksTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F88B231A53019700285228 /* PersonalTasksTableViewController.m */; };
+		70FF87C5198EDEFB00BB401B /* AgendueApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FF87C4198EDEFB00BB401B /* AgendueApplication.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		70ED433817E9EE3700FBF354 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 70ED430417E9EE3700FBF354 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 70ED430B17E9EE3700FBF354;
+			remoteInfo = Agendue;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7000C2E719A682E1004DC10E /* EditWikiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditWikiViewController.h; path = "Interface/Projects/Project Show/Wiki/EditWikiViewController.h"; sourceTree = "<group>"; };
+		7000C2E819A682E1004DC10E /* EditWikiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditWikiViewController.m; path = "Interface/Projects/Project Show/Wiki/EditWikiViewController.m"; sourceTree = "<group>"; };
+		7009399D1958DA46005A5C6C /* Share.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Share.m; path = ../Foundation/Share.m; sourceTree = "<group>"; };
+		7009399F1958DA51005A5C6C /* Share.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Share.h; path = ../Foundation/Share.h; sourceTree = "<group>"; };
+		702A18B8196A0447004931F8 /* AddTeamMemberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddTeamMemberViewController.h; path = "Interface/Projects/Project Show/Sharing/AddTeamMemberViewController.h"; sourceTree = "<group>"; };
+		702A18B9196A0447004931F8 /* AddTeamMemberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddTeamMemberViewController.m; path = "Interface/Projects/Project Show/Sharing/AddTeamMemberViewController.m"; sourceTree = "<group>"; };
+		702C4CC61962137E00E82F57 /* WikiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WikiViewController.h; path = "Interface/Projects/Project Show/Wiki/WikiViewController.h"; sourceTree = "<group>"; };
+		702C4CC71962137E00E82F57 /* WikiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WikiViewController.m; path = "Interface/Projects/Project Show/Wiki/WikiViewController.m"; sourceTree = "<group>"; };
+		7033AEA11A9CF3CE00D92D9B /* SignInViewController */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SignInViewController; path = Interface/Other/SignInViewController; sourceTree = "<group>"; };
+		704DC2101A0BFDC7009731BA /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = Agendue/Settings.bundle; sourceTree = "<group>"; };
+		7054D27C1A5318D700D7DF5E /* PersonalTaskDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PersonalTaskDetailsViewController.h; path = "Interface/Personal Tasks/PersonalTaskDetailsViewController.h"; sourceTree = "<group>"; };
+		7054D27D1A5318D700D7DF5E /* PersonalTaskDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PersonalTaskDetailsViewController.m; path = "Interface/Personal Tasks/PersonalTaskDetailsViewController.m"; sourceTree = "<group>"; };
+		7057F0FE1873685600B5C463 /* EditTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditTaskViewController.h; path = "Agendue/Interface/Projects/Project Show/Tasks/EditTaskViewController.h"; sourceTree = SOURCE_ROOT; };
+		7057F0FF1873685600B5C463 /* EditTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditTaskViewController.m; path = "Agendue/Interface/Projects/Project Show/Tasks/EditTaskViewController.m"; sourceTree = SOURCE_ROOT; };
+		7069569A19844824003E294F /* CompleteTasksTableViewTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CompleteTasksTableViewTableViewController.h; path = "Interface/Projects/Project Show/Tasks/CompleteTasksTableViewTableViewController.h"; sourceTree = "<group>"; };
+		7069569B19844824003E294F /* CompleteTasksTableViewTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CompleteTasksTableViewTableViewController.m; path = "Interface/Projects/Project Show/Tasks/CompleteTasksTableViewTableViewController.m"; sourceTree = "<group>"; };
+		707159851971ABCD0014EE2B /* AddMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddMessageViewController.h; path = "Interface/Projects/Project Show/Messages/AddMessageViewController.h"; sourceTree = "<group>"; };
+		707159861971ABCD0014EE2B /* AddMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddMessageViewController.m; path = "Interface/Projects/Project Show/Messages/AddMessageViewController.m"; sourceTree = "<group>"; };
+		7072DB69195B7584002A36C6 /* AllTasksTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AllTasksTableViewController.h; path = Interface/Tasks/AllTasksTableViewController.h; sourceTree = "<group>"; };
+		7072DB6A195B7584002A36C6 /* AllTasksTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AllTasksTableViewController.m; path = Interface/Tasks/AllTasksTableViewController.m; sourceTree = "<group>"; };
+		70805A1E1871DD4A00A1E50F /* EditProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditProjectViewController.h; path = Agendue/Interface/Projects/Project/EditProjectViewController.h; sourceTree = SOURCE_ROOT; };
+		70805A1F1871DD4A00A1E50F /* EditProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditProjectViewController.m; path = Agendue/Interface/Projects/Project/EditProjectViewController.m; sourceTree = SOURCE_ROOT; };
+		708444AD1A0866650075003D /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarViewController.h; path = Interface/Calendar/CalendarViewController.h; sourceTree = "<group>"; };
+		708444AE1A0866650075003D /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarViewController.m; path = Interface/Calendar/CalendarViewController.m; sourceTree = "<group>"; };
+		708444BC1A0872480075003D /* libKal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libKal.a; path = "Library/Kal-src/build/Debug-iphoneos/libKal.a"; sourceTree = "<group>"; };
+		708444E31A087DED0075003D /* TimesSquare-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TimesSquare-Prefix.pch"; sourceTree = "<group>"; };
+		708444E41A087DED0075003D /* TimesSquare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimesSquare.h; sourceTree = "<group>"; };
+		708444E51A087DED0075003D /* TSQCalendarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSQCalendarCell.h; sourceTree = "<group>"; };
+		708444E61A087DED0075003D /* TSQCalendarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSQCalendarCell.m; sourceTree = "<group>"; };
+		708444E71A087DED0075003D /* TSQCalendarMonthHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSQCalendarMonthHeaderCell.h; sourceTree = "<group>"; };
+		708444E81A087DED0075003D /* TSQCalendarMonthHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSQCalendarMonthHeaderCell.m; sourceTree = "<group>"; };
+		708444E91A087DED0075003D /* TSQCalendarRowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSQCalendarRowCell.h; sourceTree = "<group>"; };
+		708444EA1A087DED0075003D /* TSQCalendarRowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSQCalendarRowCell.m; sourceTree = "<group>"; };
+		708444EB1A087DED0075003D /* TSQCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSQCalendarView.h; sourceTree = "<group>"; };
+		708444EC1A087DED0075003D /* TSQCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSQCalendarView.m; sourceTree = "<group>"; };
+		708488C119BCB18A00D249E1 /* MGSwipeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MGSwipeButton.h; path = MGSwipe/MGSwipeButton.h; sourceTree = "<group>"; };
+		708488C219BCB18A00D249E1 /* MGSwipeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MGSwipeButton.m; path = MGSwipe/MGSwipeButton.m; sourceTree = "<group>"; };
+		708488C319BCB18A00D249E1 /* MGSwipeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MGSwipeTableCell.h; path = MGSwipe/MGSwipeTableCell.h; sourceTree = "<group>"; };
+		708488C419BCB18A00D249E1 /* MGSwipeTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MGSwipeTableCell.m; path = MGSwipe/MGSwipeTableCell.m; sourceTree = "<group>"; };
+		7087871A18E9AF9700B21BA3 /* SharingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SharingTableViewController.h; path = "Interface/Projects/Project Show/Sharing/SharingTableViewController.h"; sourceTree = "<group>"; };
+		7087871B18E9AF9700B21BA3 /* SharingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SharingTableViewController.m; path = "Interface/Projects/Project Show/Sharing/SharingTableViewController.m"; sourceTree = "<group>"; };
+		7088F8661A0AB3C0004E2EC5 /* DateButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateButton.h; sourceTree = "<group>"; };
+		7088F8671A0AB3C0004E2EC5 /* DateButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateButton.m; sourceTree = "<group>"; };
+		70B2AD201A5730DD009C0C58 /* AddPersonalTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddPersonalTaskViewController.h; path = "Interface/Personal Tasks/AddPersonalTaskViewController.h"; sourceTree = "<group>"; };
+		70B2AD211A5730DD009C0C58 /* AddPersonalTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddPersonalTaskViewController.m; path = "Interface/Personal Tasks/AddPersonalTaskViewController.m"; sourceTree = "<group>"; };
+		70B2AD231A576A63009C0C58 /* EditPersonalTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditPersonalTaskViewController.h; path = "Interface/Personal Tasks/EditPersonalTaskViewController.h"; sourceTree = "<group>"; };
+		70B2AD241A576A63009C0C58 /* EditPersonalTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditPersonalTaskViewController.m; path = "Interface/Personal Tasks/EditPersonalTaskViewController.m"; sourceTree = "<group>"; };
+		70B59230195B79B9001D9DDB /* YourTasksTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YourTasksTableViewController.h; path = Interface/Tasks/YourTasksTableViewController.h; sourceTree = "<group>"; };
+		70B59231195B79B9001D9DDB /* YourTasksTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YourTasksTableViewController.m; path = Interface/Tasks/YourTasksTableViewController.m; sourceTree = "<group>"; };
+		70B9FC4D1A0D7E1900E4E685 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "Launch Screen.xib"; path = "Agendue/Launch Screen.xib"; sourceTree = "<group>"; };
+		70BF9EB41A3D2A010039C58D /* SignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignInViewController.h; path = Interface/Other/SignInViewController.h; sourceTree = "<group>"; };
+		70BF9EB51A3D2A010039C58D /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignInViewController.m; path = Interface/Other/SignInViewController.m; sourceTree = "<group>"; };
+		70C3FE7C1864BBFF007AA312 /* AddProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddProjectViewController.h; path = Agendue/Interface/Projects/Project/AddProjectViewController.h; sourceTree = SOURCE_ROOT; };
+		70C3FE7D1864BBFF007AA312 /* AddProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddProjectViewController.m; path = Agendue/Interface/Projects/Project/AddProjectViewController.m; sourceTree = SOURCE_ROOT; };
+		70C8262019620E2A001B6BB9 /* MessageDetailViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageDetailViewViewController.h; path = "Interface/Projects/Project Show/Messages/MessageDetailViewViewController.h"; sourceTree = "<group>"; };
+		70C8262119620E2A001B6BB9 /* MessageDetailViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageDetailViewViewController.m; path = "Interface/Projects/Project Show/Messages/MessageDetailViewViewController.m"; sourceTree = "<group>"; };
+		70CC40801865248F005FD856 /* AddTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddTaskViewController.h; path = "Agendue/Interface/Projects/Project Show/Tasks/AddTaskViewController.h"; sourceTree = SOURCE_ROOT; };
+		70CC40811865248F005FD856 /* AddTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddTaskViewController.m; path = "Agendue/Interface/Projects/Project Show/Tasks/AddTaskViewController.m"; sourceTree = SOURCE_ROOT; };
+		70CEFBAA196203EE00E3BE77 /* MessagesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessagesTableViewController.h; path = "Interface/Projects/Project Show/Messages/MessagesTableViewController.h"; sourceTree = "<group>"; };
+		70CEFBAB196203EE00E3BE77 /* MessagesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessagesTableViewController.m; path = "Interface/Projects/Project Show/Messages/MessagesTableViewController.m"; sourceTree = "<group>"; };
+		70CEFBAD1962070C00E3BE77 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Message.h; path = ../Foundation/Message.h; sourceTree = "<group>"; };
+		70CEFBAE1962070C00E3BE77 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Message.m; path = ../Foundation/Message.m; sourceTree = "<group>"; };
+		70DE391619E9AB1800AC707E /* LandingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LandingViewController.h; path = Interface/Other/LandingViewController.h; sourceTree = "<group>"; };
+		70DE391719E9AB1800AC707E /* LandingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LandingViewController.m; path = Interface/Other/LandingViewController.m; sourceTree = "<group>"; };
+		70DFEA73186243F900523CEE /* Login.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Login.h; path = Agendue/Interface/Other/Login.h; sourceTree = SOURCE_ROOT; };
+		70DFEA74186243F900523CEE /* Login.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Login.m; path = Agendue/Interface/Other/Login.m; sourceTree = SOURCE_ROOT; };
+		70DFEA76186261C000523CEE /* FlowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlowViewController.h; path = Interface/Other/FlowViewController.h; sourceTree = "<group>"; };
+		70DFEA77186261C000523CEE /* FlowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FlowViewController.m; path = Interface/Other/FlowViewController.m; sourceTree = "<group>"; };
+		70EBCFA817E9FEE0005628C1 /* AgendueHTMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AgendueHTMLParser.h; path = Agendue/Web/AgendueHTMLParser.h; sourceTree = SOURCE_ROOT; };
+		70EBCFA917E9FEE0005628C1 /* AgendueHTMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AgendueHTMLParser.m; path = Agendue/Web/AgendueHTMLParser.m; sourceTree = SOURCE_ROOT; };
+		70EBCFAA17E9FEE0005628C1 /* iOSRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iOSRequest.h; path = Web/iOSRequest.h; sourceTree = "<group>"; };
+		70EBCFAB17E9FEE0005628C1 /* iOSRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = iOSRequest.m; path = Web/iOSRequest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		70EBCFAC17E9FEE0005628C1 /* NSString+WebService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+WebService.h"; path = "Web/NSString+WebService.h"; sourceTree = "<group>"; };
+		70EBCFAD17E9FEE0005628C1 /* NSString+WebService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+WebService.m"; path = "Web/NSString+WebService.m"; sourceTree = "<group>"; };
+		70EBCFAE17E9FEE0005628C1 /* Project.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Project.h; path = ../Foundation/Project.h; sourceTree = "<group>"; };
+		70EBCFAF17E9FEE0005628C1 /* Project.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Project.m; path = ../Foundation/Project.m; sourceTree = "<group>"; };
+		70EBCFB017E9FEE0005628C1 /* ProjectsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectsTableViewController.h; path = Interface/Projects/Project/ProjectsTableViewController.h; sourceTree = "<group>"; };
+		70EBCFB117E9FEE0005628C1 /* ProjectsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectsTableViewController.m; path = Interface/Projects/Project/ProjectsTableViewController.m; sourceTree = "<group>"; };
+		70EBCFB217E9FEE0005628C1 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Task.h; path = ../Foundation/Task.h; sourceTree = "<group>"; };
+		70EBCFB317E9FEE0005628C1 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Task.m; path = ../Foundation/Task.m; sourceTree = "<group>"; };
+		70EBCFB417E9FEE0005628C1 /* TaskDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskDetailsViewController.h; path = Interface/Other/TaskDetailsViewController.h; sourceTree = "<group>"; };
+		70EBCFB517E9FEE0005628C1 /* TaskDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskDetailsViewController.m; path = Interface/Other/TaskDetailsViewController.m; sourceTree = "<group>"; };
+		70EBCFB617E9FEE0005628C1 /* TasksTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TasksTableViewController.h; path = "Interface/Projects/Project Show/Tasks/TasksTableViewController.h"; sourceTree = "<group>"; };
+		70EBCFB717E9FEE0005628C1 /* TasksTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TasksTableViewController.m; path = "Interface/Projects/Project Show/Tasks/TasksTableViewController.m"; sourceTree = "<group>"; };
+		70ED430C17E9EE3700FBF354 /* Agendue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Agendue.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		70ED430F17E9EE3700FBF354 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		70ED431117E9EE3700FBF354 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		70ED431317E9EE3700FBF354 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		70ED431717E9EE3700FBF354 /* Agendue-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Agendue-Info.plist"; sourceTree = "<group>"; };
+		70ED431917E9EE3700FBF354 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		70ED431B17E9EE3700FBF354 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		70ED431D17E9EE3700FBF354 /* Agendue-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Agendue-Prefix.pch"; sourceTree = "<group>"; };
+		70ED432217E9EE3700FBF354 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		70ED432D17E9EE3700FBF354 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		70ED433317E9EE3700FBF354 /* AgendueTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AgendueTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		70ED433417E9EE3700FBF354 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		70ED433C17E9EE3700FBF354 /* AgendueTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AgendueTests-Info.plist"; sourceTree = "<group>"; };
+		70ED433E17E9EE3700FBF354 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		70ED434017E9EE3700FBF354 /* AgendueTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AgendueTests.m; sourceTree = "<group>"; };
+		70F58A5C18710B96003074CB /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = Web/Reachability.h; sourceTree = "<group>"; };
+		70F58A5D18710B96003074CB /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = Web/Reachability.m; sourceTree = "<group>"; };
+		70F75B9318766EAF005EC8FF /* CreateAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CreateAccountViewController.h; path = Interface/Other/CreateAccountViewController.h; sourceTree = "<group>"; };
+		70F75B9418766EAF005EC8FF /* CreateAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CreateAccountViewController.m; path = Interface/Other/CreateAccountViewController.m; sourceTree = "<group>"; };
+		70F88B221A53019700285228 /* PersonalTasksTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PersonalTasksTableViewController.h; path = "Interface/Personal Tasks/PersonalTasksTableViewController.h"; sourceTree = "<group>"; };
+		70F88B231A53019700285228 /* PersonalTasksTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PersonalTasksTableViewController.m; path = "Interface/Personal Tasks/PersonalTasksTableViewController.m"; sourceTree = "<group>"; };
+		70FF87C3198EDEFB00BB401B /* AgendueApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AgendueApplication.h; path = Agendue/AgendueApplication.h; sourceTree = "<group>"; };
+		70FF87C4198EDEFB00BB401B /* AgendueApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AgendueApplication.m; path = Agendue/AgendueApplication.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		70ED430917E9EE3700FBF354 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70ED431217E9EE3700FBF354 /* CoreGraphics.framework in Frameworks */,
+				70ED431417E9EE3700FBF354 /* UIKit.framework in Frameworks */,
+				70ED431017E9EE3700FBF354 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		70ED433017E9EE3700FBF354 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70ED433517E9EE3700FBF354 /* XCTest.framework in Frameworks */,
+				70ED433717E9EE3700FBF354 /* UIKit.framework in Frameworks */,
+				70ED433617E9EE3700FBF354 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		704DC2121A0C01B0009731BA /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				708444E21A087DDD0075003D /* TimesSquare */,
+				708488C019BCB17A00D249E1 /* MGSwipe */,
+			);
+			name = Libraries;
+			path = Libs;
+			sourceTree = "<group>";
+		};
+		7072DB67195B74DD002A36C6 /* Projects */ = {
+			isa = PBXGroup;
+			children = (
+				7088376B19BD4A6000B34FC3 /* Project */,
+				7088376919BD4A1500B34FC3 /* Project Show */,
+			);
+			name = Projects;
+			sourceTree = "<group>";
+		};
+		7072DB68195B7543002A36C6 /* Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				70B59230195B79B9001D9DDB /* YourTasksTableViewController.h */,
+				70B59231195B79B9001D9DDB /* YourTasksTableViewController.m */,
+				7072DB69195B7584002A36C6 /* AllTasksTableViewController.h */,
+				7072DB6A195B7584002A36C6 /* AllTasksTableViewController.m */,
+			);
+			name = Tasks;
+			sourceTree = "<group>";
+		};
+		708444AC1A08664F0075003D /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				708444AD1A0866650075003D /* CalendarViewController.h */,
+				708444AE1A0866650075003D /* CalendarViewController.m */,
+			);
+			name = Calendar;
+			sourceTree = "<group>";
+		};
+		708444E21A087DDD0075003D /* TimesSquare */ = {
+			isa = PBXGroup;
+			children = (
+				708444E31A087DED0075003D /* TimesSquare-Prefix.pch */,
+				708444E41A087DED0075003D /* TimesSquare.h */,
+				708444E51A087DED0075003D /* TSQCalendarCell.h */,
+				708444E61A087DED0075003D /* TSQCalendarCell.m */,
+				708444E71A087DED0075003D /* TSQCalendarMonthHeaderCell.h */,
+				708444E81A087DED0075003D /* TSQCalendarMonthHeaderCell.m */,
+				708444E91A087DED0075003D /* TSQCalendarRowCell.h */,
+				708444EA1A087DED0075003D /* TSQCalendarRowCell.m */,
+				708444EB1A087DED0075003D /* TSQCalendarView.h */,
+				708444EC1A087DED0075003D /* TSQCalendarView.m */,
+				7088F8661A0AB3C0004E2EC5 /* DateButton.h */,
+				7088F8671A0AB3C0004E2EC5 /* DateButton.m */,
+			);
+			path = TimesSquare;
+			sourceTree = "<group>";
+		};
+		708488C019BCB17A00D249E1 /* MGSwipe */ = {
+			isa = PBXGroup;
+			children = (
+				708488C119BCB18A00D249E1 /* MGSwipeButton.h */,
+				708488C219BCB18A00D249E1 /* MGSwipeButton.m */,
+				708488C319BCB18A00D249E1 /* MGSwipeTableCell.h */,
+				708488C419BCB18A00D249E1 /* MGSwipeTableCell.m */,
+			);
+			name = MGSwipe;
+			sourceTree = "<group>";
+		};
+		7088376919BD4A1500B34FC3 /* Project Show */ = {
+			isa = PBXGroup;
+			children = (
+				7088376F19BD4B3000B34FC3 /* tasks */,
+				7088376E19BD4B0D00B34FC3 /* wiki */,
+				7088376D19BD4AF200B34FC3 /* Messages */,
+				7088376C19BD4A7600B34FC3 /* Sharing */,
+			);
+			name = "Project Show";
+			sourceTree = "<group>";
+		};
+		7088376B19BD4A6000B34FC3 /* Project */ = {
+			isa = PBXGroup;
+			children = (
+				70EBCFB017E9FEE0005628C1 /* ProjectsTableViewController.h */,
+				70EBCFB117E9FEE0005628C1 /* ProjectsTableViewController.m */,
+				70C3FE7C1864BBFF007AA312 /* AddProjectViewController.h */,
+				70C3FE7D1864BBFF007AA312 /* AddProjectViewController.m */,
+				70805A1E1871DD4A00A1E50F /* EditProjectViewController.h */,
+				70805A1F1871DD4A00A1E50F /* EditProjectViewController.m */,
+			);
+			name = Project;
+			sourceTree = "<group>";
+		};
+		7088376C19BD4A7600B34FC3 /* Sharing */ = {
+			isa = PBXGroup;
+			children = (
+				702A18B9196A0447004931F8 /* AddTeamMemberViewController.m */,
+				702A18B8196A0447004931F8 /* AddTeamMemberViewController.h */,
+				7087871A18E9AF9700B21BA3 /* SharingTableViewController.h */,
+				7087871B18E9AF9700B21BA3 /* SharingTableViewController.m */,
+			);
+			name = Sharing;
+			sourceTree = "<group>";
+		};
+		7088376D19BD4AF200B34FC3 /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+				70CEFBAA196203EE00E3BE77 /* MessagesTableViewController.h */,
+				70CEFBAB196203EE00E3BE77 /* MessagesTableViewController.m */,
+				70C8262019620E2A001B6BB9 /* MessageDetailViewViewController.h */,
+				70C8262119620E2A001B6BB9 /* MessageDetailViewViewController.m */,
+				707159851971ABCD0014EE2B /* AddMessageViewController.h */,
+				707159861971ABCD0014EE2B /* AddMessageViewController.m */,
+			);
+			name = Messages;
+			sourceTree = "<group>";
+		};
+		7088376E19BD4B0D00B34FC3 /* wiki */ = {
+			isa = PBXGroup;
+			children = (
+				702C4CC61962137E00E82F57 /* WikiViewController.h */,
+				702C4CC71962137E00E82F57 /* WikiViewController.m */,
+				7000C2E719A682E1004DC10E /* EditWikiViewController.h */,
+				7000C2E819A682E1004DC10E /* EditWikiViewController.m */,
+			);
+			name = wiki;
+			sourceTree = "<group>";
+		};
+		7088376F19BD4B3000B34FC3 /* tasks */ = {
+			isa = PBXGroup;
+			children = (
+				70CC40801865248F005FD856 /* AddTaskViewController.h */,
+				70CC40811865248F005FD856 /* AddTaskViewController.m */,
+				7057F0FE1873685600B5C463 /* EditTaskViewController.h */,
+				7057F0FF1873685600B5C463 /* EditTaskViewController.m */,
+				70EBCFB617E9FEE0005628C1 /* TasksTableViewController.h */,
+				70EBCFB717E9FEE0005628C1 /* TasksTableViewController.m */,
+				7069569A19844824003E294F /* CompleteTasksTableViewTableViewController.h */,
+				7069569B19844824003E294F /* CompleteTasksTableViewTableViewController.m */,
+			);
+			name = tasks;
+			sourceTree = "<group>";
+		};
+		70CE7D2F1984771A00BAF7A9 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group";
+			sourceTree = "<group>";
+		};
+		70EBCFC017E9FEFB005628C1 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				70F88B211A53017500285228 /* Personal Tasks */,
+				708444AC1A08664F0075003D /* Calendar */,
+				7072DB68195B7543002A36C6 /* Tasks */,
+				7072DB67195B74DD002A36C6 /* Projects */,
+				70F75B9318766EAF005EC8FF /* CreateAccountViewController.h */,
+				70F75B9418766EAF005EC8FF /* CreateAccountViewController.m */,
+				70DFEA73186243F900523CEE /* Login.h */,
+				70DFEA74186243F900523CEE /* Login.m */,
+				70EBCFB417E9FEE0005628C1 /* TaskDetailsViewController.h */,
+				70EBCFB517E9FEE0005628C1 /* TaskDetailsViewController.m */,
+				70DFEA76186261C000523CEE /* FlowViewController.h */,
+				70DFEA77186261C000523CEE /* FlowViewController.m */,
+				70DE391619E9AB1800AC707E /* LandingViewController.h */,
+				70DE391719E9AB1800AC707E /* LandingViewController.m */,
+				70BF9EB41A3D2A010039C58D /* SignInViewController.h */,
+				70BF9EB51A3D2A010039C58D /* SignInViewController.m */,
+				7033AEA11A9CF3CE00D92D9B /* SignInViewController */,
+			);
+			name = Interface;
+			sourceTree = "<group>";
+		};
+		70ED430317E9EE3700FBF354 = {
+			isa = PBXGroup;
+			children = (
+				70B9FC4D1A0D7E1900E4E685 /* Launch Screen.xib */,
+				704DC2101A0BFDC7009731BA /* Settings.bundle */,
+				70FF87C3198EDEFB00BB401B /* AgendueApplication.h */,
+				70FF87C4198EDEFB00BB401B /* AgendueApplication.m */,
+				70ED431517E9EE3700FBF354 /* Agendue */,
+				70ED433A17E9EE3700FBF354 /* AgendueTests */,
+				70ED430E17E9EE3700FBF354 /* Frameworks */,
+				70ED430D17E9EE3700FBF354 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		70ED430D17E9EE3700FBF354 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				70ED430C17E9EE3700FBF354 /* Agendue.app */,
+				70ED433317E9EE3700FBF354 /* AgendueTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		70ED430E17E9EE3700FBF354 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				708444BC1A0872480075003D /* libKal.a */,
+				70CE7D2F1984771A00BAF7A9 /* New Group */,
+				70ED430F17E9EE3700FBF354 /* Foundation.framework */,
+				70ED431117E9EE3700FBF354 /* CoreGraphics.framework */,
+				70ED431317E9EE3700FBF354 /* UIKit.framework */,
+				70ED433417E9EE3700FBF354 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		70ED431517E9EE3700FBF354 /* Agendue */ = {
+			isa = PBXGroup;
+			children = (
+				704DC2121A0C01B0009731BA /* Libraries */,
+				70ED431617E9EE3700FBF354 /* Supporting Files */,
+				70ED435917E9EE6C00FBF354 /* Foundation */,
+				70ED435A17E9EEA000FBF354 /* Web */,
+				70EBCFC017E9FEFB005628C1 /* Interface */,
+				70ED432D17E9EE3700FBF354 /* Images.xcassets */,
+				70ED432117E9EE3700FBF354 /* Main_iPhone.storyboard */,
+			);
+			path = Agendue;
+			sourceTree = "<group>";
+		};
+		70ED431617E9EE3700FBF354 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				70ED431717E9EE3700FBF354 /* Agendue-Info.plist */,
+				70ED431817E9EE3700FBF354 /* InfoPlist.strings */,
+				70ED431B17E9EE3700FBF354 /* main.m */,
+				70ED431D17E9EE3700FBF354 /* Agendue-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		70ED433A17E9EE3700FBF354 /* AgendueTests */ = {
+			isa = PBXGroup;
+			children = (
+				70ED434017E9EE3700FBF354 /* AgendueTests.m */,
+				70ED433B17E9EE3700FBF354 /* Supporting Files */,
+			);
+			path = AgendueTests;
+			sourceTree = "<group>";
+		};
+		70ED433B17E9EE3700FBF354 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				70ED433C17E9EE3700FBF354 /* AgendueTests-Info.plist */,
+				70ED433D17E9EE3700FBF354 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		70ED435917E9EE6C00FBF354 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				70CEFBAD1962070C00E3BE77 /* Message.h */,
+				70CEFBAE1962070C00E3BE77 /* Message.m */,
+				7009399D1958DA46005A5C6C /* Share.m */,
+				7009399F1958DA51005A5C6C /* Share.h */,
+				70EBCFAE17E9FEE0005628C1 /* Project.h */,
+				70EBCFAF17E9FEE0005628C1 /* Project.m */,
+				70EBCFB217E9FEE0005628C1 /* Task.h */,
+				70EBCFB317E9FEE0005628C1 /* Task.m */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		70ED435A17E9EEA000FBF354 /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				70F58A5C18710B96003074CB /* Reachability.h */,
+				70F58A5D18710B96003074CB /* Reachability.m */,
+				70EBCFA817E9FEE0005628C1 /* AgendueHTMLParser.h */,
+				70EBCFA917E9FEE0005628C1 /* AgendueHTMLParser.m */,
+				70EBCFAA17E9FEE0005628C1 /* iOSRequest.h */,
+				70EBCFAB17E9FEE0005628C1 /* iOSRequest.m */,
+				70EBCFAC17E9FEE0005628C1 /* NSString+WebService.h */,
+				70EBCFAD17E9FEE0005628C1 /* NSString+WebService.m */,
+			);
+			name = Web;
+			sourceTree = "<group>";
+		};
+		70F88B211A53017500285228 /* Personal Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				70F88B221A53019700285228 /* PersonalTasksTableViewController.h */,
+				70F88B231A53019700285228 /* PersonalTasksTableViewController.m */,
+				7054D27C1A5318D700D7DF5E /* PersonalTaskDetailsViewController.h */,
+				7054D27D1A5318D700D7DF5E /* PersonalTaskDetailsViewController.m */,
+				70B2AD201A5730DD009C0C58 /* AddPersonalTaskViewController.h */,
+				70B2AD211A5730DD009C0C58 /* AddPersonalTaskViewController.m */,
+				70B2AD231A576A63009C0C58 /* EditPersonalTaskViewController.h */,
+				70B2AD241A576A63009C0C58 /* EditPersonalTaskViewController.m */,
+			);
+			name = "Personal Tasks";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		70ED430B17E9EE3700FBF354 /* Agendue */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 70ED434417E9EE3700FBF354 /* Build configuration list for PBXNativeTarget "Agendue" */;
+			buildPhases = (
+				70ED430817E9EE3700FBF354 /* Sources */,
+				70ED430917E9EE3700FBF354 /* Frameworks */,
+				70ED430A17E9EE3700FBF354 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Agendue;
+			productName = Agendue;
+			productReference = 70ED430C17E9EE3700FBF354 /* Agendue.app */;
+			productType = "com.apple.product-type.application";
+		};
+		70ED433217E9EE3700FBF354 /* AgendueTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 70ED434717E9EE3700FBF354 /* Build configuration list for PBXNativeTarget "AgendueTests" */;
+			buildPhases = (
+				70ED432F17E9EE3700FBF354 /* Sources */,
+				70ED433017E9EE3700FBF354 /* Frameworks */,
+				70ED433117E9EE3700FBF354 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				70ED433917E9EE3700FBF354 /* PBXTargetDependency */,
+			);
+			name = AgendueTests;
+			productName = AgendueTests;
+			productReference = 70ED433317E9EE3700FBF354 /* AgendueTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		70ED430417E9EE3700FBF354 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = agendue;
+				TargetAttributes = {
+					70ED430B17E9EE3700FBF354 = {
+						DevelopmentTeam = P7GFU4H444;
+					};
+					70ED433217E9EE3700FBF354 = {
+						TestTargetID = 70ED430B17E9EE3700FBF354;
+					};
+				};
+			};
+			buildConfigurationList = 70ED430717E9EE3700FBF354 /* Build configuration list for PBXProject "Agendue" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 70ED430317E9EE3700FBF354;
+			productRefGroup = 70ED430D17E9EE3700FBF354 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				70ED430B17E9EE3700FBF354 /* Agendue */,
+				70ED433217E9EE3700FBF354 /* AgendueTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		70ED430A17E9EE3700FBF354 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				704DC2111A0BFDC7009731BA /* Settings.bundle in Resources */,
+				70ED432E17E9EE3700FBF354 /* Images.xcassets in Resources */,
+				70ED432317E9EE3700FBF354 /* Main_iPhone.storyboard in Resources */,
+				70ED431A17E9EE3700FBF354 /* InfoPlist.strings in Resources */,
+				70B9FC4E1A0D7E1900E4E685 /* Launch Screen.xib in Resources */,
+				7033AEA21A9CF3CE00D92D9B /* SignInViewController in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		70ED433117E9EE3700FBF354 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70ED433F17E9EE3700FBF354 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		70ED430817E9EE3700FBF354 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70BF9EB61A3D2A010039C58D /* SignInViewController.m in Sources */,
+				707159871971ABCD0014EE2B /* AddMessageViewController.m in Sources */,
+				7009399E1958DA46005A5C6C /* Share.m in Sources */,
+				70C3FE7E1864BBFF007AA312 /* AddProjectViewController.m in Sources */,
+				708488C519BCB18A00D249E1 /* MGSwipeButton.m in Sources */,
+				70DE391819E9AB1800AC707E /* LandingViewController.m in Sources */,
+				708444F01A087DED0075003D /* TSQCalendarView.m in Sources */,
+				70EBCFBC17E9FEE0005628C1 /* ProjectsTableViewController.m in Sources */,
+				70805A201871DD4A00A1E50F /* EditProjectViewController.m in Sources */,
+				70C8262219620E2A001B6BB9 /* MessageDetailViewViewController.m in Sources */,
+				7057F1001873685600B5C463 /* EditTaskViewController.m in Sources */,
+				70DFEA75186243F900523CEE /* Login.m in Sources */,
+				708488C619BCB18A00D249E1 /* MGSwipeTableCell.m in Sources */,
+				70B2AD221A5730DD009C0C58 /* AddPersonalTaskViewController.m in Sources */,
+				7088F8681A0AB3C0004E2EC5 /* DateButton.m in Sources */,
+				70DFEA78186261C000523CEE /* FlowViewController.m in Sources */,
+				70CEFBAC196203EE00E3BE77 /* MessagesTableViewController.m in Sources */,
+				7087871C18E9AF9700B21BA3 /* SharingTableViewController.m in Sources */,
+				708444ED1A087DED0075003D /* TSQCalendarCell.m in Sources */,
+				70F58A5E18710B96003074CB /* Reachability.m in Sources */,
+				7000C2E919A682E1004DC10E /* EditWikiViewController.m in Sources */,
+				7054D27E1A5318D700D7DF5E /* PersonalTaskDetailsViewController.m in Sources */,
+				70EBCFB817E9FEE0005628C1 /* AgendueHTMLParser.m in Sources */,
+				7072DB6B195B7584002A36C6 /* AllTasksTableViewController.m in Sources */,
+				70CEFBAF1962070C00E3BE77 /* Message.m in Sources */,
+				7069569C19844824003E294F /* CompleteTasksTableViewTableViewController.m in Sources */,
+				70F75B9518766EAF005EC8FF /* CreateAccountViewController.m in Sources */,
+				70EBCFBA17E9FEE0005628C1 /* NSString+WebService.m in Sources */,
+				70CC40821865248F005FD856 /* AddTaskViewController.m in Sources */,
+				702A18BA196A0447004931F8 /* AddTeamMemberViewController.m in Sources */,
+				70B2AD251A576A63009C0C58 /* EditPersonalTaskViewController.m in Sources */,
+				70EBCFBD17E9FEE0005628C1 /* Task.m in Sources */,
+				70EBCFBB17E9FEE0005628C1 /* Project.m in Sources */,
+				70F88B241A53019700285228 /* PersonalTasksTableViewController.m in Sources */,
+				70EBCFBF17E9FEE0005628C1 /* TasksTableViewController.m in Sources */,
+				70ED431C17E9EE3700FBF354 /* main.m in Sources */,
+				708444EE1A087DED0075003D /* TSQCalendarMonthHeaderCell.m in Sources */,
+				708444AF1A0866650075003D /* CalendarViewController.m in Sources */,
+				702C4CC81962137E00E82F57 /* WikiViewController.m in Sources */,
+				70B59232195B79B9001D9DDB /* YourTasksTableViewController.m in Sources */,
+				70EBCFB917E9FEE0005628C1 /* iOSRequest.m in Sources */,
+				70FF87C5198EDEFB00BB401B /* AgendueApplication.m in Sources */,
+				70EBCFBE17E9FEE0005628C1 /* TaskDetailsViewController.m in Sources */,
+				708444EF1A087DED0075003D /* TSQCalendarRowCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		70ED432F17E9EE3700FBF354 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70ED434117E9EE3700FBF354 /* AgendueTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		70ED433917E9EE3700FBF354 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 70ED430B17E9EE3700FBF354 /* Agendue */;
+			targetProxy = 70ED433817E9EE3700FBF354 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		70ED431817E9EE3700FBF354 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				70ED431917E9EE3700FBF354 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		70ED432117E9EE3700FBF354 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				70ED432217E9EE3700FBF354 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		70ED433D17E9EE3700FBF354 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				70ED433E17E9EE3700FBF354 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		70ED434217E9EE3700FBF354 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		70ED434317E9EE3700FBF354 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		70ED434517E9EE3700FBF354 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Agendue/Agendue-Prefix.pch";
+				INFOPLIST_FILE = "Agendue/Agendue-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)$(LOCAL_LIBRARY_DIR)/Kal-src/build/Debug-iphoneos",
+				);
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		70ED434617E9EE3700FBF354 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Agendue/Agendue-Prefix.pch";
+				INFOPLIST_FILE = "Agendue/Agendue-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)$(LOCAL_LIBRARY_DIR)/Kal-src/build/Debug-iphoneos",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		70ED434817E9EE3700FBF354 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Agendue.app/Agendue";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Agendue/Agendue-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "AgendueTests/AgendueTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		70ED434917E9EE3700FBF354 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Agendue.app/Agendue";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Agendue/Agendue-Prefix.pch";
+				INFOPLIST_FILE = "AgendueTests/AgendueTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		70ED430717E9EE3700FBF354 /* Build configuration list for PBXProject "Agendue" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				70ED434217E9EE3700FBF354 /* Debug */,
+				70ED434317E9EE3700FBF354 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		70ED434417E9EE3700FBF354 /* Build configuration list for PBXNativeTarget "Agendue" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				70ED434517E9EE3700FBF354 /* Debug */,
+				70ED434617E9EE3700FBF354 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		70ED434717E9EE3700FBF354 /* Build configuration list for PBXNativeTarget "AgendueTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				70ED434817E9EE3700FBF354 /* Debug */,
+				70ED434917E9EE3700FBF354 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 70ED430417E9EE3700FBF354 /* Project object */;
+}

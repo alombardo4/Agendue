@@ -1,0 +1,50 @@
+<%= form_for(@task) do |f| %>
+  <% if @task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+      <% @task.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label "Title" %><br>
+    <%= f.text_field :name, :autocomplete => "off" %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description, :autocomplete => "off" %>
+  </div>
+  <div class="field">
+    <%= f.label "Assign to" %><br>
+    <% if @sel %>
+      <%= f.select :assignedto, options_for_select(@allshares, @sel) %>
+    <% else %>
+      <%= f.select :assignedto, options_for_select(@allshares) %>
+    <% end %>
+  <div class="field">
+    <%= f.label "Label" %><br>
+    <%= f.select :label, options_for_select(Task.labels.collect {|v,i| [v,Task.labels.index(v)]}, @task.label) %>
+  </div>
+  </div>
+  <div class="field">
+    <%= f.label "Due Date" %><br>
+    <%= f.text_field :duedate %>
+  </div>
+  <div class="field">
+    <%= f.label "Complete?" %>
+    <%= f.check_box :complete %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Save", :class => "mobile", :method => :post %>
+  </div>
+<% end %>
+<script>
+$(function() {
+    $("#task_duedate").datepicker({ dateFormat: "yy-mm-dd" });
+});
+</script>

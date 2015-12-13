@@ -1,0 +1,50 @@
+<div class="page-header">
+  <h1>New Task</h1>
+  <%= link_to sanitize('Back to ' + Project.find_by_id(session[:lastproj]).name), project_path(session[:lastproj]) %>
+</div>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <%= form_for(@task) do |f| %>
+      <div class="input-group">
+        <span class="input-group-addon">Title</span>
+        <%= f.text_field :name, :autocomplete => "off", :class => "form-control" %>
+      </div>
+      <br>
+      <div class="input-group">
+        <span class="input-group-addon">Description</span>
+        <%= f.text_area :description, :rows => 3, :class => "form-control", :autocomplete => "off" %>
+      </div>
+      <br>
+      <div class="input-group">
+        <span class="input-group-addon">Due Date</span>
+        <%= f.text_field :duedate, :class => "form-control", :id => "task_duedate" %>
+      </div>
+      <br>
+      <div class="input-group">
+        <strong>Assign To</strong><br>
+
+        <% if @sel %>
+          <%= f.select :assignedto, @allshares, { :selected => @sel }, { :class => 'form-control' } %>
+        <% else %>
+          <%= f.select :assignedto, @allshares, { :selected => "None" },  { :class => "form-control" } %>
+        <% end %>
+      </div>
+      <br>
+      <div class="input-group">
+        <%= f.label "Label" %><br>
+        <%= f.select :label, Task.labels.collect {|v,i| [v,Task.labels.index(v)]}, {:selected => @task.label}, {:class => "form-control"}%>
+      </div> 
+      <br>
+      <div class="input-group">
+        <%= button_to tasks_path, :method => :post, :class => "btn btn-default blue"  do %>
+          <span class="glyphicon glyphicon-floppy-disk"></span> Save Task
+        <% end %><br>
+      </div>
+    <% end %>
+  </div>
+</div>
+<script>
+$(function() {
+    $("#task_duedate").datepicker({ dateFormat: "yy-mm-dd" });
+});
+</script>

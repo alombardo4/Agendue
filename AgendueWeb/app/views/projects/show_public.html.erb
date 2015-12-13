@@ -1,0 +1,93 @@
+<div class="page-header">
+  <h1><%= @project.name %></h1>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Incomplete Tasks</h3>
+  </div>
+  <div class="panel-body">
+    <% if @incomplete.count > 0 %>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <td></td>
+              <td>Title</td>
+              <td>Due Date</td>
+              <td>Assigned To</td>
+              <td>Label</td>
+            </tr>
+          </thead>
+          <tbody>
+            <% @incomplete.each do |task| %>
+            <tr>
+              <td>
+                <%= raw("&#9744") %>
+              </td>
+              <td><%= sanitize(task.name) %></td>
+              <% if task.duedate %>
+                <td class="content"><p><%= task.duedate %></p></td>
+              <% else %>
+                <td></td>
+              <% end %>
+              <td><%= task.assignedto %></td>
+              <td>
+                <% if task.label && task.label != 0 %>
+                  <div style="border: 1px solid <%=Task.labels[task.label].downcase %>;border-radius:5px;width:40px;height:40px;background-color:<%= Task.labels[task.label].downcase %>"></div>
+                <% end %>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    <% else %>
+      There are no incomplete tasks.
+    <% end %>
+  </div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Complete Tasks</h3>
+  </div>
+  <div class="panel-body">
+    <% if @complete.count > 0 %>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <td></td>
+              <td>Title</td>
+              <td>Due Date</td>
+              <td>Assigned To</td>
+              <td>Label</td>
+            </tr>
+          </thead>
+          <tbody>
+            <% @complete.each do |task| %>
+            <tr>
+              <td>
+                <%= raw("&#9745") %>
+              </td>
+              <td><%= sanitize(task.name) %></td>
+              <% if task.duedate %>
+                <td class="content"><p><%= task.duedate %></p></td>
+              <% else %>
+                <td></td>
+              <% end %>
+              <td><%= task.assignedto %></td>
+              <td>
+                <% if task.label && task.label != 0 %>
+                  <div style="border: 1px solid <%=Task.labels[task.label].downcase %>;border-radius:5px;width:40px;height:40px;background-color:<%= Task.labels[task.label].downcase %>"></div>
+                <% end %>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    <% else %>
+      There are no complete tasks.
+    <% end %>
+  </div>
+</div>

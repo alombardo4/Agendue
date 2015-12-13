@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @notification.subject %>
+</p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @notification.message %>
+</p>
+
+<p>
+  <strong>Device token:</strong>
+  <%= @notification.device_token %>
+</p>
+
+<p>
+  <strong>Notification os:</strong>
+  <%= @notification.notification_os %>
+</p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @notification.project_id %>
+</p>
+
+<p>
+  <strong>Userid:</strong>
+  <%= @notification.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_notification_path(@notification) %> |
+<%= link_to 'Back', notifications_path %>

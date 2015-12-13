@@ -1,0 +1,57 @@
+<h2>All Tasks</h2>
+<%= button_to "Your Tasks", tasks_assigned_path, :method => :get, :class => "mobile" %>
+<hr>
+<% if @incomplete.length == 0 && @complete.length == 0 %>
+  <h3>You have no tasks</h3>
+<% else %>
+  <h4>Incomplete</h4>
+  <% if @incomplete.length > 0 %>
+    <table class="contentmobile">
+      <thead>
+        <tr>
+          <td></td>
+          <td class="content">Task Title</td>
+          <td class="content">Due Date</td>
+        </tr>
+      </thead>
+      <tbody>
+        <% @incomplete.each do |task| %>
+        <tr>
+          <td class="completion">
+              <%= form_for(task) do |f| %>
+                <%= f.hidden_field :complete, :value => '1' %>
+                <%= f.submit raw('&#9744;'), :class => "completebutton" %>
+              <% end %>
+          </td>
+          <td class="content"><%= link_to sanitize(task.name), task_path(task) %></td>
+          <% if task.duedate %>
+            <td class="content"><p><%= task.duedate %></p></td>
+          <% else %>
+            <td></td>
+          <% end %>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p>There are no incomplete tasks.</p>
+  <% end %>
+  <h4>Complete</h4>
+  <% if @complete.length > 0 %>
+    <table class="content">
+      <% @complete.each do |task| %>
+      <tr>
+        <td class="completion">
+            <%= form_for(task) do |f| %>
+              <%= f.hidden_field :complete, :value => '0' %>
+              <%= f.submit raw('&#9745;'), :class => "completebutton" %>
+            <% end %>
+        </td>
+        <td class="content"><%= link_to sanitize(task.name), task_path(task) %></td>
+      </tr>
+      <% end %>
+    </table>
+  <% else %>
+    <p>There are no complete tasks.</p>
+  <% end %>
+<% end %>

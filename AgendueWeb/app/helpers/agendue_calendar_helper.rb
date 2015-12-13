@@ -1,0 +1,2 @@
+module AgendueCalendarHelper
+end

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#3692d5</color>
+    <color name="agendueorange">#ffab26</color>
+    <color name="agenduedarkorange">#f7931e</color>
+    <color name="primarydark">#0071bc</color>
+    <color name="white">#ffffff</color>
+    <color name="cccc">#ccc</color>
+    <color name="c333">#333</color>
+    <color name="c666">#666</color>
+    <color name="c444">#444</color>
+    <color name="c999">#999</color>
+    <color name="cbbb">#bbb</color>
+    <color name="agenduelightblue">#b4d8eb</color>
+</resources>

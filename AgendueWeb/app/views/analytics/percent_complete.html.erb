@@ -1,0 +1,30 @@
+<div class="page-header">
+  <h1>Percent Complete for <%= @project.name %></h1>
+  <%= link_to sanitize('Back to ' +@project.name + " analytics"), project_analytics_path(@project) %>
+</div>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <h2>Percent Complete</h2>
+    <script type="text/javascript">
+          google.load("visualization", "1", {packages:["corechart"]});
+          google.setOnLoadCallback(drawChart);
+          function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+              ['Category', 'Number'],
+              ['Incomplete', <%= @incomplete_count %>],
+              ['Overdue', <%= @overdue_count %>],
+              ['Complete', <%= @complete_count %>],
+            ]);
+
+            var options = {
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('numberassignedbyuserchart'));
+            chart.draw(data, options);
+          }
+    </script>
+    <div id="numberassignedbyuserchart" style="width:80%; height:600px;"></div>
+  </div>
+</div>
+
+

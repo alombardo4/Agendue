@@ -1,0 +1,35 @@
+<div class="page-header">
+  <h1>Percent Tasks Complete per User for <%= @project.name %></h1>
+  <%= link_to sanitize('Back to ' +@project.name + " analytics"), project_analytics_path(@project) %>
+</div>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <h3>Percent Complete by User</h3>
+    <script type="text/javascript">
+          google.load("visualization", "1", {packages:["corechart"]});
+    google.setOnLoadCallback(drawChart);
+    function drawChart() {
+
+      var data = google.visualization.arrayToDataTable([
+        ['Team Member', '% Complete'],
+        <% @percentCompleteByUser.each do |worker, percent| %>
+          ['<%= worker.firstname + ' ' + worker.lastname %>', <%= percent %>],
+        <% end %>
+      ]);
+
+      var options = {
+        hAxis: {title: 'Team Member'},
+        vAxis: {title: 'Percent Complete', maxValue: '100', minValue: '0'}
+      };
+
+      var chart = new google.visualization.ColumnChart(document.getElementById('percentcompletebyuserchart'));
+
+      chart.draw(data, options);
+
+    }
+    </script>
+    <div id="percentcompletebyuserchart" style="width:80%; height:600px;"></div>
+  </div>
+</div>
+
+

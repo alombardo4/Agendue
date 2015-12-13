@@ -1,0 +1,123 @@
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['', ''],
+          ['', <%= @personalScore %>],
+          ['', 1000 - <%= @personalScore %>]
+        ]);
+
+        var options = {
+          legend: 'none',
+          pieHole: 0.5,
+          pieSliceText: 'none',
+          pieStartAngle: 135,
+          tooltip: { trigger: 'none' },
+          slices: {
+            0: { color: '#3692d6' },
+            1: { color: '#ffab26' }
+          }
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('productivitygraph-mobile'));
+        chart.draw(data, options);
+      }
+    </script>
+    <div class="landing-score-mobile">
+
+			    <div id="productivity-container-mobile">
+			    	<div id="productivitygraph-mobile"></div>
+			    </div>
+	    		<h3>Productivity score: <%= @personalScore %></h3>
+	</div>
+	<hr>
+    <% if @incomplete.count > 0 %>
+	    <div class="landing-tasks-mobile today">
+	    	<h4>Today's Tasks</h4>
+	    	<% if @today.length > 0 %>
+		    	<table>
+		    		<thead>
+		    			<tr>
+		    				<td></td>
+		    				<td>Title</td>
+		    			</tr>
+		    		</thead>
+		    		<tbody>
+			    	<% @today.each do |task| %>
+			    		<tr>
+							<td class="completion">
+							    <%= form_for(task) do |f| %>
+							      <%= f.hidden_field :complete, :value => '1' %>
+							      <%= f.submit raw('&#9744;'), :class => "completebutton" %>
+							    <% end %>
+							</td>
+							<td class="content"><%= link_to sanitize(task.name), task_path(task) %></td>
+						</tr>
+			    	<% end %>
+			    	</tbody>
+		    	</table>
+		    <% else %>
+		    	<p>You have no tasks due today.</p>
+		    <% end %>
+	    </div>
+	    <div class="landing-tasks-mobile upcoming">
+	    	<h4>Upcoming Tasks</h4>
+	    	<% if @upcoming.length > 0 %>
+		    	<table>
+		    		<thead>
+		    			<tr>
+		    				<td></td>
+		    				<td>Title</td>
+		    			</tr>
+		    		</thead>
+		    		<tbody>
+			    	<% @upcoming.each do |task| %>
+			    		<tr>
+							<td class="completion">
+							    <%= form_for(task) do |f| %>
+							      <%= f.hidden_field :complete, :value => '1' %>
+							      <%= f.submit raw('&#9744;'), :class => "completebutton" %>
+							    <% end %>
+							</td>
+							<td class="content"><%= link_to sanitize(task.name), task_path(task) %></td>
+						</tr>
+			    	<% end %>
+			    	</tbody>
+		    	</table>
+		    <% else %>
+		    	<p>You have no upcoming tasks.</p>
+		    <% end %>
+	    </div>
+	   	<div class="landing-tasks-mobile overdue">
+	    	<h4>Overdue Tasks</h4>
+	    	<% if @overdue.length > 0 %>
+		    	<table>
+		    		<thead>
+		    			<tr>
+		    				<td></td>
+		    				<td>Title</td>
+		    			</tr>
+		    		</thead>
+		    		<tbody>
+			    	<% @overdue.each do |task| %>
+			    		<tr>
+							<td class="completion">
+							    <%= form_for(task) do |f| %>
+							      <%= f.hidden_field :complete, :value => '1' %>
+							      <%= f.submit raw('&#9744;'), :class => "completebutton" %>
+							    <% end %>
+							</td>
+							<td class="content"><%= link_to sanitize(task.name), task_path(task) %></td>
+						</tr>
+			    	<% end %>
+			    	</tbody>
+		    	</table>
+		    <% else %>
+		    	<p>You have no overdue tasks.</p>
+		    <% end %>
+	    </div>
+	<% else %>
+		<h3>You have no tasks.</h3>
+	<% end %>
+</div>

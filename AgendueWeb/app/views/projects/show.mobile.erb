@@ -1,0 +1,311 @@
+<script>
+  $(document).ready(function() {
+    $("#projecthome").fadeIn();
+    $("#home").css("background-color", "#0071bc");
+    $("#home").click(function() {
+      $("#home").css("background-color", "#0071bc");
+      $("#tasks").css("background-color", "#3692d6");
+      $("#wiki").css("background-color", "#3692d6");
+      $("#bulletin").css("background-color", "#3692d6");
+      $("#team").css("background-color", "#3692d6");
+
+      $("#projecttasks").hide();
+      $("#projectwiki").hide();
+      $("#projectbulletins").hide();
+      $("#projectteam").hide();
+      $("#projecthome").fadeIn(600);
+    });
+    $("#tasks").click(function() {
+      $("#home").css("background-color", "#3692d6");
+      $("#tasks").css("background-color", "#0071bc");
+      $("#wiki").css("background-color", "#3692d6");
+      $("#bulletin").css("background-color", "#3692d6");
+      $("#team").css("background-color", "#3692d6");
+
+      $("#projecthome").hide();
+      $("#projectwiki").hide();
+      $("#projectbulletins").hide();
+      $("#projectteam").hide();
+      $("#projecttasks").fadeIn(600);
+    });
+    $("#wiki").click(function() {
+      $("#home").css("background-color", "#3692d6");
+      $("#tasks").css("background-color", "#3692d6");
+      $("#wiki").css("background-color", "#0071bc");
+      $("#bulletin").css("background-color", "#3692d6");
+      $("#team").css("background-color", "#3692d6");
+
+      $("#projecthome").hide();
+      $("#projecttasks").hide();
+      $("#projectbulletins").hide();
+      $("#projectteam").hide();
+      $("#projectwiki").fadeIn(600);
+    });
+    $("#bulletin").click(function() {
+      $("#home").css("background-color", "#3692d6");
+      $("#tasks").css("background-color", "#3692d6");
+      $("#wiki").css("background-color", "#3692d6");
+      $("#bulletin").css("background-color", "#0071bc");
+      $("#team").css("background-color", "#3692d6");
+
+      $("#projecthome").hide();
+      $("#projecttasks").hide();
+      $("#projectwiki").hide();
+      $("#projectteam").hide();
+      $("#projectbulletins").fadeIn(600);
+
+    });
+    $("#team").click(function() {
+      $("#home").css("background-color", "#3692d6");
+      $("#tasks").css("background-color", "#3692d6");
+      $("#wiki").css("background-color", "#3692d6");
+      $("#bulletin").css("background-color", "#3692d6");
+      $("#team").css("background-color", "#0071bc");
+
+      $("#projecthome").hide();
+      $("#projecttasks").hide();
+      $("#projectwiki").hide();
+      $("#projectbulletins").hide();
+      $("#projectteam").fadeIn(600);
+    });  
+  });
+</script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['', ''],
+          ['Complete', <%= @percentdone %>],
+          ['Incomplete', 100 - <%= @percentdone %>]
+        ]);
+
+        var options = {
+          legend: 'none',
+          pieHole: 0.5,
+          pieSliceText: 'none',
+          pieStartAngle: 135,
+          slices: {
+            0: { color: '#3692d6' },
+            1: { color: '#ffab26' }
+          }
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('completegraph'));
+        chart.draw(data, options);
+      }
+    </script>
+<h1><%= @project.name %></h1>
+<hr>
+
+<%= button_to 'Edit Name', edit_project_path(@project), :class => "mobile", :method => :get %>
+<%= button_to 'New Task', new_task_path, :class => "mobile", :method => :get %>
+<hr>
+<div id="home" class="projectbutton">
+  <a>
+    <%= image_tag "feature-icons/Home.png", :class => "project-button-mobile" %>
+  </a>
+</div>
+<div id="tasks" class="projectbutton">
+  <a>
+    <%= image_tag "feature-icons/Task.png", :class => "project-button-mobile" %>
+  </a>
+</div>
+<div id="wiki" class="projectbutton">
+  <a>
+    <%= image_tag "feature-icons/Notebook.png", :class => "project-button-mobile" %>
+  </a>
+</div>
+<div id="bulletin" class="projectbutton">
+  <a>
+    <%= image_tag "feature-icons/Pin.png", :class => "project-button-mobile" %>
+  </a>
+</div>
+<div id="team" class="projectbutton">
+  <a>
+    <%= image_tag "feature-icons/Team.png", :class => "project-button-mobile" %>
+  </a>
+</div>
+<hr>
+
+<div id="projecthome" class="projectcontent">
+  <% if @incomplete.length == 0 && @complete.length == 0 %>
+    <% if @wiki == nil && @messages.length == 0 %>
+      <h2>Get Started</h2>
+      <p>Get started with your new project</p>
+      <ul>
+        <li><%= link_to "Create a Task", new_task_path %></li>
+        <li><%= link_to "Add to the Notebook",edit_project_wiki_path(@project.id) %></li>
+        <li><%= link_to "Manage Team", projects_shares_path(@project.id) %></li>
+      </ul>
+    <% else %>
+      <h3>There are no tasks in this project.</h3>
+      <p><%= link_to "Create a Task", new_task_path %></p>
+    <% end %>
+  <% else %>
+    <div class="pecrentdonecontainer">
+      <div id="completegraph"></div>
+      <h3><%= @percentdone %>% complete</h3>
+    </div>
+    <% if @incomplete.length > 0 %>
+      <h2>Upcoming Tasks</h2>
+      <div class="project-home-tasks">
+        <table class="content">
+          <thead>
+            <tr>
+              <td></td>
+              <td class="content">Task Title</td>
+          </thead>
+          <tbody>
+          <% @incomplete.first(5).each do |task| %>
+          <tr>
+            <td class="completion">
+                <%= form_for(task) do |f| %>
+                  <%= f.hidden_field :complete, :value => '1' %>
+                  <%= f.submit raw('&#9744;'), :class => "completebutton" %>
+                <% end %>
+            </td>
+            <td class="content"><%= link_to sanitize(task.name), task_path(task) %></td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    <% else %>
+      <h2>There are no upcoming tasks</h2>
+    <% end %>
+  <% end %>
+</div>
+
+<div id="projecttasks" class="projectcontent">
+  <h2>Tasks</h2>
+  <% if @incomplete.length == 0 && @complete.length == 0 %>
+    <h3>There are no tasks in this project.</h3>
+    <p><%= link_to "Create a Task", new_task_path %></p>
+  <% else %>
+    <% if @incomplete.length > 0 %>
+      <h4>Incomplete</h4>
+      <table class="content">
+        <thead>
+          <tr>
+            <td></td>
+            <td class="content">Task Title</td>
+            <td class="content">Due Date</td>
+          </tr>
+        </thead>
+        <tbody>
+        <% @incomplete.each do |task| %>
+        <tr>
+          <td class="completion">
+              <%= form_for(task) do |f| %>
+                <%= f.hidden_field :complete, :value => '1' %>
+                <%= f.submit raw('&#9744;'), :class => "completebutton" %>
+              <% end %>
+          </td>
+          <td class="content"><%= link_to sanitize(task.name), task_path(task) %></td>
+          <td class="content">
+            <% if task.duedate %>
+              <%= task.duedate %>
+            <% end %>
+          </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      <h4>No incomplete tasks</h4>
+    <% end %>
+    <% if @complete.length > 0 %>
+      <h4>Complete</h4>
+      <table class="content">
+        <% @complete.each do |task| %>
+          <tr>
+          <td class="completion">
+            <%= form_for(task) do |f| %>
+              <%= f.hidden_field :complete, :value => '0' %>
+              <%= f.submit raw('&#9745;'), :class => "incompletebutton" %>
+            <% end %>
+          </td>
+          <td class="content"><%= link_to sanitize(task.name), task_path(task) %></td>
+        </tr>
+        <% end %>
+      </table>
+    <% else %>
+      <h4>No complete tasks</h4>
+    <% end %>
+  <% end %>
+</div>
+
+<div id="projectwiki" class="projectcontent">
+  <h2>Notebook</h2>
+  <%= button_to 'Edit Notebook', edit_project_wiki_path(@project.id), :class => 'mobilelarge', :method => :get %>
+  <% if @project.wiki && @project.wiki.strip.length > 0 %>
+    <div class="wiki-mobile">
+      <%= @project.wiki.html_safe if @project.wiki %>
+    </div>
+  <% else %>
+    <p>Your Notebook is empty. <%= link_to "Edit", edit_project_wiki_path(@project.id) %> it to get started.</p>
+  <% end %>
+</div>
+
+<div id="projectbulletins" class="projectcontent">
+  <h2>Bulletins</h2>
+  <%= form_for Message.new, :url => messages_path, :html => {:method => :post} do |f| %>
+    <div class="field">
+      <%= f.text_area :content, :class => 'messageentrymobile' %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Post", :class => "mobile" %>
+    </div>
+  <% end %>
+  <% if @messages.length == 0 %>
+    <p>There's nothing here. Make a bulletin board post to get started.</p>
+  <% else %>
+    <div class="messagesfull">
+      <% @messages.each do |msg| %>
+        <% user = User.find_by_id(msg.user) %>
+        <table class="messagemobile">
+          <tr>
+            <td class="messagepic">
+              <% if user.facebook %>
+               <%= image_tag "https://graph.facebook.com/#{user.facebook}/picture" %>
+              <% end %>
+            </td>
+            <td class="messagetext">
+              <p class="messageusername"><%= user.firstname + ' ' + user.lastname %></p>
+              <p class="messagetimestamp"><%= msg.created_at.strftime('%Y-%m-%d') %></p>
+              <p class="messagetext"><%= msg.content %></p>
+            </td>
+          </tr>
+        </table>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<div id="projectteam" class="projectcontent">
+  <h2>Team Members</h2>
+  <%= button_to 'Manage Team', project_shares_path(@project.id), :class => 'mobilelarge', :method => :get %>
+
+  <table>
+  <% @workers.each do |person| %>
+    <tr class="shares">
+      <td>
+        <% if person.facebook %>
+         <%= image_tag "https://graph.facebook.com/#{person.facebook}/picture" %>
+        <% else %>
+          <div class="iconmelon person">
+            <svg viewBox="0 0 32 32">
+              <use xlink:href="#user-3"></use>
+            </svg>
+          </div>
+        <% end %>
+      </td>
+      <td>
+        <%= sanitize(person.firstname + " " + person.lastname) %>
+      </td>
+    </tr>
+  <% end %>
+  </table>
+</div>

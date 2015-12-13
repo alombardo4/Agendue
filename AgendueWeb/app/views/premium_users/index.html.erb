@@ -1,0 +1,29 @@
+<h1>Listing premium_users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Admin init</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @premium_users.each do |premium_user| %>
+      <tr>
+        <td><%= premium_user.name %></td>
+        <td><%= premium_user.admin_init %></td>
+        <td><%= link_to 'Show', premium_user %></td>
+        <td><%= link_to 'Edit', edit_premium_user_path(premium_user) %></td>
+        <td><%= link_to 'Destroy', premium_user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Premium user', new_premium_user_path %>

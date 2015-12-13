@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  message: MyString
+  device_token: MyString
+  notification_os: MyString
+  project_id: 1
+
+two:
+  message: MyString
+  device_token: MyString
+  notification_os: MyString
+  project_id: 1

@@ -1,0 +1,106 @@
+<div class="page-header">
+  <h1>Personal Tasks</h1>
+</div>
+<%= button_to new_personal_task_path, :method => :get, :class => "btn btn-default green"  do %>
+  <span class="glyphicon glyphicon-plus"></span> New Task
+<% end %><br>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#incomplete">Incomplete Tasks</a></h3>
+  </div>
+  <div id="incomplete" class="panel-collapse collapse in">
+    <div class="panel-body">
+      <% if @incomplete.count > 0 %>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <td></td>
+                <td>Task Title</td>
+                <td>Due Date</td>
+                <td>Assigned To</td>
+                <td>Label</td>
+              </tr>
+            </thead>
+            <tbody>
+              <% @incomplete.each do |task| %>
+              <tr>
+                <td>
+                    <%= form_for(task) do |f| %>
+                      <%= f.hidden_field :complete, :value => '1' %>
+                      <%= f.submit raw('&#9744;'), :class => "completebutton" %>
+                    <% end %>
+                </td>
+                <td><%= link_to sanitize(task.name), personal_task_path(task) %></td>
+                <% if task.duedate %>
+                  <td class="content"><p><%= task.duedate.to_date %></p></td>
+                <% else %>
+                  <td></td>
+                <% end %>
+                <td><%= task.assignedto %></td>
+                <td>
+                  <% if task.label && task.label != 0 %>
+                    <div style="border: 1px solid <%=Task.labels[task.label].downcase %>;border-radius:5px;width:40px;height:40px;background-color:<%= Task.labels[task.label].downcase %>"></div>
+                  <% end %>
+                </td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      <% else %>
+        There are no incomplete tasks.
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#complete">Complete Tasks</a></h3>
+  </div>
+  <div id="complete" class="panel-collapse collapse in">
+    <div class="panel-body">
+      <% if @complete.count > 0 %>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <td></td>
+                <td>Task Title</td>
+                <td>Due Date</td>
+                <td>Assigned To</td>
+                <td>Label</td>
+              </tr>
+            </thead>
+            <tbody>
+              <% @complete.each do |task| %>
+              <tr>
+                <td>
+                    <%= form_for(task) do |f| %>
+                      <%= f.hidden_field :complete, :value => '0' %>
+                      <%= f.submit raw('&#9745;'), :class => "completebutton" %>
+                    <% end %>
+                </td>
+                <td><%= link_to sanitize(task.name), personal_task_path(task) %></td>
+                <% if task.duedate %>
+                  <td class="content"><p><%= task.duedate.to_date %></p></td>
+                <% else %>
+                  <td></td>
+                <% end %>
+                <td><%= task.assignedto %></td>
+                <td>
+                  <% if task.label && task.label != 0 %>
+                    <div style="border: 1px solid <%=Task.labels[task.label].downcase %>;border-radius:5px;width:40px;height:40px;background-color:<%= Task.labels[task.label].downcase %>"></div>
+                  <% end %>
+                </td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      <% else %>
+        There are no complete tasks.
+      <% end %>
+    </div>
+  </div>
+</div>

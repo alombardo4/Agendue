@@ -1,0 +1,96 @@
+// Place all the styles related to the Tasks controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#calendar table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#calendar td,
+#calendar th {
+  font-family: "Lucida Grande",arial,helvetica,sans-serif;
+  font-size: 10px;
+  padding: 6px;
+  border: 1px solid #999;
+}
+
+#calendar th {
+  background: #DDD;
+  color: #666;
+  text-align: center;
+  width: 14.2857142857143%;
+}
+
+#calendar td {
+  background: #FFF;
+  color: #777;
+  height: 80px;
+  vertical-align: top;
+  font-size: 16px;
+}
+
+#calendar .notmonth {
+  color: #CCC;
+}
+
+#calendar #month {
+  margin: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+#calendar #month a, #calendar #month a:hover {
+  text-decoration: none;
+  padding: 0 10px;
+  color: #999;
+}
+
+#calendar td.fc-today {
+  background-color: #D7F2FF;
+}
+
+#calendar ul {
+  margin: 0;
+  margin-top: 5px;
+  padding: 0;
+  list-style: none;
+}
+
+#calendar li {
+  margin: 0;
+  padding: 0;
+  font-size: 11px;
+  text-align: center;
+}
+
+.taskbox {
+  border-bottom: 1px #ccc solid;
+  padding:10px;
+  width:95%;
+  margin:5px;
+}
+
+div.calendar-key {
+  border: 1px solid;
+  border-radius: 4px;
+  width: 180px;
+  height:22px;
+  text-align: center;
+  line-height: 22px;
+  margin:5px;
+}
+
+div.calendar-key.blue {
+  border-color: #3692d6;
+  background-color: #b4d8eb;
+}
+
+div.calendar-key.orange {
+  border-color: #f7931e;
+  background-color: #ffab26;
+}
+
+div.calendar-key.empty {
+  background: none;
+}

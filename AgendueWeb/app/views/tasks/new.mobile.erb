@@ -1,0 +1,48 @@
+<h1>New Task</h1>
+<%= link_to sanitize('Back to ' + Project.find_by_id(session[:lastproj]).name), project_path(session[:lastproj]) %>
+<hr>
+  <%= form_for(@task) do |f| %>
+    <% if @task.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+        <ul>
+        <% @task.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.text_field :name, :placeholder => "Title", :autocomplete => "off" %>
+    </div>
+    <div class="field">
+      <%= f.text_area :description, :placeholder => "Description", :autocomplete => "off" %>
+    </div>
+    <div class="field">
+      <%= f.label "Assign to" %><br>
+      <% if @sel %>
+        <%= f.select :assignedto, options_for_select(@allshares, @sel) %>
+      <% else %>
+        <%= f.select :assignedto, options_for_select(@allshares) %>
+      <% end %>
+
+    </div>
+    <div class="field">
+      <%= f.label "Label" %><br>
+      <%= f.select :label, options_for_select(Task.labels.collect {|v,i| [v,Task.labels.index(v)]}, @task.label) %>
+    </div>
+    <div class="field">
+      <%= f.text_field :duedate, :placeholder => "Due Date" %>
+    </div>
+    <br>
+    <div class="actions">
+      <%= f.submit "Save", :class => "mobile", :method => :post %>
+    </div>
+  <% end %>
+<script>
+$(function() {
+    $("#task_duedate").datepicker({ dateFormat: "yy-mm-dd" });
+});
+</script>

@@ -1,0 +1,66 @@
+<div class="page-header">
+  <h1>Agendue Help</h1>
+</div>
+<% if @iseditor %>
+  <%= link_to 'New Help', new_help_path %>
+<% end %>
+<p>Help topics and instructions are organized by topic.</p>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Projects</h3>
+  </div>
+  <div class="panel-body">
+    <% if @projects.length > 0 %>
+      <% @projects.each do |help| %>
+        <%= link_to help.title, help_path(help) %><br>
+      <% end %>
+    <% else %>
+      <p>There's nothing here</p>
+    <% end %>
+  </div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Tasks</h3>
+  </div>
+  <div class="panel-body">
+    <% if @tasks.length > 0 %>
+      <% @tasks.each do |help| %>
+        <%= link_to help.title, help_path(help) %><br>
+      <% end %>
+    <% else %>
+      <p>There's nothing here</p>
+    <% end %>
+  </div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Agendue Plus</h3>
+  </div>
+  <div class="panel-body">
+    <% if @agendueplus.length > 0 %>
+      <% @agendueplus.each do |help| %>
+        <%= link_to help.title, help_path(help) %><br>
+      <% end %>
+    <% else %>
+      <p>There's nothing here</p>
+    <% end %>
+  </div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Other</h3>
+  </div>
+  <div class="panel-body">
+    <% if @other.length > 0 %>
+      <% @other.each do |help| %>
+        <%= link_to help.title, help_path(help) %><br>
+      <% end %>
+    <% else %>
+      <p>There's nothing here</p>
+    <% end %>
+  </div>
+</div>
+<p>Have another question that wasn't answered? Ask the team at <a href="mailto:team@agendue.com">Team@Agendue.com</a></p>
+
+

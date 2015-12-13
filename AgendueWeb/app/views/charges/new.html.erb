@@ -1,0 +1,54 @@
+<div class="page-header">
+  <h1>Subscribe to Agendue Plus</h1>
+  <%= link_to "Back", request.referrer %>
+</div>
+<div class="panel panel-default">
+  <div class="panel-body">
+	<h2>Why sign up for Agendue Plus?</h2>
+	<p>Agendue Plus allows you to work in teams with more than 5 people. In addition, Agendue Plus users receive in-depth analytics on all their projects.</p>
+	<div class="table-responsive">
+		<div class="chargestable">
+			<table id="charges">
+				<tr>
+					<td class="topcorner"></td>
+					<td class="topcenter">Agendue</td>
+					<td class="top">Agendue Plus</td>
+				</tr>
+				<tr>
+					<td class="middleleft">Number of Team Members</td>
+					<td class="center">5</td>
+					<td class="middleright">Unlimited!</td>
+				</tr>
+				<tr>
+					<td class="middleleft">Analytics</td>
+					<td class="center">No</td>
+					<td class="middleright">Yes!</td>
+				</tr>
+				<tr>
+					<td class="bottomleft">Cost</td>
+					<td class="bottomcenter">Free</td>
+					<td class="bottomright">$4.99 per month</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<table>
+		<td>
+			<%=image_tag "AgenduePlus.png", :class => "smallplus" %>
+
+		</td>
+		<td>
+			<form action="/charges" method="POST">
+
+			<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+				data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+				data-email="<%= @user.name %>"
+				data-name="Agendue Plus"
+				data-description="One month's subscription"
+				data-amount="499"></script>
+			</form>
+		</td>
+	</table>
+  </div>
+</div>
+

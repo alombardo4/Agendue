@@ -1,0 +1,24 @@
+<h1>Update Account</h1>
+<hr>
+<%= form_for(@user) do |f| %>
+  <p>Change Password</p>
+  <div class="field">
+    <%= f.label :password, 'New Password' %><br>
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation, 'New Password Confirmation' %><br>
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <div class="field">
+    <%= f.label :noemail, 'Unsubscribe from Agendue emails' %>
+    <%= f.check_box :noemail %>
+  </div>
+  <% if @user.premium && @user.currentSubscriber %>
+    <%= f.label :cancelPremium, "Unsubscribe from Agendue Plus" %>
+    <%= f.check_box :cancelPremium %>
+  <% end %>
+  <div class="actions">
+    <%= f.submit "Save Account", :class => "mobilelarge" %>
+  </div>
+<% end %>

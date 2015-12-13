@@ -1,0 +1,56 @@
+<div class="page-header">
+  <h1><%= @personal_task.name %></h1>
+</div>
+
+<div class="list-group">
+    <% if @personal_task.label && @personal_task.label != 0 %>
+    <div class="list-group-item">
+      <div style="border: 1px solid <%=PersonalTask.labels[@personal_task.label].downcase %>;border-radius:5px;width:40px;height:40px;background-color:<%= PersonalTask.labels[@personal_task.label].downcase %>"></div>
+    </div>
+    <% end %>
+    <% if @personal_task.description && @personal_task.description.length > 0%>
+      <div class="list-group-item">
+        <p>
+          <strong>Description: </strong>
+          <%= @personal_task.description %>
+        </p>
+      </div>
+    <% end %>
+    <% if @personal_task.duedate %>
+      <div class="list-group-item">
+        <p>
+          <strong>Due Date: </strong>
+          <%= @personal_task.duedate.to_date %>
+        </p>
+      </div>
+    <% end %>
+    <div class="list-group-item">
+      <p>
+        <% if @personal_task.complete == true %>
+          <strong>Completed</strong>
+        <% else %>
+          <strong>Incomplete</strong>
+        <% end %>
+      </p>
+    </div>
+</div>
+
+<% if @personal_task.complete == true %>
+  <%= form_for(@personal_task) do |f| %>
+    <%= f.hidden_field :complete, :value => '0' %>
+    <%= button_to personal_task_path(@personal_task), :method => :post, :class => "btn btn-default green"  do %>
+      <span class="glyphicon glyphicon-unchecked"></span> Mark Incomplete
+    <% end %>
+  <% end %>
+<% else %>
+  <%= form_for(@personal_task) do |f| %>
+    <%= f.hidden_field :complete, :value => '1' %>
+    <%= button_to personal_task_path(@personal_task), :method => :post, :class => "btn btn-default green"  do %>
+      <span class="glyphicon glyphicon-ok"></span> Mark Complete
+    <% end %>
+  <% end %>
+<% end %><br>
+<%= button_to edit_personal_task_path(@personal_task), :method => :get, :class => "btn btn-default blue"  do %>
+  <span class="glyphicon glyphicon-pencil"></span> Edit Task
+<% end %><br>
+<%= button_to 'Remove Task', @personal_task, method: :delete, :class => "btn btn-default red", data: { confirm: 'Are you sure you want to permanently delete this task?' } %>

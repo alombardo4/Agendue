@@ -1,0 +1,40 @@
+<div class="page-header">
+  <h1>Copy Project: <%= @oldproject.name %></h1>
+</div>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <%= form_for @oldproject, :url => copy_path(@oldproject), :html => {:method => :post} do |f| %>
+      <div class="input-group">
+        <span class="input-group-addon">Title</span>
+        <%= f.text_field :name, :class => "form-control" %>
+      </div>
+      <br>
+      <p>Options</p>
+      <div class="input-group" id="copyname">
+        <%= check_box_tag :incomplete %>
+        <%= f.label "Mark all tasks incomplete" %>
+      </div>
+      <br>
+      <div class="input-group" id="copyname">
+        <%= check_box_tag :assignments %>
+        <%= f.label "Reset all task assignments" %>
+      </div>
+      <br>
+      <div class="input-group" id="copyname">
+        <%= check_box_tag :notebook %>
+        <%= f.label "Erase notebook" %>
+      </div>
+      <br>
+      <div class="input-group" id="copyname">
+        <%= check_box_tag :bulletins %>
+        <%= f.label "Remove bulletins" %> 
+      </div> 
+      <br>
+      <div class="input-group">
+        <%= button_to copy_path(@oldproject), :method => :post, :class => "btn btn-default blue"  do %>
+          <span class="glyphicon glyphicon-floppy-disk"></span> Copy Project
+        <% end %><br>
+      </div>
+    <% end %>
+  </div>
+</div>

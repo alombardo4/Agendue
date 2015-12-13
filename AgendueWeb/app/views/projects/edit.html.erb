@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h1>Editing Project <%= @project.name %></h1>
+  <%= link_to sanitize('Back to ' + Project.find_by_id(session[:lastproj]).name), project_path(session[:lastproj]), data: {no_turbolink: true}  %>
+</div>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <%= form_for(@project) do |f| %>
+      <div class="input-group">
+        <span class="input-group-addon">Title</span>
+        <%= f.text_field :name, :placeholder => "Title", :autocomplete => "off", :class => "form-control" %>
+      </div>
+      <br>
+      <div class="input-group" id="copyname">
+          <%= f.check_box :public %>
+          <%= f.label :public, "Make project public" %>
+      </div>
+      <div class="input-group" id="copyname">
+          <%= check_box_tag :unsubscribe, params[:unsubscribe], @is_muted %>
+          <%= label_tag :unsubscribe, "Unsubscribe from notifications" %>
+      </div>
+      <div class="input-group">
+        <%= button_to project_path(@project), :method => :post, :class => "btn btn-default blue"  do %>
+          <span class="glyphicon glyphicon-floppy-disk"></span> Save Project
+        <% end %><br>
+      </div>
+    <% end %>
+  </div>
+</div>

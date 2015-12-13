@@ -1,0 +1,27 @@
+<div class="page-header">
+  <h1>Your Projects</h1>
+</div>
+
+<%= link_to new_project_path, :method => :get, :class => "btn btn-default green inline"  do %>
+	<span class="glyphicon glyphicon-plus"></span> New Project
+<% end %>
+<%= link_to copystart_path, :method => :get, :type => "button", :class => "btn btn-default blue inline"  do %>
+  <span class="glyphicon glyphicon-share"></span> Copy Project
+<% end %><br><br>
+<div class="list-group">
+	<% if @projects.count > 0 %>
+		<% @projects.each do |project| %>
+		<li class="list-group-item">
+		    <span class="badge">
+		    	<%= link_to project, method: :delete, data: { confirm: 'Are you sure you want to remove this from your projects? Other users with access to this project will still be able to use it.' }, :class => "white" do %>
+		    		<span class="glyphicon glyphicon-trash"></span>
+		    	<% end %>
+		    </span>
+		    <%= link_to project.name, project %>
+		</li>
+		<% end %>
+	<% else %>
+		<p>To get started, please <%= link_to "create a project", new_project_path %>.</p>
+	<% end %>
+</div>
+

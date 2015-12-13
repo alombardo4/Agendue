@@ -1,0 +1,64 @@
+<h1><%= @task.name %></h1>
+<strong><%= link_to sanitize('Back to ' + @project.name), project_path(@project) %></strong>
+
+<hr>
+<div class="taskbox">
+  <p><strong>Title: </strong><%= @task.name %></p>
+</div>
+<% if @task.label && @task.label != 0 %>
+  <div class="taskbox">
+    <div style="border: 1px solid <%=Task.labels[@task.label].downcase %>;border-radius:5px;width:40px;height:40px;background-color:<%= Task.labels[@task.label].downcase %>"></div>
+  </div>
+<% end %>
+<% if @task.description && @task.description.length > 0%>
+  <div class="taskbox">
+    <p>
+      <strong>Description: </strong>
+      <%= @task.description %>
+    </p>
+  </div>
+<% end %>
+
+<% if @task.assignedto %>
+  <div class="taskbox">
+    <p><strong>Assigned To: </strong>
+      <%= @task.assignedto %>
+    </p>
+  </div>
+<% end %>
+
+<% if @task.duedate %>
+  <div class="taskbox">
+    <p>
+      <strong>Due Date: </strong>
+      <%= @task.duedate %>
+    </p>
+  </div>
+<% end %>
+<div class="taskbox">
+  <p>
+    <% if @task.complete == true %>
+      <strong>Completed</strong>
+    <% else %>
+      <strong>Incomplete</strong>
+    <% end %>
+  </p>
+</div>
+<div class="taskbox">
+  <p><strong>Project: </strong>
+    <%= @project.name %>
+  </p>
+</div>
+<% if @task.complete == true %>
+  <%= form_for(@task) do |f| %>
+    <%= f.hidden_field :complete, :value => '0' %>
+    <%= f.submit "Mark Incomplete", :class => "savebutton" %>
+  <% end %>
+<% else %>
+  <%= form_for(@task) do |f| %>
+    <%= f.hidden_field :complete, :value => '1' %>
+    <%= f.submit "Mark Complete", :class => "mobilelarge" %>
+  <% end %>
+<% end %>
+<%= button_to 'Edit Task', edit_task_path(@task), :method => :get, :class => "mobilelarge" %>
+<%= button_to 'Remove Task', @task, method: :delete, :class => "mobilelarge", data: { confirm: 'Are you sure you want to permanently delete this task?' } %>

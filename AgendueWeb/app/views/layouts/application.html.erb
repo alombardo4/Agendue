@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Agendue</title>
+   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-49704891-1', 'agendue.com');
+    ga('send', 'pageview');
+
+  </script>
+  <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+  <link rel="apple-touch-icon" href="assets/agendue-icon.png" >
+  <style>
+    a.blue, button.blue {
+      color: white;
+      background-color: <%= primary_color() %>;
+    }
+    a.blue:hover, button.blue:hover {
+      background-color: <%= tertiary_color() %>;
+    }
+  </style>
+</head>
+<body style="background-color:<%= secondary_color() %>">
+  <nav class="navbar navbar-default navbar-fixed-top blue" role="navigation" style="background-color:<%= primary_color() %>">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <%= link_to image_tag("/assets/agendue-icon.png", :alt => "Agendue", :class => "nav-icon"), root_path, :class => "navbar-brand" %>
+        <%= link_to "Agendue", root_path, :class => "navbar-brand" %>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav blue">
+          <% if session[:userid] %>
+            <li><%= link_to "Projects", projects_path %></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tasks <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><%= link_to "All Tasks", tasks_path %></li>
+                <li><%= link_to "Your Tasks", your_tasks_path %></li>
+              </ul>
+              <li><%= link_to "Personal Tasks", personal_tasks_path %></li>
+
+              <li><%= link_to "Calendar", tasks_calendar_path %></li>
+            </li>
+          <% end %>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          <% if session[:userid] %>
+            <% @user = User.find(session[:userid]) %>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= @user.firstname + " " + @user.lastname %><span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><%= link_to "Your Account", user_path(session[:userid]) %></li>
+                <li class="divider"></li>
+                <li><%= link_to "Help", helps_path %></li>
+                <li><%= link_to "Tour", tour_path %></li>
+                <li class="divider"></li>
+                <% if is_admin(session[:userid]) == true %>
+                  <li><%= link_to "Admin", admin_path %></li>
+                  <li><%= link_to "Notifications", notifications_path %></li>
+                  <li class="divider"></li>
+                <% end %>
+                <li><%= link_to "Log Out", logout_path, method: :delete %></li>
+              </ul>
+            </li>
+          <% else %>
+            <li><%= link_to "Sign In", login_path %></li>
+          <% end %>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+  <div class="container" id="body-container">
+    <% if flash[:error] %>
+      <div class="alert alert-danger alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <%= flash[:error] %>
+      </div>
+    <% end %>
+    <% if flash[:alert] %>
+      <div class="alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <%= flash[:alert] %>
+      </div>
+    <% elsif flash[:notice] %>
+      <div class="alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+    <%= yield %>
+    <footer>
+      <%= link_to "Help", helps_path %> |
+      <%= link_to "Privacy Policy", privacy_path %> |
+      <%= link_to "Contact Us", contact_path %> |
+      <%= link_to "Acknowledgements", acknowledgements_path %> |
+      &copy Fogerty Lombardo, LLC
+    </footer>
+  </div>
+
+</body>
+</html>

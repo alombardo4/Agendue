@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>CHANGELOG.md</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../../../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+            <span>Ruby on Rails 4.0.0</span><br />
+        
+        <h1>
+            CHANGELOG.md
+        </h1>
+        <ul class="files">
+            
+            <li>
+                ../../.rvm/gems/ruby-2.1.2/gems/activemodel-4.0.0/CHANGELOG.md
+                
+            </li>
+            <li>Last modified: 2014-08-30 16:32:42 -0400</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<h2 id="label-Rails+4.0.0+%28June+25%2C+2013%29">Rails 4.0.0 (June 25, 2013)</h2>
+<ul><li>
+<p>Fix regression in has_secure_password. When a password is set, but a
+confirmation is an empty string, it would incorrectly save.</p>
+
+<p><em>Steve Klabnik</em> and <em>Phillip Calvin</em></p>
+</li><li>
+<p>Add <code>ActiveModel::Errors#full_messages_for</code>, to return all the
+error messages for a given attribute.</p>
+
+<p>Example:</p>
+
+<pre><code>class Person
+  include ActiveModel::Validations
+
+  attr_reader :name, :email
+  validates_presence_of :name, :email
+end
+
+person = Person.new
+person.valid?                           # =&gt; false
+person.errors.full_messages_for(:name)  # =&gt; [&quot;Name can&#39;t be blank&quot;]
+</code></pre>
+
+<p><em>Volodymyr Shatsky</em></p>
+</li><li>
+<p>Added a method so that validations can be easily cleared on a model. For
+example:</p>
+
+<pre><code>class Person
+  include ActiveModel::Validations
+
+  validates_uniqueness_of :first_name
+  validate :cannot_be_robot
+
+  def cannot_be_robot
+    errors.add(:base, &#39;A person cannot be a robot&#39;) if person_is_robot
+  end
+end
+</code></pre>
+
+<p>Now, if someone runs <code>Person.clear_validators!</code>, then the
+following occurs:</p>
+
+<pre><code>Person.validators                  # =&gt; []
+Person._validate_callbacks.empty?  # =&gt; true
+</code></pre>
+
+<p><em>John Wang</em></p>
+</li><li>
+<p><code>has_secure_password</code> does not fail the confirmation validation
+when assigning empty String to <code>password</code> and
+<code>password_confirmation</code>. Fixes #9535.</p>
+
+<p>Example:</p>
+
+<pre><code># Given User has_secure_password.
+@user.password = &quot;&quot;
+@user.password_confirmation = &quot;&quot;
+@user.valid?(:update) # used to be false</code></pre>
+
+<p><em>Yves Senn</em></p>
+</li><li>
+<p><code>validates_confirmation_of</code> does not override writer methods for
+the confirmation attribute if no reader is defined.</p>
+
+<p>Example:</p>
+
+<pre><code>class Blog
+  def title=(new_title)
+    @title = new_title.downcase
+  end
+
+  # previously this would override the setter above.
+  validates_confirmation_of :title
+end
+</code></pre>
+
+<p><em>Yves Senn</em></p>
+</li><li>
+<p>Add <code>ActiveModel::Validations::AbsenceValidator</code>, a validator to
+check the absence of attributes.</p>
+
+<pre><code>class Person
+  include ActiveModel::Validations
+
+  attr_accessor :first_name
+  validates_absence_of :first_name
+end
+
+person = Person.new
+person.first_name = &quot;John&quot;
+person.valid?
+# =&gt; false
+person.errors.messages
+# =&gt; {:first_name=&gt;[&quot;must be blank&quot;]}
+</code></pre>
+
+<p><em>Roberto Vasquez Angel</em></p>
+</li><li>
+<p><code>[attribute]_changed?</code> now returns <code>false</code> after a
+call to <code>reset_[attribute]!</code>.</p>
+
+<p><em>Renato Mascarenhas</em></p>
+</li><li>
+<p>Observers was extracted from Active Model as <code>rails-observers</code>
+gem.</p>
+
+<p><em>Rafael Mendonça França</em></p>
+</li><li>
+<p>Specify type of singular association during serialization.</p>
+
+<p><em>Steve Klabnik</em></p>
+</li><li>
+<p>Fixed length validator to correctly handle <code>nil</code>. Fixes #7180.</p>
+
+<p><em>Michal Zima</em></p>
+</li><li>
+<p>Removed dispensable <code>require</code> statements. Make sure to require
+<code>active_model</code> before requiring individual parts of the
+framework.</p>
+
+<p><em>Yves Senn</em></p>
+</li><li>
+<p>Use BCrypt&#39;s <code>MIN_COST</code> in the test environment for speedier
+tests when using <code>has_secure_password</code>.</p>
+
+<p><em>Brian Cardarella + Jeremy Kemper + Trevor Turk</em></p>
+</li><li>
+<p>Add <code>ActiveModel::ForbiddenAttributesProtection</code>, a simple
+module to protect attributes from mass assignment when non-permitted
+attributes are passed.</p>
+
+<p><em>DHH + Guillermo Iguaran</em></p>
+</li><li>
+<p><code>ActiveModel::MassAssignmentSecurity</code> has been extracted from
+Active Model and the <code>protected_attributes</code> gem should be added
+to Gemfile in order to use <code>attr_accessible</code> and
+<code>attr_protected</code> macros in your models.</p>
+
+<p><em>Guillermo Iguaran</em></p>
+</li><li>
+<p>Due to a change in builder, <code>nil</code> and empty strings now generate
+closed tags, so instead of this:</p>
+
+<pre><code>&lt;pseudonyms nil=\&quot;true\&quot;&gt;&lt;/pseudonyms&gt;</code></pre>
+
+<p>it generates this:</p>
+
+<pre><code>&lt;pseudonyms nil=\&quot;true\&quot;/&gt;</code></pre>
+
+<p><em>Carlos Antonio da Silva</em></p>
+</li><li>
+<p>Inclusion/exclusion validators accept a method name passed as a symbol to
+the <code>:in</code> option.</p>
+
+<p>This allows to use dynamic inclusion/exclusion values using methods,
+besides the current lambda/proc support.</p>
+
+<p><em>Gabriel Sobrinho</em></p>
+</li><li>
+<p><code>ActiveModel::Validation#validates</code> ability to pass custom
+exception to the <code>:strict</code> option.</p>
+
+<p><em>Bogdan Gusiev</em></p>
+</li><li>
+<p>Changed
+<code>ActiveModel::Serializers::Xml::Serializer#add_associations</code> to
+by default propagate <code>:skip_types, :dasherize, :camelize</code> keys
+to included associations. It can be overridden on each association by
+explicitly specifying the option on one or more associations</p>
+
+<p><em>Anthony Alberto</em></p>
+</li><li>
+<p>Changed <code>ActiveModel::Serializers::JSON.include_root_in_json</code>
+default value to false. Now, AM Serializers and AR objects have the same
+default behaviour. Fixes #6578.</p>
+
+<pre><code>class User &lt; ActiveRecord::Base; end
+
+class Person
+  include ActiveModel::Model
+  include ActiveModel::AttributeMethods
+  include ActiveModel::Serializers::JSON
+
+  attr_accessor :name, :age
+
+  def attributes
+    instance_values
+  end
+end
+
+user.as_json
+=&gt; {&quot;id&quot;=&gt;1, &quot;name&quot;=&gt;&quot;Konata Izumi&quot;, &quot;age&quot;=&gt;16, &quot;awesome&quot;=&gt;true}
+# root is not included
+
+person.as_json
+=&gt; {&quot;name&quot;=&gt;&quot;Francesco&quot;, &quot;age&quot;=&gt;22}
+# root is not included
+</code></pre>
+
+<p><em>Francesco Rodriguez</em></p>
+</li><li>
+<p>Passing false hash values to <code>validates</code> will no longer enable
+the corresponding validators.</p>
+
+<p><em>Steve Purcell</em></p>
+</li><li>
+<p><code>ConfirmationValidator</code> error messages will attach to
+<code>:#{attribute}_confirmation</code> instead of <code>attribute</code>.</p>
+
+<p><em>Brian Cardarella</em></p>
+</li><li>
+<p>Added <code>ActiveModel::Model</code>, a mixin to make Ruby objects work
+with AP out of box.</p>
+
+<p><em>Guillermo Iguaran</em></p>
+</li><li>
+<p><code>AM::Errors#to_json</code>: support <code>:full_messages</code>
+parameter.</p>
+
+<p><em>Bogdan Gusiev</em></p>
+</li><li>
+<p>Trim down Active Model API by removing <code>valid?</code> and
+<code>errors.full_messages</code>.</p>
+
+<p><em>José Valim</em></p>
+</li><li>
+<p>When <code>^</code> or <code>$</code> are used in the regular expression
+provided to <code>validates_format_of</code> and the
+<code>:multiline</code> option is not set to true, an exception will be
+raised. This is to prevent security vulnerabilities when using
+<code>validates_format_of</code>. The problem is described in detail in the
+Rails security guide.</p>
+
+<p><em>Jan Berdajs + Egor Homakov</em></p>
+</li></ul>
+
+<p>Please check <a
+href="https://github.com/rails/rails/blob/3-2-stable/activemodel/CHANGELOG.md">3-2-stable</a>
+for previous changes.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+              </div>
+
+    </div>
+  </body>
+</html>

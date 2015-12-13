@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @premium_user.name %>
+</p>
+
+<p>
+  <strong>Admin init:</strong>
+  <%= @premium_user.admin_init %>
+</p>
+
+<%= link_to 'Edit', edit_premium_user_path(@premium_user) %> |
+<%= link_to 'Back', premium_users_path %>

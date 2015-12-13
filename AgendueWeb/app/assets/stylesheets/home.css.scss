@@ -1,0 +1,104 @@
+.navbar-brand .home {
+    color: black;
+}
+a.navbar-brand.home {
+  color: #3692d5;
+}
+
+
+nav.home {
+      box-shadow: 1px 1px 5px 2px #333333;
+      margin-bottom: -20px;
+}
+
+.navbar-default .navbar-nav.home > li > a {
+  color: #3692d5;
+}
+.navbar-default .navbar-nav.home > li > a:hover {
+  color: #ffab26;
+}
+
+body.homepage {
+  background-color: white;
+}
+div.home-container {
+  background: url("/assets/home/student-background.jpg") no-repeat center 70% fixed;
+  background-size: cover;
+}
+
+img.home-device {
+  max-height: 320px;
+  margin-left: 20px;
+  margin-right: 20px;
+  width: auto;
+}
+img.home-download-mobile {
+  height: 50%;
+  width: 50%;
+  max-width: 225px;
+  margin: 10px;
+}
+div.jumbotron.home {
+  margin-bottom: 0px;
+  background: none;
+}
+div.jumbotron.home h1 {
+  font-size: 40px;
+}
+div.jumbotron.home-top {
+  background-color: #3692d5;
+  color: white;
+  padding-bottom: 96px;
+}
+div.jumbotron.home-agendue-is {
+/*  background-color: #ffab26;
+*/  color: white;
+}
+div.jumbotron.home-devices {
+  background-color: #3692d5;
+  color: white;
+
+}
+div.jumbotron.home-features {
+  /*background-color: #ffab26;*/
+  color: white;
+}
+div.jumbotron.home-pricing {
+  background-color: #3692d5;
+  color:white;
+}
+div.jumbotron.home-footer {
+  background-color: white;
+  color: #444444;
+}
+a.btn.btn-ghost {
+  color: white;
+  border: 2px solid white;
+  border-radius: 6px;
+  height: 50px;
+}
+a.btn.btn-ghost.orange-hover:hover {
+  color: #ffab26;
+  border: 2px solid #ffab26;
+  border-radius: 6px;
+}
+a.btn.btn-sign-up {
+  margin-top: 20px;
+}
+div.home-pricing-card {
+  background-color: white;
+  box-shadow: 5px 5px 5px #444444;
+  padding: 5px;
+  margin: 10px;
+  max-width: 320px;
+  color: #444444;
+}
+div.home-pricing-card h3 {
+  margin-top: 5px;
+  margin-bottom: -10px;
+}
+div.home-pricing-card ul {
+  text-align: left;
+  margin-top: -5px;
+  list-style-type: none;
+}

@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>CHANGELOG.md</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../../../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+            <span>Ruby on Rails 4.0.0</span><br />
+        
+        <h1>
+            CHANGELOG.md
+        </h1>
+        <ul class="files">
+            
+            <li>
+                ../../.rvm/gems/ruby-2.1.2/gems/railties-4.0.0/CHANGELOG.md
+                
+            </li>
+            <li>Last modified: 2014-08-30 16:32:48 -0400</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<h2 id="label-Rails+4.0.0+%28June+25%2C+2013%29">Rails 4.0.0 (June 25, 2013)</h2>
+<ul><li>
+<p>Clearing autoloaded constants triggers routes reloading [Fixes #10685].</p>
+
+<p><em>Xavier Noria</em></p>
+</li><li>
+<p>Move rails.png into a data-uri. One less file to get generated into a new
+application. This is also consistent with the removal of index.html.</p>
+
+<p><em>Steve Klabnik</em></p>
+</li><li>
+<p>The application rake task <code>doc:rails</code> generates now an API like
+the official one (except for the links to GitHub).</p>
+
+<p><em>Xavier Noria</em></p>
+</li><li>
+<p>Allow vanilla apps to render CoffeeScript templates in production</p>
+
+<p>Vanilla apps already render CoffeeScript templates in development and test
+environments. With this change, the production behavior matches that of the
+other environments.</p>
+
+<p>Effectively, this meant moving coffee-rails (and the JavaScript runtime on
+which it is dependent) from the :assets group to the top-level of the
+generated Gemfile.</p>
+
+<p><em>Gabe Kopley</em></p>
+</li><li>
+<p>Don&#39;t generate a scaffold.css when --no-assets is specified</p>
+
+<p><em>Kevin Glowacz</em></p>
+</li><li>
+<p>Add support for generate scaffold password:digest</p>
+<ul><li>
+<p>adds password_digest attribute to the migration</p>
+</li><li>
+<p>adds has_secure_password to the model</p>
+</li><li>
+<p>adds password and password_confirmation password_fields to _form.html</p>
+</li><li>
+<p>omits password from index.html and show.html</p>
+</li><li>
+<p>adds password and password_confirmation to the controller</p>
+</li><li>
+<p>adds unencrypted password and password_confirmation to the controller test</p>
+</li><li>
+<p>adds encrypted password_digest to the fixture</p>
+</li></ul>
+
+<p><em>Sam Ruby</em></p>
+</li><li>
+<p>Improved <code>rake test</code> command for running tests</p>
+
+<p>To run all tests:</p>
+
+<pre><code>$ rake test</code></pre>
+
+<p>To run a test suite</p>
+
+<pre><code>$ rake test:[models,helpers,units,controllers,mailers,...]</code></pre>
+
+<p>To run a selected test file(s):</p>
+
+<pre><code>$ rake test test/unit/foo_test.rb [test/unit/bar_test.rb ...]</code></pre>
+
+<p>To run a single test from a test file</p>
+
+<pre><code>$ rake test test/unit/foo_test.rb TESTOPTS=&#39;-n test_the_truth&#39;</code></pre>
+</li><li>
+<p>Improve service pages with new layout (404, etc).</p>
+
+<p><em>Stanislav Sobolev</em></p>
+</li><li>
+<p>Improve <code>rake stats</code> for JavaScript and CoffeeScript: ignore
+block comments and calculates number of functions.</p>
+
+<p><em>Hendy Tanata</em></p>
+</li><li>
+<p>Ability to use a custom builder by passing <code>--builder</code> (or
+<code>-b</code>) has been removed. Consider using application template
+instead. See this guide for more detail: <a
+href="http://guides.rubyonrails.org/rails_application_templates.html">guides.rubyonrails.org/rails_application_templates.html</a></p>
+
+<p><em>Prem Sichanugrist</em></p>
+</li><li>
+<p>Fix <code>rake db:*</code> tasks to work with <code>DATABASE_URL</code> and
+without <code>config/database.yml</code>.</p>
+
+<p><em>Terence Lee</em></p>
+</li><li>
+<p>Add notice message for destroy action in scaffold generator.</p>
+
+<p><em>Rahul P. Chaudhari</em></p>
+</li><li>
+<p>Add two new test rake tasks to speed up full test runs.</p>
+<ul><li>
+<p><code>test:all</code>: run tests quickly by merging all types and not
+resetting db.</p>
+</li><li>
+<p><code>test:all:db</code>: run tests quickly, but also reset db.</p>
+</li></ul>
+
+<p><em>Ryan Davis</em></p>
+</li><li>
+<p>Add <code>--rc</code> option to support the load of a custom rc file during
+the generation of a new app.</p>
+
+<p><em>Amparo Luna</em></p>
+</li><li>
+<p>Add <code>--no-rc</code> option to skip the loading of railsrc file during
+the generation of a new app.</p>
+
+<p><em>Amparo Luna</em></p>
+</li><li>
+<p>Fixes database.yml when creating a new rails application with &#39;.&#39;
+Fixes #8304.</p>
+
+<p><em>Jeremy W. Rowe</em></p>
+</li><li>
+<p>Restore Rails::Engine::Railties#engines with deprecation to ensure
+compatibility with gems such as Thinking Sphinx Fixes #8551.</p>
+
+<p><em>Tim Raymond</em></p>
+</li><li>
+<p>Specify which logs to clear when using the <code>rake log:clear</code>
+task. (e.g. rake log:clear LOGS=test,staging)</p>
+
+<p><em>Matt Bridges</em></p>
+</li><li>
+<p>Allow a <code>:dirs</code> key in the
+<code>SourceAnnotationExtractor.enumerate</code> options to explicitly set
+the directories to be traversed so it&#39;s easier to define custom rake
+tasks.</p>
+
+<p><em>Brian D. Burns</em></p>
+</li><li>
+<p>Deprecate <code>Rails::Generators::ActiveModel#update_attributes</code> in
+favor of <code>#update</code>.</p>
+
+<p>ORMs that implement <code>Generators::ActiveModel#update_attributes</code>
+should change to <code>#update</code>. Scaffold controller generators
+should change calls like:</p>
+
+<pre><code>@orm_instance.update_attributes(...)</code></pre>
+
+<p>to:</p>
+
+<pre><code>@orm_instance.update(...)</code></pre>
+
+<p>This goes along with the addition of
+<code>ActiveRecord::Base#update</code>.</p>
+
+<p><em>Carlos Antonio da Silva</em></p>
+</li><li>
+<p>Include <code>jbuilder</code> by default and rely on its scaffold generator
+to show json API. Check <a
+href="https://github.com/rails/jbuilder">github.com/rails/jbuilder</a> for
+more info and examples.</p>
+
+<p><em>DHH</em></p>
+</li><li>
+<p>Scaffold now generates HTML-only controller by default.</p>
+
+<p><em>DHH + Pavel Pravosud</em></p>
+</li><li>
+<p>The generated <code>README.rdoc</code> for new applications invites the
+user to document the necessary steps to get the application up and running.</p>
+
+<p><em>Xavier Noria</em></p>
+</li><li>
+<p>Generated applications no longer get <code>doc/README_FOR_APP</code>. In
+consequence, the <code>doc</code> directory is created on demand by
+documentation tasks rather than generated by default.</p>
+
+<p><em>Xavier Noria</em></p>
+</li><li>
+<p>App executables now live in the <code>bin/</code> directory:
+<code>bin/bundle</code>, <code>bin/rails</code>, <code>bin/rake</code>. Run
+<code>rake rails:update:bin</code> to add these executables to your own
+app. <code>script/rails</code> is gone from new apps.</p>
+
+<p>Running executables within your app ensures they use your app&#39;s Ruby
+version and its bundled gems, and it ensures your production deployment
+tools only need to execute a single script. No more having to carefully
+<code>cd</code> to the app dir and run <code>bundle exec ...</code>.</p>
+
+<p>Rather than treating <code>bin/</code> as a junk drawer for generated
+"binstubs", bundler 1.3 adds support for generating stubs for just the
+executables you actually use: <code>bundle binstubs unicorn</code>
+generates <code>bin/unicorn</code>. Add that executable to git and version
+it just like any other app code.</p>
+
+<p><em>Jeremy Kemper</em></p>
+</li><li>
+<p><code>config.assets.enabled</code> is now true by default. If you&#39;re
+upgrading from a Rails 3.x app that does not use the asset pipeline,
+you&#39;ll be required to add <code>config.assets.enabled = false</code> to
+your application.rb. If you don&#39;t want the asset pipeline on a new app
+use <code>--skip-sprockets</code></p>
+
+<p><em>DHH</em></p>
+</li><li>
+<p>Environment name can be a start substring of the default environment names
+(production, development, test). For example: tes, pro, prod, dev, devel.
+Fixes #8628.</p>
+
+<p><em>Mykola Kyryk</em></p>
+</li><li>
+<p>Add <code>-B</code> alias for <code>--skip-bundle</code> option in the
+rails new generators.</p>
+
+<p><em>Jiri Pospisil</em></p>
+</li><li>
+<p>Quote column names in generates fixture files. This prevents conflicts with
+reserved YAML keywords such as &#39;yes&#39; and &#39;no&#39; Fixes #8612.</p>
+
+<p><em>Yves Senn</em></p>
+</li><li>
+<p>Explicit options have precedence over <code>~/.railsrc</code> on the
+<code>rails new</code> command.</p>
+
+<p><em>Rafael Mendonça França</em></p>
+</li><li>
+<p>Generated migrations now always use the <code>change</code> method.</p>
+
+<p><em>Marc-André Lafortune</em></p>
+</li><li>
+<p>Add <code>app/models/concerns</code> and
+<code>app/controllers/concerns</code> to the default directory structure
+and load path. See <a
+href="http://37signals.com/svn/posts/3372-put-chubby-models-on-a-diet-with-concerns">37signals.com/svn/posts/3372-put-chubby-models-on-a-diet-with-concerns</a>
+for usage instructions.</p>
+
+<p><em>DHH</em></p>
+</li><li>
+<p>The <code>rails/info/routes</code> now correctly formats routing output as
+an html table.</p>
+
+<p><em>Richard Schneeman</em></p>
+</li><li>
+<p>The <code>public/index.html</code> is no longer generated for new projects.
+Page is replaced by internal <code>welcome_controller</code> inside of
+railties.</p>
+
+<p><em>Richard Schneeman</em></p>
+</li><li>
+<p>Add <code>ENV['RACK_ENV']</code> support to <code>rails
+runner/console/server</code>.</p>
+
+<p><em>kennyj</em></p>
+</li><li>
+<p>Add <code>db</code> to list of folders included by <code>rake notes</code>
+and <code>rake notes:custom</code>. <em>Antonio Cangiano</em></p>
+</li><li>
+<p>Engines with a dummy app include the rake tasks of dependencies in the app
+namespace. Fixes #8229.</p>
+
+<p><em>Yves Senn</em></p>
+</li><li>
+<p>Add <code>sqlserver.yml</code> template file to satisfy <code>-d
+sqlserver</code> being passed to <code>rails new</code>. Fixes #6882.</p>
+
+<p><em>Robert Nesius</em></p>
+</li><li>
+<p>Rake test:uncommitted finds git directory in ancestors <em>Nicolas
+Despres</em></p>
+</li><li>
+<p>Add dummy app Rake tasks when <code>--skip-test-unit</code> and
+<code>--dummy-path</code> is passed to the plugin generator. Fixes #8121.</p>
+
+<p><em>Yves Senn</em></p>
+</li><li>
+<p>Add <code>.rake</code> to list of file extensions included by <code>rake
+notes</code> and <code>rake notes:custom</code>. <em>Brent J.
+Nordquist</em></p>
+</li><li>
+<p>New test locations <code>test/models</code>, <code>test/helpers</code>,
+<code>test/controllers</code>, and <code>test/mailers</code>. Corresponding
+rake tasks added as well. <em>Mike Moore</em></p>
+</li><li>
+<p>Set a different cache per environment for assets pipeline through
+<code>config.assets.cache</code>.</p>
+
+<p><em>Guillermo Iguaran</em></p>
+</li><li>
+<p><code>Rails.public_path</code> now returns a Pathname object. <em>Prem
+Sichanugrist</em></p>
+</li><li>
+<p>Remove highly uncommon <code>config.assets.manifest</code> option for
+moving the manifest path. This option is now unsupported in
+sprockets-rails.</p>
+
+<p><em>Guillermo Iguaran &amp; Dmitry Vorotilin</em></p>
+</li><li>
+<p>Add <code>config.action_controller.permit_all_parameters</code> to disable
+StrongParameters protection, it&#39;s false by default.</p>
+
+<p><em>Guillermo Iguaran</em></p>
+</li><li>
+<p>Remove <code>config.active_record.whitelist_attributes</code> and
+<code>config.active_record.mass_assignment_sanitizer</code> from new
+applications since MassAssignmentSecurity has been extracted from Rails.</p>
+
+<p><em>Guillermo Iguaran</em></p>
+</li><li>
+<p>Change <code>rails new</code> and <code>rails plugin new</code> generators
+to name the <code>.gitkeep</code> files as <code>.keep</code> in a more
+SCM-agnostic way.</p>
+
+<p>Change <code>--skip-git</code> option to only skip the
+<code>.gitignore</code> file and still generate the <code>.keep</code>
+files.</p>
+
+<p>Add <code>--skip-keeps</code> option to skip the <code>.keep</code> files.</p>
+
+<p><em>Derek Prior &amp; Francesco Rodriguez</em></p>
+</li><li>
+<p>Fixed support for <code>DATABASE_URL</code> environment variable for rake
+db tasks.</p>
+
+<p><em>Grace Liu</em></p>
+</li><li>
+<p><code>rails dbconsole</code> now can use SSL for MySQL. The
+<code>database.yml</code> options sslca, sslcert, sslcapath, sslcipher and
+sslkey now affect <code>rails dbconsole</code>.</p>
+
+<p><em>Jim Kingdon and Lars Petrus</em></p>
+</li><li>
+<p>Correctly handle SCRIPT_NAME when generating routes to engine in
+application that&#39;s mounted at a sub-uri. With this behavior, you
+<em>should not</em> use <code>default_url_options[:script_name]</code> to
+set proper application&#39;s mount point by yourself.</p>
+
+<p><em>Piotr Sarnacki</em></p>
+</li><li>
+<p><code>config.threadsafe!</code> is deprecated in favor of
+<code>config.eager_load</code> which provides a more fine grained control
+on what is eager loaded .</p>
+
+<p><em>José Valim</em></p>
+</li><li>
+<p>The migration generator will now produce AddXXXToYYY/RemoveXXXFromYYY
+migrations with references statements, for instance</p>
+
+<pre><code>rails g migration AddReferencesToProducts user:references supplier:references{polymorphic}</code></pre>
+
+<p>will generate the migration with:</p>
+
+<pre><code>add_reference :products, :user, index: true
+add_reference :products, :supplier, polymorphic: true, index: true</code></pre>
+
+<p><em>Aleksey Magusev</em></p>
+</li><li>
+<p>Allow scaffold/model/migration generators to accept a
+<code>polymorphic</code> modifier for
+<code>references</code>/<code>belongs_to</code>, for instance</p>
+
+<pre><code>rails g model Product supplier:references{polymorphic}</code></pre>
+
+<p>will generate the model with <code>belongs_to :supplier, polymorphic:
+true</code> association and appropriate migration.</p>
+
+<p><em>Aleksey Magusev</em></p>
+</li><li>
+<p>Set <code>config.active_record.migration_error</code> to
+<code>:page_load</code> for development.</p>
+
+<p><em>Richard Schneeman</em></p>
+</li><li>
+<p>Add runner to <code>Rails::Railtie</code> as a hook called just after
+runner starts.</p>
+
+<p><em>José Valim &amp; kennyj</em></p>
+</li><li>
+<p>Add <code>/rails/info/routes</code> path, displays same information as
+<code>rake routes</code> .</p>
+
+<p><em>Richard Schneeman &amp; Andrew White</em></p>
+</li><li>
+<p>Improved <code>rake routes</code> output for redirects.</p>
+
+<p><em>Łukasz Strzałkowski &amp; Andrew White</em></p>
+</li><li>
+<p>Load all environments available in
+<code>config.paths["config/environments"]</code>.</p>
+
+<p><em>Piotr Sarnacki</em></p>
+</li><li>
+<p>Remove <code>Rack::SSL</code> in favour of
+<code>ActionDispatch::SSL</code>.</p>
+
+<p><em>Rafael Mendonça França</em></p>
+</li><li>
+<p>Remove Active Resource from Rails framework.</p>
+
+<p><em>Prem Sichangrist</em></p>
+</li><li>
+<p>Allow to set class that will be used to run as a console, other than IRB,
+with <code>Rails.application.config.console=</code>. It&#39;s best to add
+it to <code>console</code> block.</p>
+
+<p>Example:</p>
+
+<pre><code># it can be added to config/application.rb
+console do
+  # this block is called only when running console,
+  # so we can safely require pry here
+  require &quot;pry&quot;
+  config.console = Pry
+end
+</code></pre>
+
+<p><em>Piotr Sarnacki</em></p>
+</li><li>
+<p>Add convenience <code>hide!</code> method to Rails generators to hide
+current generator namespace from showing when running <code>rails
+generate</code>.</p>
+
+<p><em>Carlos Antonio da Silva</em></p>
+</li><li>
+<p>Rails::Plugin has gone. Instead of adding plugins to vendor/plugins use
+gems or bundler with path or git dependencies.</p>
+
+<p><em>Santiago Pastorino</em></p>
+</li><li>
+<p>Set config.action_mailer.async = true to turn on asynchronous message
+delivery.</p>
+
+<p><em>Brian Cardarella</em></p>
+</li></ul>
+
+<p>Please check <a
+href="https://github.com/rails/rails/blob/3-2-stable/railties/CHANGELOG.md">3-2-stable</a>
+for previous changes.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+              </div>
+
+    </div>
+  </body>
+</html>

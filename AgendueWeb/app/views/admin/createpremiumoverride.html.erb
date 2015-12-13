@@ -1,0 +1,10 @@
+<h1>Premium Override</h1>
+<p>Enter a user's email address to add premium features if they don't have it, or remove it if they do. If the account does not exist, the email will be added to a list that will activate premium features upon account creation.</p>
+<p>You can enter a comma-separated list of emails.</p>
+<%= form_tag do %>
+	<div class="input-group">
+	<span class="input-group-addon">Email Addresses</span>
+	<%= text_field_tag :useremail, params[:useremail], :autocomplete => "off", :class => "form-control" %>
+	</div>
+	<%= submit_tag "Submit", :class => "loginloginbutton" %>
+<% end %>

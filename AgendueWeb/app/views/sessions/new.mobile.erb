@@ -1,0 +1,20 @@
+<h1>Sign In</h1>
+<hr>
+<p>Welcome to Agendue. Please log in below.</p>
+<%= link_to "Create an Account", new_user_path %> | 
+<%= link_to "Reset Password", new_password_reset_path %>
+<br>
+<div class="oauthlogin-button-mobile">
+	<%= link_to image_tag( 'facebook-login.png'), 'auth/facebook' %>
+</div>
+<div class="formcontainer-mobile">
+	<%= form_tag do %>
+		<div class="field">
+			<%= text_field_tag :name, params[:name], :class => "mobile", :placeholder => "Email Address" %>
+		</div>
+		<div class="field">
+			<%= password_field_tag :password, params[:password], :class => "mobile", :placeholder => "Password" %>
+		</div>
+		<%= submit_tag "Sign In", :class => "mobile" %>
+	<% end %>
+</div>

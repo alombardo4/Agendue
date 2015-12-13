@@ -1,0 +1,58 @@
+<div class="page-header">
+  <h1>Analytics for <%= @project.name %></h1>
+  <%= link_to sanitize('Back to ' +@project.name), project_path(@project) %>
+</div>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <p>Is there something you'd like to see here? Shoot us an email and let us know at <a href="mailto:team@agendue.com">team@agendue.com</a>.</p>
+    <h3>Percent Complete by Team Member</h3>
+    <script type="text/javascript">
+          google.load("visualization", "1", {packages:["corechart"]});
+    google.setOnLoadCallback(drawChart);
+    function drawChart() {
+
+      var data = google.visualization.arrayToDataTable([
+        ['Team Member', '% Complete'],
+        <% @percentCompleteByUser.each do |worker, percent| %>
+          ['<%= worker.firstname + ' ' + worker.lastname %>', <%= percent %>],
+        <% end %>
+      ]);
+
+      var options = {
+        hAxis: {title: 'Team Member'},
+        vAxis: {title: 'Percent Complete', maxValue: '100', minValue: '0'}
+      };
+
+      var chart = new google.visualization.ColumnChart(document.getElementById('percentcompletebyuserchart'));
+
+      chart.draw(data, options);
+
+    }
+    </script>
+    <div id="percentcompletebyuserchart" style="width:80%; height:600px;"></div>
+
+
+    <h3>Tasks Assigned By User</h3>
+    <script type="text/javascript">
+          google.load("visualization", "1", {packages:["corechart"]});
+          google.setOnLoadCallback(drawChart);
+          function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+              ['Team Member', 'Tasks'],
+              <% @numberAssignedByUser.each do |worker, number| %>
+                ['<%= worker.firstname + ' ' + worker.lastname %>', <%= number %>],
+              <% end %>
+            ]);
+
+            var options = {
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('numberassignedbyuserchart'));
+            chart.draw(data, options);
+          }
+    </script>
+    <div id="numberassignedbyuserchart" style="width:80%; height:600px;"></div>
+  </div>
+</div>
+
+

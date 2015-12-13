@@ -1,0 +1,39 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <%= form_for(@personal_task) do |f| %>
+      <div class="input-group">
+        <span class="input-group-addon">Title</span>
+        <%= f.text_field :title, :autocomplete => "off", :class => "form-control" %>
+      </div>
+      <br>
+      <div class="input-group">
+        <span class="input-group-addon">Description</span>
+        <%= f.text_area :description, :rows => 3, :class => "form-control", :autocomplete => "off" %>
+      </div>
+      <br>
+      <div class="input-group">
+        <span class="input-group-addon">Due Date</span>
+        <%= f.text_field :duedate, :class => "form-control", :id => "task_duedate" %>
+      </div>
+      <br>
+      <div class="input-group">
+        <%= f.label "Label" %><br>
+        <%= f.select :label, PersonalTask.labels.collect {|v,i| [v,PersonalTask.labels.index(v)]}, {:selected => @personal_task.label}, {:class => "form-control"}%>
+      </div> 
+      <br>
+      <div class="input-group">
+        <%= button_to task_path(@personal_task), :method => :post, :class => "btn btn-default blue"  do %>
+          <span class="glyphicon glyphicon-floppy-disk"></span> Save Task
+        <% end %><br>
+      </div>
+    <% end %>
+
+    <%= button_to 'Remove Task', @personal_task, method: :delete, :class => "btn btn-default red", data: { confirm: 'Are you sure you want to permanently delete this task?' } %>
+  </div>
+  </div>
+</div>
+<script>
+$(function() {
+    $("#task_duedate").datepicker({ dateFormat: "yy-mm-dd" });
+});
+</script>

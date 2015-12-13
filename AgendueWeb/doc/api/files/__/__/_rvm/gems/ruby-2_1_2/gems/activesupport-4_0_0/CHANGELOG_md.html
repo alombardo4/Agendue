@@ -1,0 +1,690 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>CHANGELOG.md</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../../../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+            <span>Ruby on Rails 4.0.0</span><br />
+        
+        <h1>
+            CHANGELOG.md
+        </h1>
+        <ul class="files">
+            
+            <li>
+                ../../.rvm/gems/ruby-2.1.2/gems/activesupport-4.0.0/CHANGELOG.md
+                
+            </li>
+            <li>Last modified: 2014-08-30 16:32:39 -0400</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<h2 id="label-Rails+4.0.0+%28June+25%2C+2013%29">Rails 4.0.0 (June 25, 2013)</h2>
+<ul><li>
+<p>Override <code>Time.at</code> to support the passing of Time-like values
+when called with a single argument.</p>
+
+<p><em>Andrew White</em></p>
+</li><li>
+<p>Allow Date to be compared with Time (like it was possible to compare Time
+with Date).</p>
+
+<p><em>DHH</em></p>
+</li><li>
+<p>Deprecate multiple parameters support of <code>Object#in?</code>.</p>
+
+<p><em>Brian Morearty + Carlos Antonio da Silva</em></p>
+</li><li>
+<p>An <code>ActiveSupport::Subscriber</code> class has been extracted from
+<code>ActiveSupport::LogSubscriber</code>, allowing you to use the event
+attachment API for other kinds of subscribers.</p>
+
+<p><em>Daniel Schierbeck</em></p>
+</li><li>
+<p><code>Class#class_attribute</code> accepts an
+<code>instance_predicate</code> option which defaults to <code>true</code>.
+If set to <code>false</code> the predicate method will not be defined.</p>
+
+<p><em>Agis Anastasopoulos</em></p>
+</li><li>
+<p><code>fast_xs</code> support has been removed. Use <code>String#encode(xml:
+:attr)</code>.</p>
+</li><li>
+<p><code>ActiveSupport::Notifications::Instrumenter#instrument</code> should
+yield its payload.</p>
+
+<p><em>stopdropandrew</em></p>
+</li><li>
+<p><code>ActiveSupport::TimeWithZone</code> raises <code>NoMethodError</code>
+in proper context. Fixes #9772.</p>
+
+<p><em>Yves Senn</em></p>
+</li><li>
+<p>Fix deletion of empty directories in
+<code>ActiveSupport::Cache::FileStore</code>.</p>
+
+<p><em>Charles Jones</em></p>
+</li><li>
+<p>Improve singularizing a singular for multiple cases. Fixes #2608 #1825
+#2395.</p>
+
+<p>Example:</p>
+
+<pre><code># Before
+&#39;address&#39;.singularize # =&gt; &#39;addres&#39;
+
+# After
+&#39;address&#39;.singularize # =&gt; &#39;address&#39;
+</code></pre>
+
+<p><em>Mark McSpadden</em></p>
+</li><li>
+<p>Prevent <code>DateTime#change</code> from truncating the second fraction,
+when seconds do not need to be changed.</p>
+
+<p><em>Chris Baynes</em></p>
+</li><li>
+<p>Added <code>ActiveSupport::TimeWithZone#to_r</code> for
+<code>Time#at</code> compatibility.</p>
+
+<p>Before this change:</p>
+
+<pre><code>Time.zone = &#39;Tokyo&#39;
+time = Time.zone.now
+time == Time.at(time) # =&gt; false
+</code></pre>
+
+<p>After the change:</p>
+
+<pre><code>Time.zone = &#39;Tokyo&#39;
+time = Time.zone.now
+time == Time.at(time) # =&gt; true
+</code></pre>
+
+<p><em>stopdropandrew</em></p>
+</li><li>
+<p><code>ActiveSupport::NumberHelper#number_to_human</code> returns the number
+unaltered when the given units hash does not contain the needed key, e.g.
+when the number provided is less than the largest key provided. Fixes
+#9269.</p>
+
+<p>Examples:</p>
+
+<pre><code>number_to_human(123, units: {}) # =&gt; 123
+number_to_human(123, units: { thousand: &#39;k&#39; }) # =&gt; 123
+</code></pre>
+
+<p><em>Michael Hoffman</em></p>
+</li><li>
+<p>Added <code>beginning_of_minute</code> support to core ext calculations for
+<code>Time</code> and <code>DateTime</code>.</p>
+
+<p><em>Gagan Awhad</em></p>
+</li><li>
+<p>Add <code>:nsec</code> date format.</p>
+
+<p><em>Jamie Gaskins</em></p>
+</li><li>
+<p><code>ActiveSupport::Gzip.compress</code> allows two optional arguments for
+compression level and strategy.</p>
+
+<p><em>Beyond</em></p>
+</li><li>
+<p>Modify <code>TimeWithZone#as_json</code> to include 3 decimal places of
+sub-second accuracy by default, which is optional as per the ISO8601 spec,
+but extremely useful. Also the default behaviour of
+<code>Date#toJSON()</code> in recent versions of Chrome, Safari and
+Firefox.</p>
+
+<p><em>James Harton</em></p>
+</li><li>
+<p>Improve <code>String#squish</code> to handle Unicode whitespace.
+<em>Antoine Lyset</em></p>
+</li><li>
+<p>Standardise on <code>to_time</code> returning an instance of
+<code>Time</code> in the local system timezone across <code>String</code>,
+<code>Time</code>, <code>Date</code>, <code>DateTime</code> and
+<code>ActiveSupport::TimeWithZone</code>.</p>
+
+<p><em>Andrew White</em></p>
+</li><li>
+<p>Extract <code>ActiveSupport::Testing::Performance</code> into <a
+href="https://github.com/rails/rails-perftest">github.com/rails/rails-perftest</a>
+You can add the gem to your <code>Gemfile</code> to keep using performance
+tests.</p>
+
+<pre><code>gem &#39;rails-perftest&#39;</code></pre>
+
+<p><em>Yves Senn</em></p>
+</li><li>
+<p><code>Hash.from_xml</code> raises when it encounters
+<code>type=&quot;symbol&quot;</code> or <code>type=&quot;yaml&quot;</code>.
+Use <code>Hash.from_trusted_xml</code> to parse this XML.</p>
+
+<p>CVE-2013-0156</p>
+
+<p><em>Jeremy Kemper</em></p>
+</li><li>
+<p>Deprecate <code>assert_present</code> and <code>assert_blank</code> in
+favor of <code>assert object.blank?</code> and <code>assert
+object.present?</code></p>
+
+<p><em>Yves Senn</em></p>
+</li><li>
+<p>Change <code>String#to_date</code> to use <code>Date.parse</code>. This
+gives more consistent error messages and allows the use of partial dates.</p>
+
+<pre><code>&quot;gibberish&quot;.to_date =&gt; Argument Error: invalid date
+&quot;3rd Feb&quot;.to_date =&gt; Sun, 03 Feb 2013
+</code></pre>
+
+<p><em>Kelly Stannard</em></p>
+</li><li>
+<p>Remove meaningless <code>ActiveSupport::FrozenObjectError</code>, which was
+just an alias of <code>RuntimeError</code>.</p>
+
+<p><em>Akira Matsuda</em></p>
+</li><li>
+<p>Introduce <code>assert_not</code> to replace warty <code>assert
+!foo</code>. <em>Jeremy Kemper</em></p>
+</li><li>
+<p>Prevent <code>Callbacks#set_callback</code> from setting the same callback
+twice.</p>
+
+<pre><code>before_save :foo, :bar, :foo</code></pre>
+
+<p>will at first call <code>bar</code>, then <code>foo</code>.
+<code>foo</code> will no more be called twice.</p>
+
+<p><em>Dmitriy Kiriyenko</em></p>
+</li><li>
+<p>Add <code>ActiveSupport::Logger#silence</code> that works the same as the
+old <code>Logger#silence</code> extension.</p>
+
+<p><em>DHH</em></p>
+</li><li>
+<p>Remove surrogate unicode character encoding from
+<code>ActiveSupport::JSON.encode</code> The encoding scheme was broken for
+unicode characters outside the basic multilingual plane; since json is
+assumed to be UTF-8, and we already force the encoding to UTF-8, simply
+pass through the un-encoded characters.</p>
+
+<p><em>Brett Carter</em></p>
+</li><li>
+<p>Deprecate <code>Time.time_with_date_fallback</code>,
+<code>Time.utc_time</code> and <code>Time.local_time</code>. These methods
+were added to handle the limited range of Ruby&#39;s native
+<code>Time</code> implementation. Those limitations no longer apply so we
+are deprecating them in 4.0 and they will be removed in 4.1.</p>
+
+<p><em>Andrew White</em></p>
+</li><li>
+<p>Deprecate <code>Date#to_time_in_current_zone</code> and add
+<code>Date#in_time_zone</code>. <em>Andrew White</em></p>
+</li><li>
+<p>Add <code>String#in_time_zone</code> method to convert a string to an
+<code>ActiveSupport::TimeWithZone</code>. <em>Andrew White</em></p>
+</li><li>
+<p>Deprecate <code>ActiveSupport::BasicObject</code> in favor of
+<code>ActiveSupport::ProxyObject</code>. This class is used for proxy
+classes. It avoids confusion with Ruby&#39;s <code>BasicObject</code>
+class.</p>
+
+<p><em>Francesco Rodriguez</em></p>
+</li><li>
+<p>Patched <code>Marshal#load</code> to work with constant autoloading. Fixes
+autoloading with cache stores that rely on <code>Marshal</code>
+(<code>MemCacheStore</code> and <code>FileStore</code>). Fixes #8167.</p>
+
+<p><em>Uriel Katz</em></p>
+</li><li>
+<p>Make <code>Time.zone.parse</code> to work with JavaScript format date
+strings. <em>Andrew White</em></p>
+</li><li>
+<p>Add <code>DateTime#seconds_until_end_of_day</code> and
+<code>Time#seconds_until_end_of_day</code> as a complement for
+<code>seconds_from_midnight</code>; useful when setting expiration times
+for caches, e.g.:</p>
+
+<pre><code>&lt;% cache(&#39;dashboard&#39;, expires_in: Date.current.seconds_until_end_of_day) do %&gt;
+  ...</code></pre>
+
+<p><em>Olek Janiszewski</em></p>
+</li><li>
+<p>No longer proxy <code>ActiveSupport::Multibyte#class</code>. <em>Steve
+Klabnik</em></p>
+</li><li>
+<p>Deprecate <code>ActiveSupport::TestCase#pending</code> method, use
+<code>skip</code> from minitest instead. <em>Carlos Antonio da Silva</em></p>
+</li><li>
+<p><code>XmlMini.with_backend</code> now may be safely used with threads:</p>
+
+<pre><code>Thread.new do
+  XmlMini.with_backend(&quot;REXML&quot;) { rexml_power }
+end
+Thread.new do
+  XmlMini.with_backend(&quot;LibXML&quot;) { libxml_power }
+end</code></pre>
+
+<p>Each thread will use it&#39;s own backend.</p>
+
+<p><em>Nikita Afanasenko</em></p>
+</li><li>
+<p>Dependencies no longer trigger <code>Kernel#autoload</code> in
+<code>remove_constant</code>. Fixes #8213. <em>Xavier Noria</em></p>
+</li><li>
+<p>Simplify <code>mocha</code> integration and remove monkey-patches, bumping
+<code>mocha</code> to 0.13.0. <em>James Mead</em></p>
+</li><li>
+<p><code>#as_json</code> isolates options when encoding a hash. Fixes #8182.</p>
+
+<p><em>Yves Senn</em></p>
+</li><li>
+<p>Deprecate <code>Hash#diff</code> in favor of minitest&#39;s diff. <em>Steve
+Klabnik</em></p>
+</li><li>
+<p><code>Kernel#capture</code> can catch output from subprocesses. <em>Dmitry
+Vorotilin</em></p>
+</li><li>
+<p><code>to_xml</code> conversions now use builder&#39;s <code>tag!</code>
+method instead of explicit invocation of <code>method_missing</code>.</p>
+
+<p><em>Nikita Afanasenko</em></p>
+</li><li>
+<p>Fixed timezone mapping of the Solomon Islands. <em>Steve Klabnik</em></p>
+</li><li>
+<p>Make callstack attribute optional in
+<code>ActiveSupport::Deprecation::Reporting</code> methods
+<code>warn</code> and <code>deprecation_warning</code>.</p>
+
+<p><em>Alexey Gaziev</em></p>
+</li><li>
+<p>Implement <code>HashWithIndifferentAccess#replace</code> so
+<code>key?</code> works correctly. <em>David Graham</em></p>
+</li><li>
+<p>Handle the possible permission denied errors <code>atomic.rb</code> might
+trigger due to its <code>chown</code> and <code>chmod</code> calls.</p>
+
+<p><em>Daniele Sluijters</em></p>
+</li><li>
+<p><code>Hash#extract!</code> returns only those keys that present in the
+receiver.</p>
+
+<pre><code>{a: 1, b: 2}.extract!(:a, :x) # =&gt; {:a =&gt; 1}
+</code></pre>
+
+<p><em>Mikhail Dieterle</em></p>
+</li><li>
+<p><code>Hash#extract!</code> returns the same subclass, that the receiver is.
+I.e. <code>HashWithIndifferentAccess#extract!</code> returns a
+<code>HashWithIndifferentAccess</code> instance.</p>
+
+<p><em>Mikhail Dieterle</em></p>
+</li><li>
+<p>Optimize <code>ActiveSupport::Cache::Entry</code> to reduce memory and
+processing overhead. <em>Brian Durand</em></p>
+</li><li>
+<p>Tests tag the Rails log with the current test class and test case:</p>
+
+<pre><code>[SessionsControllerTest] [test_0002_sign in] Processing by SessionsController#create as HTML
+[SessionsControllerTest] [test_0002_sign in] ...</code></pre>
+
+<p><em>Jeremy Kemper</em></p>
+</li><li>
+<p>Add <code>logger.push_tags</code> and <code>.pop_tags</code> to complement
+<code>logger.tagged</code>:</p>
+
+<pre><code>class Job
+  def before
+    Rails.logger.push_tags :jobs, self.class.name
+  end
+
+  def after
+    Rails.logger.pop_tags 2
+  end
+end
+</code></pre>
+
+<p><em>Jeremy Kemper</em></p>
+</li><li>
+<p>Allow delegation to the class using the <code>:class</code> keyword,
+replacing <code>self.class</code> usage:</p>
+
+<pre><code>class User
+  def self.hello
+   &quot;world&quot;
+  end
+
+  delegate :hello, to: :class
+end
+</code></pre>
+
+<p><em>Marc-Andre Lafortune</em></p>
+</li><li>
+<p><code>Date.beginning_of_week</code> thread local and
+<code>beginning_of_week</code> application config option added (default is
+Monday).</p>
+
+<p><em>Innokenty Mikhailov</em></p>
+</li><li>
+<p>An optional block can be passed to <code>config_accessor</code> to set its
+default value</p>
+
+<pre><code>class User
+  include ActiveSupport::Configurable
+
+  config_accessor :hair_colors do
+    [:brown, :black, :blonde, :red]
+  end
+end
+
+User.hair_colors # =&gt; [:brown, :black, :blonde, :red]
+</code></pre>
+
+<p><em>Larry Lv</em></p>
+</li><li>
+<p><code>ActiveSupport::Benchmarkable#silence</code> has been deprecated due
+to its lack of thread safety. It will be removed without replacement in
+Rails 4.1.</p>
+
+<p><em>Steve Klabnik</em></p>
+</li><li>
+<p>An optional block can be passed to <code>Hash#deep_merge</code>. The block
+will be invoked for each duplicated key and used to resolve the conflict.</p>
+
+<p><em>Pranas Kiziela</em></p>
+</li><li>
+<p><code>ActiveSupport::Deprecation</code> is now a class. It is possible to
+create an instance of deprecator. Backwards compatibility has been
+preserved.</p>
+
+<p>You can choose which instance of the deprecator will be used.</p>
+
+<pre><code>deprecate :method_name, deprecator: deprecator_instance</code></pre>
+
+<p>You can use <code>ActiveSupport::Deprecation</code> in your gem.</p>
+
+<pre><code>require &#39;active_support/deprecation&#39;
+require &#39;active_support/core_ext/module/deprecation&#39;
+
+class MyGem
+  def self.deprecator
+    ActiveSupport::Deprecation.new(&#39;2.0&#39;, &#39;MyGem&#39;)
+  end
+
+  def old_method
+  end
+
+  def new_method
+  end
+
+  deprecate old_method: :new_method, deprecator: deprecator
+end
+
+MyGem.new.old_method
+# =&gt; DEPRECATION WARNING: old_method is deprecated and will be removed from MyGem 2.0 (use new_method instead). (called from &lt;main&gt; at file.rb:18)
+</code></pre>
+
+<p><em>Piotr Niełacny &amp; Robert Pankowecki</em></p>
+</li><li>
+<p><code>ERB::Util.html_escape</code> encodes single quote as
+<code>#39</code>. Decimal form has better support in old browsers.
+<em>Kalys Osmonov</em></p>
+</li><li>
+<p><code>ActiveSupport::Callbacks</code>: deprecate monkey patch of object
+callbacks. Using the <code>filter</code> method like this:</p>
+
+<pre><code>before_filter MyFilter.new
+
+class MyFilter
+  def filter(controller)
+  end
+end
+</code></pre>
+
+<p>Is now deprecated with recommendation to use the corresponding filter type
+(<code>#before</code>, <code>#after</code> or <code>#around</code>):</p>
+
+<pre><code>before_filter MyFilter.new
+
+class MyFilter
+  def before(controller)
+  end
+end
+</code></pre>
+
+<p><em>Bogdan Gusiev</em></p>
+</li><li>
+<p>An optional block can be passed to
+<code>HashWithIndifferentAccess#update</code> and <code>#merge</code>. The
+block will be invoked for each duplicated key, and used to resolve the
+conflict, thus replicating the behaviour of the corresponding methods on
+the <code>Hash</code> class.</p>
+
+<p><em>Leo Cassarani</em></p>
+</li><li>
+<p>Remove <code>j</code> alias for <code>ERB::Util#json_escape</code>. The
+<code>j</code> alias is already used for
+<code>ActionView::Helpers::JavaScriptHelper#escape_javascript</code> and
+both modules are included in the view context that would confuse the
+developers.</p>
+
+<p><em>Akira Matsuda</em></p>
+</li><li>
+<p>Replace deprecated <code>memcache-client</code> gem with <code>dalli</code>
+in <code>ActiveSupport::Cache::MemCacheStore</code>.</p>
+
+<p><em>Guillermo Iguaran</em></p>
+</li><li>
+<p>Add default values to all <code>ActiveSupport::NumberHelper</code> methods,
+to avoid errors with empty locales or missing values.</p>
+
+<p><em>Carlos Antonio da Silva</em></p>
+</li><li>
+<p><code>ActiveSupport::JSON::Variable</code> is deprecated. Define your own
+<code>#as_json</code> and <code>#encode_json</code> methods for custom JSON
+string literals.</p>
+
+<p><em>Erich Menge</em></p>
+</li><li>
+<p>Add <code>String#indent</code>. <em>fxn &amp; Ace Suares</em></p>
+</li><li>
+<p>Inflections can now be defined per locale. <code>singularize</code> and
+<code>pluralize</code> accept locale as an extra argument.</p>
+
+<p><em>David Celis</em></p>
+</li><li>
+<p><code>Object#try</code> will now return <code>nil</code> instead of raise a
+<code>NoMethodError</code> if the receiving object does not implement the
+method, but you can still get the old behavior by using the new
+<code>Object#try!</code>.</p>
+
+<p><em>DHH</em></p>
+</li><li>
+<p><code>ERB::Util.html_escape</code> now escapes single quotes. <em>Santiago
+Pastorino</em></p>
+</li><li>
+<p><code>Time#change</code> now works with time values with offsets other than
+UTC or the local time zone. <em>Andrew White</em></p>
+</li><li>
+<p><code>ActiveSupport::Callbacks</code>: deprecate usage of filter object
+with <code>#before</code> and <code>#after</code> methods as
+<code>around</code> callback. <em>Bogdan Gusiev</em></p>
+</li><li>
+<p>Add <code>Time#prev_quarter</code> and <code>Time#next_quarter</code>
+short-hands for <code>months_ago(3)</code> and
+<code>months_since(3)</code>. <em>SungHee Kang</em></p>
+</li><li>
+<p>Remove obsolete and unused <code>require_association</code> method from
+dependencies. <em>fxn</em></p>
+</li><li>
+<p>Add <code>:instance_accessor</code> option for
+<code>config_accessor</code>.</p>
+
+<pre><code>class User
+  include ActiveSupport::Configurable
+  config_accessor :allowed_access, instance_accessor: false
+end
+
+User.new.allowed_access = true # =&gt; NoMethodError
+User.new.allowed_access        # =&gt; NoMethodError
+</code></pre>
+
+<p><em>Francesco Rodriguez</em></p>
+</li><li>
+<p><code>ActionView::Helpers::NumberHelper</code> methods have been moved to
+<code>ActiveSupport::NumberHelper</code> and are now available via
+<code>Numeric#to_s</code>. <code>Numeric#to_s</code> now accepts the
+formatting options <code>:phone</code>, <code>:currency</code>,
+<code>:percentage</code>, <code>:delimited</code>, <code>:rounded</code>,
+<code>:human</code>, and <code>:human_size</code>.</p>
+
+<p><em>Andrew Mutz</em></p>
+</li><li>
+<p>Add <code>Hash#transform_keys</code>, <code>Hash#transform_keys!</code>,
+<code>Hash#deep_transform_keys</code>, and
+<code>Hash#deep_transform_keys!</code>. <em>Mark McSpadden</em></p>
+</li><li>
+<p>Changed XML type <code>datetime</code> to <code>dateTime</code> (with upper
+case letter <code>T</code>). <em>Angelo Capilleri</em></p>
+</li><li>
+<p>Add <code>:instance_accessor</code> option for
+<code>class_attribute</code>. <em>Alexey Vakhov</em></p>
+</li><li>
+<p><code>constantize</code> now looks in the ancestor chain. <em>Marc-Andre
+Lafortune &amp; Andrew White</em></p>
+</li><li>
+<p>Adds <code>Hash#deep_stringify_keys</code> and
+<code>Hash#deep_stringify_keys!</code> to convert all keys from a
+<code>Hash</code> instance into strings. <em>Lucas Húngaro</em></p>
+</li><li>
+<p>Adds <code>Hash#deep_symbolize_keys</code> and
+<code>Hash#deep_symbolize_keys!</code> to convert all keys from a
+<code>Hash</code> instance into symbols. <em>Lucas Húngaro</em></p>
+</li><li>
+<p><code>Object#try</code> can&#39;t call private methods. <em>Vasiliy
+Ermolovich</em></p>
+</li><li>
+<p><code>AS::Callbacks#run_callbacks</code> remove <code>key</code> argument.
+<em>Francesco Rodriguez</em></p>
+</li><li>
+<p><code>deep_dup</code> works more expectedly now and duplicates also values
+in <code>Hash</code> instances and elements in <code>Array</code>
+instances. <em>Alexey Gaziev</em></p>
+</li><li>
+<p>Inflector no longer applies ice -&gt; ouse to words like "slice", "police",
+etc. <em>Wes Morgan</em></p>
+</li><li>
+<p>Add <code>ActiveSupport::Deprecations.behavior = :silence</code> to
+completely ignore Rails runtime deprecations. <em>twinturbo</em></p>
+</li><li>
+<p>Make <code>Module#delegate</code> stop using <code>send</code> - can no
+longer delegate to private methods. <em>dasch</em></p>
+</li><li>
+<p><code>ActiveSupport::Callbacks</code>: deprecate <code>:rescuable</code>
+option. <em>Bogdan Gusiev</em></p>
+</li><li>
+<p>Adds <code>Integer#ordinal</code> to get the ordinal suffix string of an
+integer. <em>Tim Gildea</em></p>
+</li><li>
+<p><code>ActiveSupport::Callbacks</code>: <code>:per_key</code> option is no
+longer supported. <em>Bogdan Gusiev</em></p>
+</li><li>
+<p><code>ActiveSupport::Callbacks#define_callbacks</code>: add
+<code>:skip_after_callbacks_if_terminated</code> option. <em>Bogdan
+Gusiev</em></p>
+</li><li>
+<p>Add <code>html_escape_once</code> to <code>ERB::Util</code>, and delegate
+the <code>escape_once</code> tag helper to it. <em>Carlos Antonio da
+Silva</em></p>
+</li><li>
+<p>Deprecates the compatibility method
+<code>Module#local_constant_names</code>, use
+<code>Module#local_constants</code> instead (which returns symbols).
+<em>Xavier Noria</em></p>
+</li><li>
+<p>Deletes the compatibility method <code>Module#method_names</code>, use
+<code>Module#methods</code> from now on (which returns symbols). <em>Xavier
+Noria</em></p>
+</li><li>
+<p>Deletes the compatibility method <code>Module#instance_method_names</code>,
+use <code>Module#instance_methods</code> from now on (which returns
+symbols). <em>Xavier Noria</em></p>
+</li><li>
+<p><code>BufferedLogger</code> is deprecated. Use
+<code>ActiveSupport::Logger</code>, or the logger from the Ruby standard
+library.</p>
+
+<p><em>Aaron Patterson</em></p>
+</li><li>
+<p>Unicode database updated to 6.1.0. <em>Norman Clarke</em></p>
+</li><li>
+<p>Adds <code>encode_big_decimal_as_string</code> option to force JSON
+serialization of <code>BigDecimal</code> as numeric instead of wrapping
+them in strings for safety.</p>
+</li><li>
+<p>Optimize log subscribers to check log level before doing any processing.
+<em>Brian Durand</em></p>
+</li></ul>
+
+<p>Please check <a
+href="https://github.com/rails/rails/blob/3-2-stable/activesupport/CHANGELOG.md">3-2-stable</a>
+for previous changes.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+              </div>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,299 @@
+<div class="page-header">
+  <h1><%= @project.name %></h1>
+</div>
+<%= link_to new_task_path, :method => :get, :type => "button", :class => "btn btn-default green"  do %>
+  <span class="glyphicon glyphicon-plus"></span> New Task
+<% end %>
+<%= link_to project_analytics_path(@project), :method => :get, :type => "button", :class => "btn btn-default blue"  do %>
+  <span class="glyphicon glyphicon-stats"></span> Analytics
+<% end %>
+<%= link_to edit_project_path(@project), :method => :get, :type => "button", :class => "btn btn-default blue"  do %>
+  <span class="glyphicon glyphicon-pencil"></span> Edit Project
+<% end %>
+<%= link_to copyname_path(@project), :method => :get, :type => "button", :class => "btn btn-default blue"  do %>
+  <span class="glyphicon glyphicon-share"></span> Copy Project
+<% end %>
+<br>
+<% if @project.public == true %>
+  <br>
+  <p>Public Link: <%= link_to project_show_public_url(@project.id), project_show_public_url(@project.id) %></p>
+<% end %>
+<br>
+<ul class="nav nav-tabs" role="tablist">
+  <li class="active"><a href="#home" role="tab" data-toggle="tab"><span class="glyphicon icon-home"></span>  Home</a></li>
+  <li><a href="#tasks" role="tab" data-toggle="tab"><span class="glyphicon icon-task"></span>  Tasks</a></li>
+  <li><a href="#notebook" role="tab" data-toggle="tab"><span class="glyphicon icon-notebook"></span>  Notebook</a></li>
+  <li><a href="#bulletins" role="tab" data-toggle="tab"><span class="glyphicon icon-pin"></span>  Bulletins</a></li>
+  <li><a href="#team" role="tab" data-toggle="tab"><span class="glyphicon icon-team"></span>  Team</a></li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane fade in active" id="home">
+    <% if @incomplete.length == 0 && @complete.length == 0 %>
+      <% if @wiki == nil && @messages.length == 0 %>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Get Started</h3>
+          </div>
+          <div class="panel-body">
+            <p>Get started with your new project</p>
+            <ul>
+              <li><%= link_to "Create a Task", new_task_path %></li>
+              <li><%= link_to "Add to the Notebook",edit_project_wiki_path(@project.id) %></li>
+              <li><%= link_to "Manage Team", project_shares_path(@project.id) %></li>
+            </ul>
+          </div>
+        </div>
+      <% else %>
+        <h3>There are no tasks in this project.</h3>
+        <p><%= link_to "Create a Task", new_task_path %></p>
+      <% end %>
+    <% else %>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Upcoming Tasks</h3>
+        </div>
+        <div class="panel-body">
+          <% if @incomplete.count > 0 %>
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <td></td>
+                    <td>Title</td>
+                    <td>Due Date</td>
+                    <td>Assigned To</td>
+                    <td>Label</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @incomplete.first(5).each do |task| %>
+                  <tr>
+                    <td>
+                        <%= form_for(task) do |f| %>
+                          <%= f.hidden_field :complete, :value => '1' %>
+                          <%= f.submit raw('&#9744;'), :class => "completebutton" %>
+                        <% end %>
+                    </td>
+                    <td><%= link_to sanitize(task.name), task_path(task) %></td>
+                    <% if task.duedate %>
+                      <td class="content"><p><%= task.duedate %></p></td>
+                    <% else %>
+                      <td></td>
+                    <% end %>
+                    <td><%= task.assignedto %></td>
+                    <td>
+                      <% if task.label && task.label != 0 %>
+                        <div style="border: 1px solid <%=Task.labels[task.label].downcase %>;border-radius:5px;width:40px;height:40px;background-color:<%= Task.labels[task.label].downcase %>"></div>
+                      <% end %>
+                    </td>
+                  </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          <% else %>
+            There are no upcoming tasks.
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="tab-pane fade" id="tasks">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Incomplete Tasks</h3>
+      </div>
+      <div class="panel-body">
+        <% if @incomplete.count > 0 %>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <td></td>
+                  <td>Title</td>
+                  <td>Due Date</td>
+                  <td>Assigned To</td>
+                  <td>Project</td>
+                  <td>Label</td>
+                </tr>
+              </thead>
+              <tbody>
+                <% @incomplete.each do |task| %>
+                <tr>
+                  <td>
+                      <%= form_for(task) do |f| %>
+                        <%= f.hidden_field :complete, :value => '1' %>
+                        <%= f.submit raw('&#9744;'), :class => "completebutton" %>
+                      <% end %>
+                  </td>
+                  <td><%= link_to sanitize(task.name), task_path(task) %></td>
+                  <% if task.duedate %>
+                    <td class="content"><p><%= task.duedate %></p></td>
+                  <% else %>
+                    <td></td>
+                  <% end %>
+                  <td><%= task.assignedto %></td>
+                  <td><%= link_to Project.find_by_id(task.projectid).name, project_path(Project.find_by_id(task.projectid)) %></td>
+                  <td>
+                    <% if task.label && task.label != 0 %>
+                      <div style="border: 1px solid <%=Task.labels[task.label].downcase %>;border-radius:5px;width:40px;height:40px;background-color:<%= Task.labels[task.label].downcase %>"></div>
+                    <% end %>
+                  </td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        <% else %>
+          There are no incomplete tasks.
+        <% end %>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Complete Tasks</h3>
+      </div>
+      <div class="panel-body">
+        <% if @complete.count > 0 %>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <td></td>
+                  <td>Title</td>
+                  <td>Due Date</td>
+                  <td>Assigned To</td>
+                  <td>Project</td>
+                  <td>Label</td>
+                </tr>
+              </thead>
+              <tbody>
+                <% @complete.each do |task| %>
+                <tr>
+                  <td>
+                      <%= form_for(task) do |f| %>
+                        <%= f.hidden_field :complete, :value => '0' %>
+                        <%= f.submit raw('&#9745;'), :class => "completebutton" %>
+                      <% end %>
+                  </td>
+                  <td><%= link_to sanitize(task.name), task_path(task) %></td>
+                  <% if task.duedate %>
+                    <td class="content"><p><%= task.duedate %></p></td>
+                  <% else %>
+                    <td></td>
+                  <% end %>
+                  <td><%= task.assignedto %></td>
+                  <td><%= link_to Project.find_by_id(task.projectid).name, project_path(Project.find_by_id(task.projectid)) %></td>
+                  <td>
+                    <% if task.label && task.label != 0 %>
+                      <div style="border: 1px solid <%=Task.labels[task.label].downcase %>;border-radius:5px;width:40px;height:40px;background-color:<%= Task.labels[task.label].downcase %>"></div>
+                    <% end %>
+                  </td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        <% else %>
+          There are no complete tasks.
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="tab-pane fade" id="notebook">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Notebook</h3>
+      </div>
+      <div class="panel-body">
+        <% if @project.wiki && @project.wiki.strip.length > 0 %>
+          <%= @project.wiki.html_safe %>
+        <% else %>
+          <p>Your notebook is empty. <%= link_to "Edit", edit_project_wiki_path(@project.id) %> it to get started.</p>
+        <% end %>
+      </div>
+    </div>
+    <%= link_to edit_project_wiki_path(@project), :method => :get, :type => "button", :class => "btn btn-default blue", :data => {no_turbolink: true }  do %>
+      <span class="glyphicon glyphicon-pencil"></span> Edit Notebook
+    <% end %>
+  </div>
+  <div class="tab-pane fade" id="bulletins">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Bulletins</h3>
+      </div>
+      <div class="panel-body">
+        <%= form_for Message.new, :url => messages_path, :html => {:method => :post} do |f| %>
+            <div class="input-group">
+              <span class="input-group-addon">Message</span>
+              <%= f.text_area :content, :rows => 3, :class => "form-control", :autocomplete => "off" %>
+            </div>
+            <br>
+            <div class="input-group">
+              <%= button_to messages_path, :method => :post, :class => "btn btn-default blue"  do %>
+                <span class="glyphicon icon-pin-white"></span> Post
+              <% end %><br>
+            </div>
+          <% end %>
+          <% if @messages.length == 0 %>
+            <p>There's nothing here. Make a bulletin board post to get started.</p>
+          <% else %>
+            <ul class="list-group">
+              <% @messages.each do |msg| %>
+              <li class="list-group-item">
+                <% user = User.find_by_id(msg.user) %>
+                <table class="message">
+                  <tr>
+                    <td class="messagepic">
+                      <% if user.facebook %>
+                       <%= image_tag "https://graph.facebook.com/#{user.facebook}/picture" %>
+                      <% elsif user.google_picture %>
+                        <%= image_tag user.google_picture %>
+                      <% end %>
+                    </td>
+                    <td class="messagetext">
+                      <p><%= user.firstname + ' ' + user.lastname %></p>
+                      <p><%= msg.created_at.strftime('%Y-%m-%d') %></p>
+                      <p><%= msg.content %></p>
+                    </td>
+                  </tr>
+                </table>
+              </li>
+              <% end %>
+            </ul>
+          <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="tab-pane fade" id="team">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Team</h3>
+      </div>
+      <div class="panel-body">
+        <%= button_to project_shares_path(@project.id), :method => :get, :class => "btn btn-default blue"  do %>
+          <span class="glyphicon glyphicon-cog"></span> Manage Team
+        <% end %><br>
+        <div class="table-responsive">
+          <table class="table">
+          <% @workers.each do |person| %>
+            <tr>
+              <td class="facebookimg">
+                <% if person.facebook %>
+                 <%= image_tag "https://graph.facebook.com/#{person.facebook}/picture" %>
+                <% elsif person.google_picture %>
+                  <%= image_tag person.google_picture %>
+                <% end %>
+              </td>
+              <td>
+                <%= sanitize(person.firstname + " " + person.lastname) %>
+              </td>
+            </tr>
+          <% end %>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

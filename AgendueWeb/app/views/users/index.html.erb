@@ -1,0 +1,13 @@
+
+
+<h1>Account Info</h1>
+<h2>
+	<% if @user.facebook %>
+	   <%= image_tag "http://graph.facebook.com/#{@user.facebook}/picture" %>
+	<% elsif @user.google_picture %>
+		<%= image_tag @user.google_picture %>
+	<% end %>
+	Welcome, <%= @user.firstname %> <%= @user.lastname %>!
+</h2>
+<p>You have <%= @taskscount %> tasks.</p>
+<%= button_to "Update Settings", edit_user_path(@user), :method => :get, :class => "savebutton" %>

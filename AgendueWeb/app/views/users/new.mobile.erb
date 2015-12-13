@@ -1,0 +1,26 @@
+<h1>Sign Up</h1>
+<hr>
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+      <p style="color: red">Either that user already exists, or your fields weren't filled out properly.</p>
+  <% end %>
+  <div class="field create-account">
+    <%= f.text_field :firstname, :placeholder => "First Name", :autocomplete => "off" %>
+  </div>
+  <div class="field create-account">
+    <%= f.text_field :lastname, :placeholder => "Last Name", :autocomplete => "off" %>
+  </div>
+  <div class="field create-account">
+    <%= f.email_field :name, :placeholder => "Email Address", :autocomplete => "off" %>
+  </div>
+  <div class="field create-account">
+    <%= f.password_field :password, :placeholder => "Password", :autocomplete => "off" %>
+  </div>
+  <div class="field create-account">
+    <%= f.password_field :password_confirmation, :placeholder => "Confirm Password", :autocomplete => "off" %>
+  </div>
+  <p>To sign up for Agendue, you must be at least 13 years of age. By clicking "Create User", you agree to our <%= link_to "Terms and Conditions", termsandconditions_path %>.</p>
+  <div class="actions">
+    <%= f.submit "Create Account", :class => "mobilelarge" %>
+  </div>
+<% end %>

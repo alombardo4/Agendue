@@ -1,0 +1,16 @@
+<h1>Admin Panel</h1>
+<hr>
+<p>Total Users: <%= @usercount %></p>
+<p>New users in the last week: <%= @newusers %></p>
+<br>
+<p>Total Projects: <%= @projectcount %></p>
+<p>New projects in the last week: <%= @newprojects %></p>
+<br>
+<p>Total Tasks: <%= @taskcount %></p>
+<p>New tasks in the last week: <%= @newtasks %></p>
+<br>
+<p>Average Projects per user: <%= @projectsperuser %></p>
+<p>Average Tasks per user: <%= @tasksperuser %></p>
+<%= link_to "Uncreated premium accounts", premium_users_path %><br>
+<%= link_to "All Premium Accounts", show_premium_override_path %><br>
+<%= link_to "Premium Override", create_premium_override_path %>

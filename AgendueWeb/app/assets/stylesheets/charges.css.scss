@@ -1,0 +1,72 @@
+// Place all the styles related to the charges controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#charges table {
+	width: 600px;
+
+	border-collapse: collapse;
+}
+#charges td {
+	width: 200px;
+	text-align: left;
+
+	line-height: 30px;
+}
+#charges td.top {
+	text-align: center;
+	border-bottom: 1px solid;
+
+}
+#charges td.topcorner {
+	text-align: center;
+	border-bottom: 1px solid;
+	border-right: 1px solid;
+}
+#charges td.topcenter {
+	text-align: center;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
+	border-right: 1px solid;
+}
+#charges td.center {
+	text-align: center;
+	border: 1px solid;
+}
+#charges td.middleleft {
+	border-top: 1px solid;
+	border-bottom: 1px solid;
+	border-right: 1px solid;
+}
+#charges td.middleright {
+	border-top: 1px solid;
+	border-bottom: 1px solid;
+	border-left: 1px solid;
+	text-align: center;
+}
+#charges td.bottomleft {
+	border-top: 1px solid;
+	border-right: 1px solid;
+}
+#charges td.bottomcenter {
+	text-align: center;
+	border-top: 1px solid;
+	border-right: 1px solid;
+	border-left: 1px solid;
+}
+#charges td.bottomright {
+	text-align: center;
+	border-top: 1px solid;
+	border-left: 1px solid;
+}
+#charges {
+	width: 600px;
+	border-collapse: collapse;
+}
+img.smallplus {
+	width: 40px;
+	margin:10px;
+	display: inline;
+}
+button[type="submit"].stripe-button-el {
+	display: inline;
+}

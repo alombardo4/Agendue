@@ -1,0 +1,30 @@
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/sharing"
+        android:title="@string/team"
+        android:icon="@drawable/ic_action_share_view"
+        android:orderInCategory="400"
+        app:showAsAction="ifRoom|collapseActionView" />
+
+    <item android:id="@+id/whiteboard_button"
+        android:title="@string/whiteboard"
+        android:icon="@drawable/ic_action_whiteboard"
+        android:orderInCategory="200"
+        app:showAsAction="always" />
+    <item android:id="@+id/bulletins_button"
+        android:title="@string/bulletins"
+        android:icon="@drawable/ic_action_bulletins"
+        android:orderInCategory="300"
+        app:showAsAction="always" />
+    <item android:id="@+id/completed_tasks_button"
+        android:title="@string/completed_tasks"
+        android:icon="@drawable/ic_action_completed"
+        android:orderInCategory="600"
+        app:showAsAction="ifRoom|collapseActionView"/>
+    <item android:id="@+id/edit_project_button"
+        android:title="@string/edit_project"
+        android:icon="@drawable/ic_action_edit"
+        android:orderInCategory="500"
+        app:showAsAction="ifRoom|collapseActionView"/>
+</menu>

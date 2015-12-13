@@ -1,0 +1,19 @@
+<h1>Account Info</h1>
+<hr>
+<h2>
+	<% if @user.facebook %>
+	   <%= image_tag "https://graph.facebook.com/#{@user.facebook}/picture" %>
+	<% end %>
+	Welcome, <%= @user.firstname %> <%= @user.lastname %>!
+</h2>
+<hr>
+<p>You have <%= @taskscount %> tasks.</p>
+<hr>
+<% if @user.currentSubscriber == false || @user.currentSubscriber == nil %>
+	<%= button_to "Subscribe to Agendue Plus", new_charge_path, :method => :get, :class => "mobilexlarge" %>
+<% end %>
+<% if @user.premiumoverride == true %>
+	<p>You have an unlimited Agendue Plus subscription.</p>
+<% end %>
+<%= button_to "Update Settings", edit_user_path(@user), :method => :get, :class => "mobilelarge" %>
+<%= button_to "View Tour", tour_path, :method => :get, :class => "mobilelarge" %>

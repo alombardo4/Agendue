@@ -1,0 +1,107 @@
+<div class="page-header">
+  <h1>All Tasks</h1>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#incomplete">Incomplete Tasks</a></h3>
+  </div>
+  <div id="incomplete" class="panel-collapse collapse in">
+    <div class="panel-body">
+      <% if @incomplete.count > 0 %>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <td></td>
+                <td>Task Title</td>
+                <td>Due Date</td>
+                <td>Assigned To</td>
+                <td>Project</td>
+                <td>Label</td>
+              </tr>
+            </thead>
+            <tbody>
+              <% @incomplete.each do |task| %>
+              <tr>
+                <td>
+                    <%= form_for(task) do |f| %>
+                      <%= f.hidden_field :complete, :value => '1' %>
+                      <%= f.submit raw('&#9744;'), :class => "completebutton" %>
+                    <% end %>
+                </td>
+                <td><%= link_to sanitize(task.name), task_path(task) %></td>
+                <% if task.duedate %>
+                  <td class="content"><p><%= task.duedate %></p></td>
+                <% else %>
+                  <td></td>
+                <% end %>
+                <td><%= task.assignedto %></td>
+                <td><%= link_to Project.find_by_id(task.projectid).name, project_path(Project.find_by_id(task.projectid)) %></td>
+                <td>
+                  <% if task.label && task.label != 0 %>
+                    <div style="border: 1px solid <%=Task.labels[task.label].downcase %>;border-radius:5px;width:40px;height:40px;background-color:<%= Task.labels[task.label].downcase %>"></div>
+                  <% end %>
+                </td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      <% else %>
+        There are no incomplete tasks.
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#complete">Complete Tasks</a></h3>
+  </div>
+  <div id="complete" class="panel-collapse collapse in">
+    <div class="panel-body">
+      <% if @complete.count > 0 %>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <td></td>
+                <td>Task Title</td>
+                <td>Due Date</td>
+                <td>Assigned To</td>
+                <td>Project</td>
+                <td>Label</td>
+              </tr>
+            </thead>
+            <tbody>
+              <% @complete.each do |task| %>
+              <tr>
+                <td>
+                    <%= form_for(task) do |f| %>
+                      <%= f.hidden_field :complete, :value => '0' %>
+                      <%= f.submit raw('&#9745;'), :class => "completebutton" %>
+                    <% end %>
+                </td>
+                <td><%= link_to sanitize(task.name), task_path(task) %></td>
+                <% if task.duedate %>
+                  <td class="content"><p><%= task.duedate %></p></td>
+                <% else %>
+                  <td></td>
+                <% end %>
+                <td><%= task.assignedto %></td>
+                <td><%= link_to Project.find_by_id(task.projectid).name, project_path(Project.find_by_id(task.projectid)) %></td>
+                <td>
+                  <% if task.label && task.label != 0 %>
+                    <div style="border: 1px solid <%=Task.labels[task.label].downcase %>;border-radius:5px;width:40px;height:40px;background-color:<%= Task.labels[task.label].downcase %>"></div>
+                  <% end %>
+                </td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      <% else %>
+        There are no complete tasks.
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Agendue</title>
+   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-49704891-1', 'agendue.com');
+    ga('send', 'pageview');
+
+  </script>
+  <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+  <link rel="apple-touch-icon" href="assets/agendue-icon.png" >
+</head>
+<body class="homepage">
+  <nav class="navbar navbar-default home" role="navigation">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <%= link_to image_tag("agendue-icon.png", :alt => "Agendue", :class => "nav-icon"), root_path, :class => "navbar-brand" %>
+        <%= link_to "Agendue", root_path, :class => "navbar-brand home" %>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right home">
+            <li><%= link_to "Sign Up", new_user_path %></li>
+            <li><%= link_to "Sign In", login_path %></li>
+
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+  <div class="home-container">
+    <div class="jumbotron home home-top">
+      <h1>Organize all your projects with <span class="orange">Agendue</span></h1>
+      <div class="col-md-9"></div>
+      <div class="col-md-3">
+        <%= link_to "Sign In", login_path, :class => "btn btn-ghost btn-lg btn-sign-up orange-hover" %>
+        <%= link_to "Sign Up", new_user_path, :class => "btn btn-ghost btn-lg btn-sign-up orange-hover" %>
+      </div>
+    </div>
+    <div class="jumbotron home home-agendue-is">
+      <div class="row">
+        <div class="col-md-3">
+          <h1><span class="orange">Agendue</span> is: </h1>
+        </div>
+        <div class="col-md-2"><h1>fast</h1></div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 visible-md-block visible-lg-block"></div>
+        <div class="col-md-2"><h1>easy</h1></div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 visible-md-block visible-lg-block"></div>
+        <div class="col-md-2"><h1>simple</h1></div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 visible-md-block visible-lg-block"></div>
+        <div class="col-md-2"><h1>organized</h1></div>
+      </div>
+    </div>
+    <div class="jumbotron home home-devices">
+      <h1><span class="orange">Agendue</span> is on your favorite devices.</h1>
+      <div class="row text-center visible-sm-block visible-md-block visible-lg-block">
+        <%= image_tag("home/Web-Agendue.png", :alt => "Agendue Web", :class =>"img-responsive inline home-device") %>
+        <%= image_tag("home/iPhone-Agendue.png", :alt => "Agendue iOS", :class =>"img-responsive inline home-device") %>
+        <%= image_tag("home/Android-Agendue.png", :alt => "Agendue Android", :class => "img-responsive inline home-device") %>
+      </div>
+      <div class="row text-center">
+        <a href="https://itunes.apple.com/us/app/agendue/id819949893?ls=1&amp;mt=8" target="_blank">
+          <%= image_tag("home/App-Store.png", :alt => "Agendue iOS", :class =>"img-responsive inline home-download-mobile") %>
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.agendue.agendue" target="_blank">
+          <%= image_tag("home/Play-Store.png", :alt => "Agendue Android", :class =>"img-responsive inline home-download-mobile") %>
+        </a>
+      </div>
+    </div>
+    <div class="jumbotron home home-features">
+      <h1><span class="orange">Agendue</span> is loaded with features</h1>
+      <div class="row">
+        <div class="col-md-3">
+          <p>Create projects</p>
+          <p>Track progress</p>
+          <p>Share with teams</p>
+        </div>
+        <div class="col-md-3 visible-md-block visible-lg-block">
+          <p>View a calendar</p>
+          <p>Duplicate projects</p>
+          <p>Take notes</p>
+        </div>
+        <div class="col-md-3 visible-md-block visible-lg-block">
+          <p>View analytics</p>
+          <p>Manage workloads</p>
+          <p>Set due dates</p>
+        </div>
+        <div class="col-md-3">
+          <p>Create tasks</p>
+          <p>Leave bulletins</p>
+          <p>And more...</p>
+        </div>
+      </div>
+    </div>
+    <div class="jumbotron home home-pricing">
+      <h1><span class="orange">Agendue</span> is affordable</h1>
+      <div class="row text-center">
+        <div class="col-md-1">
+
+        </div>
+        <div class="col-md-4">
+          <div class="home-pricing-card">
+            <h3><span class="blue">Agendue</span></h3>
+            <h5>Free forever</h5>
+            <hr>
+            <ul>
+              <li>Unlimited tasks</li>
+              <li>Unlimited projects</li>
+              <li>Unlimited bulletins</li>
+              <li>Unlimited whiteboards</li>
+              <li>Unlimited team members</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-4">
+          <div class="home-pricing-card">
+            <h3><span class="orange">Agendue for Business</span></h3>
+            <h5>Priced by number of employees</h5>
+            <hr>
+            <ul>
+              <li>All the features of Agendue</li>
+              <li>Powerful analytics</li>
+              <li>Project duplication</li>
+              <li>Custom branding</li>
+              <li>More business-centric features</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-1"></div>
+      </div>
+      <div class="row text-center">
+        <p>Want to sign up for Agendue for Business? <%= link_to "Contact Us", contact_path, :class => "orange" %> and we'll work out a deal.</p>
+        <p>Agendue is free for personal, student, and nonprofit organization use. Business customers must subscribe to Agendue for Business.</p>
+      </div>
+    </div>
+    <div class="jumbotron home home-footer">
+      <div class="row text-center">
+        <p>
+          <%= link_to "Help", helps_path %> |
+          <%= link_to "Privacy Policy", privacy_path %> |
+          <%= link_to "Contact Us", contact_path %> |
+          &copy Fogerty Lombardo, LLC
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

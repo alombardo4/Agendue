@@ -1,0 +1,15 @@
+<h1>Reset Password</h1>
+<hr>
+<p>Enter your email address below to reset your password.</p>
+<%= form_tag password_resets_path, :method => :post do %>
+  <div class="input-group">
+    <span class="input-group-addon">Email Address</span>
+    <%= text_field_tag :name, params[:name], :autocomplete => "off", :class => "form-control" %>
+  </div>
+  <br>
+  <div class="input-group">
+    <%= button_to password_resets_path, :method => :post, :class => "btn btn-default blue"  do %>
+        <span class="glyphicon glyphicon-ok"></span> Reset Password
+    <% end %>
+  </div>
+<% end %>

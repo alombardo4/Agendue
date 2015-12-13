@@ -1,0 +1,89 @@
+// Place all the styles related to the newusertour controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.tour {
+	color: white;
+	width: 60%;
+	text-align: center;
+	margin-left: 20%;
+	margin-right: 20%;
+}
+
+.tour h1 {
+	font-size: 72px;
+}
+.tour h2 {
+	font-size: 36px;
+}
+.tour h4 {
+	font-size: 36px;
+}
+
+img.tourpic {
+	width: 40%;
+}
+
+.tournav {
+	font-size: 20px;
+}
+
+a.tourbutton {
+	background-color: #ffab26;
+	padding: 10px;
+	padding-left:20px;
+	padding-right:20px;
+	margin-top:20px;
+	font-size:24px;
+	color: white;
+	text-decoration: none;
+	border: 1px solid #ffab26;
+	border-radius: 20px;
+}
+
+a.tourbutton:hover {
+	text-decoration: none;
+	color:white;
+	background-color: #f7931e;
+	border: 1px solid #f7931e;
+}
+/*mobile*/
+@media all and (max-device-width: 640px) {
+	.tour {
+		width: 80%;
+		margin-left: 10%;
+		margin-right: 10%;
+	}
+	.tour h1 {
+		font-size: 120px;
+	}
+	.tour h2 {
+		font-size: 60px;
+	}
+	.tour h4 {
+		font-size: 40px;
+	}
+
+	img.tourpic {
+		width: 80%;
+	}
+	.bottom {
+		font-size: 40px;
+		color:white;
+		display:inline;
+	}
+
+	a.tourbutton {
+      display: inline-block;
+      color: white;
+      font-size: 60px;
+      text-align: center;
+      line-height: 100px;
+      text-decoration: none;
+      background: #ffab26;
+      height:100px;
+      padding:20px;
+      border: 1px #ffab26 solid;
+      border-radius: 20px;
+  	}
+}

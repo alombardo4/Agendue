@@ -1,0 +1,57 @@
+<div class="page-header">
+  <h1>Sign Up</h1>
+</div>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="input-group">
+      <div class="oauthlogin-button">
+        <%= link_to image_tag( 'facebook-login.png'), '/auth/facebook' %>
+      </div>
+      <div class="oauthlogin-button">
+        <%= link_to image_tag( 'google-login.png'), '/auth/google_oauth2' %>
+      </div>
+    </div>
+    <br>
+    <% if @user.errors.full_messages.any? %>
+      <% @user.errors.full_messages.each do |message| %>
+        <div class="alert alert-danger alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+    <%= form_for(@user) do |f| %>
+      <div class="input-group">
+        <span class="input-group-addon">First Name</span>
+        <%= f.text_field :firstname, :autocomplete => "off", :class => "form-control" %>
+      </div>
+      <br>
+      <div class="input-group">
+        <span class="input-group-addon">Last Name</span>
+        <%= f.text_field :lastname, :autocomplete => "off", :class => "form-control" %>
+      </div>
+      <br>
+      <div class="input-group">
+        <span class="input-group-addon">Email Address</span>
+        <%= f.email_field :name, :autocomplete => "off", :class => "form-control" %>
+      </div>
+      <br>
+      <div class="input-group">
+        <span class="input-group-addon">Password</span>
+        <%= f.password_field :password, :autocomplete => "off", :class => "form-control" %>
+      </div>
+      <br>
+      <div class="input-group">
+        <span class="input-group-addon">Confirm Password</span>
+        <%= f.password_field :password_confirmation, :autocomplete => "off", :class => "form-control" %>
+      </div>
+      <br>
+      <p>To sign up for Agendue, you must be at least 13 years of age. By clicking "Create Account", you agree to our <%= link_to "Terms and Conditions", termsandconditions_path %>.</p>
+      <div class="input-group">
+        <%= button_to users_path, :method => :post, :class => "btn btn-default green" do %>
+          <span class="glyphicon glyphicon-floppy-disk"></span> Create Account
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

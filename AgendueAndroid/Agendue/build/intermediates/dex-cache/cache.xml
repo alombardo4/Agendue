@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/alec/Git/AgendueAndroid/Agendue/agendue/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.0.1"
+        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
+        <dex dex="/Users/alec/Git/AgendueAndroid/Agendue/agendue/build/intermediates/pre-dexed/debug/classes-9b69962187c4fb562676b159214d4fd660fbdefa.jar" />
+    </item>
+    <item
+        jar="/Users/alec/android-sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.3/support-annotations-21.0.3.jar"
+        jumboMode="false"
+        revision="21.0.1"
+        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
+        <dex dex="/Users/alec/Git/AgendueAndroid/Agendue/agendue/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-0e8439ea500fcc104c6cf26b097f3d648dd9cfe1.jar" />
+    </item>
+    <item
+        jar="/Users/alec/Git/AgendueAndroid/Agendue/agendue/build/intermediates/exploded-aar/com.google.android.gms/play-services/3.1.59/classes.jar"
+        jumboMode="false"
+        revision="21.0.1"
+        sha1="2dd7b1a9ea65bb03d9cd16df777eeaf537a1fc81">
+        <dex dex="/Users/alec/Git/AgendueAndroid/Agendue/agendue/build/intermediates/pre-dexed/debug/classes-a0cf6697e7e83dcf7241f4cb8fe799bdab9a1880.jar" />
+    </item>
+    <item
+        jar="/Users/alec/Git/AgendueAndroid/Agendue/agendue/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/libs/internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.0.1"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="/Users/alec/Git/AgendueAndroid/Agendue/agendue/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-66ea17381bfbe6b2396fd101bef343ca6dd8772d.jar" />
+    </item>
+    <item
+        jar="/Users/alec/.gradle/caches/modules-2/files-2.1/com.nineoldandroids/library/2.4.0/e9b63380f3a242dbdbf103a2355ad7e43bad17cb/library-2.4.0.jar"
+        jumboMode="false"
+        revision="21.0.1"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="/Users/alec/Git/AgendueAndroid/Agendue/agendue/build/intermediates/pre-dexed/debug/library-2.4.0-4aab722668d270e19e4fb99afe04d4b1b1f74417.jar" />
+    </item>
+    <item
+        jar="/Users/alec/Git/AgendueAndroid/Agendue/agendue/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/21.0.0/classes.jar"
+        jumboMode="false"
+        revision="21.0.1"
+        sha1="efeda77c808750cb670ee9c48d8a1835d89dbcb2">
+        <dex dex="/Users/alec/Git/AgendueAndroid/Agendue/agendue/build/intermediates/pre-dexed/debug/classes-7b702395c8b7164c7152de003390c75babd98224.jar" />
+    </item>
+    <item
+        jar="/Users/alec/Git/AgendueAndroid/Agendue/agendue/build/intermediates/exploded-aar/com.melnykov/floatingactionbutton/1.1.0/classes.jar"
+        jumboMode="false"
+        revision="21.0.1"
+        sha1="ee9ae2b87d57a33a7381c75d54db12bdf2995656">
+        <dex dex="/Users/alec/Git/AgendueAndroid/Agendue/agendue/build/intermediates/pre-dexed/debug/classes-f9825f238079ee6a02688fccf9f52a94a4c444be.jar" />
+    </item>
+    <item
+        jar="/Users/alec/Git/AgendueAndroid/Agendue/agendue/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.0.1"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="/Users/alec/Git/AgendueAndroid/Agendue/agendue/build/intermediates/pre-dexed/debug/classes-e83cd633769f2471f3fdc6a2873828822a0a79bf.jar" />
+    </item>
+
+</items>

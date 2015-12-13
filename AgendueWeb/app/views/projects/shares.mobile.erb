@@ -1,0 +1,60 @@
+<h1>Manage Team</h1>
+<%= link_to sanitize('Back to ' + @project.name), project_path(@project), data: {no_turbolink: true}  %>
+<hr>
+<h2>Add Team Members</h2>
+<% if @canaddusers %>
+  <%= form_for(@project) do |f| %>
+    <div class="fieldmobile">
+      <strong><%= f.label "Share With:" %></strong>
+      <%= f.text_field :shares, :placeholder => "Email Address", :class => "emailentrymobile" %>
+      <%= f.submit "+", :class => "plus" %>
+    </div>
+  <% end %>
+  <br>
+<% else %>
+  <% if @user.premium %>
+    <p>You can't add any more teammates because some of your current teammates aren't Agendue Plus subscribers. Ask them all to subscribe to add more teammates. Everyone in your project needs to be an Agendue Plus subscriber to have more than 5 teammates.</p>
+  <% else %>
+    <p>Everyone in your project needs to be an Agendue Plus subscriber to have more than 5 teammates.</p>
+    <%= button_to "Subscribe Now", new_charge_path, method: :get, :class => "mobilelarge" %>
+  <% end %>
+<% end %>
+<hr>
+<h2>Current Team Members</h2>
+<table>
+<% @workers.each do |person| %>
+  <tr class="shares">
+    <td>
+      <% if person.facebook %>
+       <%= image_tag "https://graph.facebook.com/#{person.facebook}/picture" %>
+      <% else %>
+        <div class="iconmelon person">
+          <svg viewBox="0 0 32 32">
+            <use xlink:href="#user-3"></use>
+          </svg>
+        </div>
+      <% end %>
+    </td>
+    <td>
+      <%= sanitize(person.firstname + " " + person.lastname) %>
+    </td>
+    <td>
+      <%= button_to raw('&times;'), {:controller => "projects", :action => "removeshare", :id => @project.id, :user => person.id }, method: :post, :class => "mobilesmall", data: { confirm: 'Are you sure you want to remove this person from your projects?' } %>
+    </td>
+    <td>
+      <% if person.premium %>
+        <p>Agendue Plus</p>
+      <% elsif person.premiumoverride %>
+        <p>Agendue Plus Unlimited</p>
+      <% else %>
+        <p>Agendue free</p>
+      <% end %>
+    </td>
+  </tr>
+<% end %>
+</table>
+<script>
+$(function() {
+    $("#project_shares").val('');
+});
+</script>

@@ -1,0 +1,166 @@
+<RelativeLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/task_details_scrollview" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <CheckBox
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginLeft="14dp"
+                android:scaleX="1.2"
+                android:scaleY="1.2"
+                android:layout_marginTop="6dp"
+                android:id="@+id/task_details_checkbox"
+                android:layout_alignParentTop="true"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="24dp"
+                android:id="@+id/task_details_title"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/task_details_checkbox"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="30dp"
+                android:layout_centerVertical="true"
+                android:minLines="1"
+                android:layout_alignRight="@+id/task_details_assigned"
+                android:layout_alignEnd="@+id/task_details_assigned" />
+
+            <TextView
+                android:text="@string/assigned_to"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:textColor="@android:color/darker_gray"
+                android:layout_marginTop="15dp"
+                android:id="@+id/task_details_assigned_title"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_below="@+id/task_details_title"
+                android:clickable="false"
+                android:editable="true"
+                android:enabled="true" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:id="@+id/task_details_assigned_line"
+                android:background="@android:color/darker_gray"
+                android:layout_below="@id/task_details_assigned_title"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="2dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/task_details_assigned"
+                android:layout_marginLeft="22dp"
+                android:layout_marginRight="22dp"
+                android:layout_marginTop="2dp"
+                android:layout_below="@+id/task_details_assigned_line"
+                android:clickable="false"
+                android:editable="true"
+                android:enabled="true" />
+
+            <TextView
+                android:text="@string/description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:textColor="@android:color/darker_gray"
+                android:layout_marginTop="10dp"
+                android:id="@+id/task_details_description1"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_below="@+id/task_details_assigned"
+                android:clickable="false"
+                android:editable="true"
+                android:enabled="true" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:id="@+id/task_details_description_line"
+                android:background="@android:color/darker_gray"
+                android:layout_below="@id/task_details_description1"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="2dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/task_details_description"
+                android:layout_marginLeft="22dp"
+                android:layout_marginRight="22dp"
+                android:layout_marginTop="2dp"
+                android:layout_below="@+id/task_details_description_line"
+                android:clickable="false"
+                android:editable="true"
+                android:enabled="true"/>
+
+
+            <TextView
+                android:text="@string/duedate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:textColor="@android:color/darker_gray"
+                android:layout_marginTop="10dp"
+                android:id="@+id/task_details_duedate"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_below="@+id/task_details_description"
+                android:clickable="false"
+                android:editable="true"
+                android:enabled="true" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:id="@+id/task_details_duedate_line"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"
+                android:layout_below="@id/task_details_duedate"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="2dp"/>
+
+
+            <CalendarView
+                android:layout_marginTop="5dp"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:id="@+id/task_details_calendar"
+                android:layout_below="@+id/task_details_duedate_line"
+                android:layout_centerHorizontal="true"
+                android:showWeekNumber="false"
+                android:clickable="false"
+                android:focusable="false"
+                android:enabled="false"/>
+
+            <WebView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:id="@+id/task_details_label"
+                android:layout_alignTop="@+id/task_details_title"
+                android:layout_alignRight="@+id/task_details_description" />
+
+
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

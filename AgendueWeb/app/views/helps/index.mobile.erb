@@ -1,0 +1,41 @@
+<h1>Agendue Help</h1>
+<%     if @iseditor %>
+  <%= link_to 'New Help', new_help_path %>
+<% end %>
+<p>Help topics and instructions are organized by topic.</p>
+<h3>Projects</h3>
+<% if @projects.length > 0 %>
+  <% @projects.each do |help| %>
+    <%= link_to help.title, help_path(help) %><br>
+  <% end %>
+<% else %>
+  <p>There's nothing here</p>
+<% end %>
+
+<h3>Tasks</h3>
+<% if @tasks.length > 0 %>
+  <% @tasks.each do |help| %>
+    <%= link_to help.title, help_path(help) %><br>
+  <% end %>
+<% else %>
+  <p>There's nothing here</p>
+<% end %>
+
+<h3>Agendue Plus</h3>
+<% if @agendueplus.length > 0 %>
+  <% @agendueplus.each do |help| %>
+    <%= link_to help.title, help_path(help) %><br>
+  <% end %>
+<% else %>
+  <p>There's nothing here</p>
+<% end %>
+<h3>Other</h3>
+<% if @other.length > 0 %>
+  <% @other.each do |help| %>
+    <%= link_to help.title, help_path(help) %><br>
+  <% end %>
+<% else %>
+  <p>There's nothing here</p>
+<% end %>
+<br>
+<p>Have another question that wasn't answered? Ask the team at <a href="mailto:team@agendue.com">Team@Agendue.com</a></p>

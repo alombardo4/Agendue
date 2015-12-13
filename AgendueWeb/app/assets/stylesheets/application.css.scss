@@ -1,0 +1,260 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree
+ *= require fullcalendar
+ *= require jquery-ui
+ *= require jquery.minicolors
+ *= require bootstrap-wysihtml5
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+/*main*/
+
+body {
+    font-family: 'Lato', Helvetica, Arial, sans-serif;
+    background-color: #3692d5;
+}
+#body-container {
+    padding-top: 70px;
+    padding-bottom: 20px;
+    background-color: white;
+    margin-bottom: 20px;
+    box-shadow: 1px 1px 5px 2px rgba(0,0,0,0.26) /*#555555*/;
+
+}
+a.orange {
+    color: #ffab26;
+}
+nav#bottom-nav {
+    margin-bottom: -40px;
+}
+
+.colpick {
+    z-index: 99;
+}
+
+div.page-header h1 {
+    color: #3692d5;
+    text-align: center;
+}
+
+nav.blue {
+    background-color: #3692d5;
+    color: white;
+    box-shadow: 1px 1px 5px 2px rgba(0,0,0,0.26) /*#555555*/;
+    border:none;
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: white;
+}
+a.navbar-brand.blue {
+    font-size: 16px;
+}
+nav a {
+    font-size: 16px;
+}
+a.navbar-brand.blue:hover{
+    color: #ffab26;
+}
+nav.blue:hover {
+    background-color: #3692d5;
+    color: white;
+}
+
+.navbar-default .navbar-nav > li > a, .navbar-default .navbar-brand {
+    color:white;
+    transition: color 0.1s ease-in-out;
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-brand:hover {
+    color: gray;
+    transition: color 0.1s ease-in-out;
+}
+img.nav-icon {
+    margin-top:-10px;
+    height: 40px;
+}
+
+a.white, button.white {
+    color: white;
+}
+
+a.green, button.green {
+    background-color: #4FDB88;
+}
+
+a.green:hover, button.green:hover {
+    background-color: #6FDB68;
+}
+
+a.blue, button.blue {
+    color:white;
+    background-color: #3692d5;
+}
+a.blue:hover, button.blue:hover {
+    color:white;
+    background-color: #0071bc;
+}
+
+a.red, button.red {
+    color:white;
+    background-color: #d9534f;
+}
+a.red:hover, button.red:hover {
+    color:white;
+    background-color: #BA3C38;
+}
+
+.inline {
+    display: inline-block;
+}
+
+.completebutton {
+    color: #3692d5;
+    font-size: 30px;
+    line-height:30px;
+    text-decoration: none;
+    cursor: pointer;
+    padding: -5px;
+    border:none;
+    text-align: center;
+    background: none;
+}
+.incompletebutton {
+    color: #3692d5;
+    padding: -5px;
+    font-size: 30px;
+    text-decoration: none;
+    cursor: pointer;
+    border:none;
+    background: none;
+    text-align: center;
+}
+
+.icon-home {
+    background: image-url("feature-icons/Home.png") no-repeat;
+    background-size: 100%;
+    height: 14px;
+    line-height: 14px;
+    width: 14px;
+    background-position: center center;
+}
+
+.icon-pin {
+    background: image-url("feature-icons/Pin.png") no-repeat;
+    background-size: 100%;
+    height: 14px;
+    line-height: 14px;
+    width: 14px;
+    background-position: center center;
+}
+
+.icon-pin-white {
+    background: image-url("feature-icons/Pin-white.png") no-repeat;
+    background-size: 100%;
+    height: 14px;
+    line-height: 14px;
+    width: 14px;
+    background-position: center center;
+}
+
+.icon-notebook {
+    background: image-url("feature-icons/Notebook.png") no-repeat;
+    background-size: 100%;
+    height: 14px;
+    line-height: 14px;
+    width: 14px;
+    background-position: center center;
+}
+
+.icon-task {
+    background: image-url("feature-icons/Task.png") no-repeat;
+    background-size: 100%;
+    height: 14px;
+    line-height: 14px;
+    width: 14px;
+    background-position: center center;
+}
+
+.icon-team {
+    background: image-url("feature-icons/Team.png") no-repeat;
+    background-size: 100%;
+    height: 14px;
+    line-height: 14px;
+    width: 14px;
+    background-position: center center;
+}
+
+.projectcontent {
+    display: none;
+}
+
+#home-content {
+    display: block;
+}
+table.message td.messagepic {
+    height: 50px;
+    padding: 10px;
+}
+
+td.messagetext p {
+    line-height: 12px;
+}
+td.facebookimg {
+    width: 60px;
+}
+
+#copyname input[type="checkbox"] {
+    margin-right: 20px;
+}
+
+span.blue {
+    color: #3692d5;
+}
+span.orange {
+    color: #ffab26;
+}
+
+table#team {
+    color:white;
+    background-color: #3692d5;
+}
+
+footer {
+    text-align: center;
+    color: black;
+}
+
+footer a {
+    color: black;
+}
+.input-group {
+    width: 60%;
+    min-width: 320px;
+}
+.input-group-addon {
+    width: 100px;
+    text-align: left;
+}
+
+.navbar-deafault .navbar-toggle {
+    border-color: none;
+}
+
+.minicolors-theme-bootstrap .minicolors-swatch {
+    z-index:99;
+}
+
+.error-body {
+  text-align:center;
+  margin-bottom:30px;
+}

@@ -1,0 +1,4 @@
+<h1>All Premium Override Users (premium not included)</h1>
+<% @users.each do |user| %>
+	<p><%= user.name if user %></p>
+<% end %>

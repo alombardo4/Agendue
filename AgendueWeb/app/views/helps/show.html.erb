@@ -1,0 +1,14 @@
+<div class="page-header">
+	<h1><%= @help.title %></h1>
+	<%= link_to "Back to Help", all_help_path %>
+</div>
+<% if @iseditor %>
+	<%= link_to 'Edit', edit_help_path(@help) %>|
+	<%= link_to 'Remove Help', @help, method: :delete, data: { confirm: 'Are you sure you want to remove this from your help?' }, :class => "removebutton" %>
+<% end %>
+<div class="panel panel-default">
+  <div class="panel-body">
+	<%= @help.content.html_safe %>
+  </div>
+</div>
+

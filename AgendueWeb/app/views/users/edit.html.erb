@@ -1,0 +1,64 @@
+<div class="page-header">
+  <h1>Update Account</h1>
+</div>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <%= form_for(@user) do |f| %>
+      <h3>Change Password</h3>
+      <div class="input-group">
+        <span class="input-group-addon">New Password</span>
+        <%= f.password_field :password, :autocomplete => "off", :class => "form-control" %>
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon">Confirm New Password</span>
+        <%= f.password_field :password_confirmation, :autocomplete => "off", :class => "form-control" %>
+      </div>
+      <br>
+      <h3>Other Settings</h3>
+      <div class="input-group" id="copyname">
+        <%= f.check_box :noemail %>
+        <%= f.label :noemail, 'Unsubscribe from Agendue emails' %>
+      </div>
+      <div class="input-group" id="copyname">
+        <%= f.check_box :share_calendar %>
+        <%= f.label :share_calendar, 'Share Agendue calendar' %>
+      </div>
+      <% if @user.premium == true || @user.premiumoverride == true %>
+        <h3>Custom Branding</h3>
+        <div class="input-group">
+          <span class="input-group-addon">Primary Color</span>
+          <%= f.text_field :primary_color, :class => "form-control", :id => "primary_color" %>
+        </div><br>
+        <div class="input-group">
+          <span class="input-group-addon">Secondary Color</span>
+          <%= f.text_field :secondary_color, :class => "form-control", :id => "secondary_color" %>
+        </div><br>
+        <div class="input-group">
+          <span class="input-group-addon">Tertiary Color</span>
+          <%= f.text_field :tertiary_color, :class => "form-control", :id => "tertiary_color" %>
+        </div><br>
+        <div class="input-group" id="copyname">
+          <%= check_box_tag :reset_colors %>
+          <%= label_tag :reset_colors, 'Reset to default colors' %>
+        </div><br>
+      <% end %>
+
+      <div class="input-group">
+        <%= button_to user_path(@user), :method => :post, :class => "btn btn-default blue"  do %>
+          <span class="glyphicon glyphicon-floppy-disk"></span> Save Account
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<% if @user.premium == true || @user.premiumoverride %>
+  <script>
+  $(function() {
+    $.minicolors.defaults.theme = 'bootstrap';
+
+    $('#primary_color').minicolors();
+    $('#secondary_color').minicolors();
+    $('#tertiary_color').minicolors();
+  });
+  </script>
+<% end %>

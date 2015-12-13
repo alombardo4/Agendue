@@ -1,0 +1,52 @@
+<div class="page-header">
+  <h1>Tasks Calendar</h1>
+</div>
+<div class="panel panel-default panel-collapse collapse in">
+  <div class="panel-heading">
+    <h3 class="panel-title">Key</h3>
+  </div>
+  <div class="panel-body">
+    <div class="table-responsive">
+      <table>
+    		<tr>
+    			<td>
+  		  		<div class="calendar-key orange empty">
+  		  			<p>Your task, incomplete.</p>
+  		  		</div>
+    			</td>
+    			<td>
+  		  		<div class="calendar-key blue empty">
+  		  			<p>Team task, incomplete.</p>
+  		  		</div>
+    			</td>
+    		</tr>
+    		<tr>
+    			<td>
+  		  		<div class="calendar-key orange">
+  		  			<p>Your task, complete.</p>
+  		  		</div>
+    			</td>
+    			<td>
+  		  		<div class="calendar-key blue">
+  		  			<p>Team task, complete.</p>
+  		  		</div>
+    			</td>
+    		</tr>
+    	</table>
+    </div>
+  </div>
+</div>
+<p>Orange tasks are assigned to you. Blue tasks are for other team members.</p>
+<% if @user.share_calendar == true %>
+  <p><%= link_to "Subscribe to Calendar", calendar_ics_url(:id => session[:userid], :hash => Task.calendar_random_path(session[:userid]), :protocol => "webcal")+".ics" %></p>
+<% end %>
+<div id="calendar">
+</div>
+<script type="text/javascript" src="/assets/fullcalendar.js"></script>
+<script type="text/javascript" data-turbolinks-eval="true">
+	$(document).ready(function() {
+	    $('#calendar').fullCalendar({
+	    	events: '/calendar.json'
+	    })
+	});
+</script>

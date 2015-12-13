@@ -1,0 +1,33 @@
+<div class="page-header">
+  <h1>Status for <%= @project.name %></h1>
+  <%= link_to sanitize('Back to ' +@project.name + ' analytics'), project_analytics_path(@project) %>
+</div>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <h2>Status: 
+    	<% if @status != 1 %><span style="color: <%= Analytics.status_labels[@status].downcase %>"><% end %>
+
+    	<%= Analytics.status_labels[@status] %>
+    	<% if @status != 1 %></span><% end %>
+
+	</h2>
+	<p>What does this report mean?</p>
+	<ul>
+		<li>Red: Over 40% of your incomplete tasks are overdue, or you have more than 5 overdue tasks.</li>
+		<li>Yellow: Over 20% of your incomplete tasks are overdue, or you have more than 2 overdue tasks.</li>
+		<li>Green: Under 20% of your incomplete tasks are overdue, and you have 2 or fewer overdue tasks.</li>
+	</ul>
+
+	<p>What you can do to improve</p>
+	<ul>
+		<li>Look at other reports to see if certain team members are being overworked.</li>
+		<li>Check to see if certain team members have many incomplete tasks.</li>
+		<li>Ensure finished tasks are being marked complete.</li>
+		<li>Consider pushing back deadlines.</li>
+	</ul>
+
+  </div>
+</div>
+
+
+
